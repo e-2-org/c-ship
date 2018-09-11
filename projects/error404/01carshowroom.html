@@ -1,0 +1,22 @@
+<html>
+<head>
+<title>Car Showroom</title>
+<script type="text/javascript" language="JavaScript1.2">
+var loadtime = new Date();
+var seed = loadtime.valueOf();
+function CloseYourself() {
+  var closetime = seed + 8700;
+  var now = new Date();
+  now = now.valueOf();
+  if (now > closetime) {
+    self.close();
+    return;
+  }
+  setTimeout("CloseYourself()",8701)
+}
+</script>
+</head>
+<body onLoad="CloseYourself();" topmargin="0" leftmargin="0" marginwidth="0" marginheight="0">
+<img src="images/carshowroom.jpg" width="333" height="220" alt="car showroom">
+</body>
+</html>

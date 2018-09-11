@@ -1,0 +1,105 @@
+<!doctype html public "-//w3c//dtd html 4.0 transitional//en">
+<html>
+<head>
+<title>37text</title>
+<script type="text/javascript" language="JavaScript1.2">
+function checkEnv(){
+	this.ok=(parseInt(navigator.appVersion) >= 4)?1:0;
+	this.ns=(navigator.appName == "Netscape" && this.ok)?1:0;
+	this.ie=(!this.ns && this.ok)?1:0;
+	this.w=screen.width;
+	this.h=screen.height;
+	this.pady=(this.ns)?(window.outerHeight-window.innerHeight):0;
+	this.padx=(this.ns)?(window.outerWidth-window.innerWidth):0;
+	return this;
+	return this;
+}
+env = new checkEnv();
+function setoptions(wx,wy,sx,sy) {
+	var globalopts = "toolbar=no,location=no,directories=no,status=no,scrollbars=no,resizeable=no,copyhistory=no,menubar=no"
+	if (env.ns) {
+		var opts = globalopts+",width="+wx+",height="+wy+",screenX="+sx+",screenY="+sy;
+		return opts;
+	}
+	else {
+		var opts = globalopts+",width="+wx+",height="+wy+",left="+sx+",top="+sy;
+		return opts;
+	}
+}
+var loadtime = new Date();
+var seed = loadtime.valueOf();
+function seismictimer() {
+    var seismictime = seed + 4500;
+    var now = new Date();
+    now = now.valueOf();
+    if (now > seismictime) {
+        var seismicw = 988;
+        var seismich = 337;
+        var seismicsx = ((env.w-seismicw)/2);
+        var seismicsy = (env.h-370);
+        var seismicopts = setoptions(seismicw,seismich,seismicsx,seismicsy);
+        var seismicwin = window.open('12seismiclist.html','seismic',seismicopts);
+        seismicwin.moveTo(seismicsx,seismicsy);
+        text40timer();
+	      return;
+    }
+    setTimeout("seismictimer()",500)
+}
+function text40timer() {
+    var text40time = seed + 5500;
+    var now = new Date();
+    now = now.valueOf();
+    if (now > text40time) {
+        var text40w = 880;
+        var text40h = 300;
+        var text40sx = ((env.w-text40w)/2);
+        var text40sy = 0;
+        var text40opts = setoptions(text40w,text40h,text40sx,text40sy);
+        var text40win = window.open('12text40.html','text40',text40opts);
+        text40win.moveTo(text40sx,text40sy);
+        var aerialvieww = 600;
+        var aerialviewh = 392;
+        var aerialviewsx = ((env.w-aerialvieww)/2);
+        var aerialviewsy = env.h-420;
+        var aerialviewopts = setoptions(aerialvieww,aerialviewh,aerialviewsx,aerialviewsy);
+        var aerialviewwin = window.open('12aerialview.html','aerialview',aerialviewopts);
+        aerialviewwin.moveTo(aerialviewsx,aerialviewsy);
+        CloseYourself();
+	      return;
+    }
+    setTimeout("text40timer()",500)
+}
+function CloseYourself() {
+    var closetime = seed + 23500;
+    var now = new Date();
+    now = now.valueOf();
+    if (now > closetime) {
+        self.close();
+        return;
+    }
+    setTimeout("CloseYourself()",500)
+}
+seismictimer();
+</script>
+</head>
+<body>
+<b><font face="Arial,Helvetica"><font size=+3>CUTTING</font></font></b>
+<p><font face="Times New Roman,Times"><font size=+2>To Whom It May Concern:</font></font>
+<br><font face="Times New Roman,Times"><font size=+2>&nbsp;Kinemetrics
+is the only seismic instrumentation company</font></font>
+<br><font face="Times New Roman,Times"><font size=+2>that offers a full
+line of products, systems and services, both for</font></font>
+<br><font face="Times New Roman,Times"><font size=+2>earthquake engineering
+and for seismological applications. This unique</font></font>
+<br><font face="Times New Roman,Times"><font size=+2>ability enables us&nbsp;
+to recommend optimum instruments for almost any</font></font>
+<br><font face="Times New Roman,Times"><font size=+2>specialized application.
+Because of our unique position, we work closely</font></font>
+<br><font face="Times New Roman,Times"><font size=+2>with consultants and
+colleagues from prestigious scientific organizations,</font></font>
+<br><font face="Times New Roman,Times"><font size=+2>thereby ensuring that
+we remain in the forefront of technology.</font></font>
+<br>&nbsp;
+<br>&nbsp;
+</body>
+</html>

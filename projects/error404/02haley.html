@@ -1,0 +1,32 @@
+<html>
+<head>
+<title>Haley</title>
+<script type="text/javascript" language="JavaScript1.2">
+function checkEnv(){
+	this.ok=(parseInt(navigator.appVersion) >= 4)?1:0;
+	this.ns=(navigator.appName == "Netscape" && this.ok)?1:0;
+	this.ie=(!this.ns && this.ok)?1:0;
+	return this;
+}
+env = new checkEnv();
+var x = (env.ns)?window.screenX:400;
+var y = (env.ns)?window.screenY:120;
+var w =(env.ns)?window.outerWidth:130;
+var h =(env.ns)?window.outerHeight:186;
+function MoveLeft() {
+  var dx = -1;
+  x += dx;
+  if (((env.ns) && (x>1))||((env.ie) && (x>-w))) {
+     self.moveTo(x,y);
+  }
+  else {
+     self.close();
+  }
+  setTimeout("MoveLeft();",100);
+}
+</script>
+</head>
+<body onLoad="MoveLeft();" topmargin="0" leftmargin="0" marginwidth="0" marginheight="0">
+<img src="images/haley.gif" width="130" height="186" alt="Haley">
+</body>
+</html>

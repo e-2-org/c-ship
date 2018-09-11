@@ -1,0 +1,115 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+<head>
+<title>Dodecahedron</title>
+<script type="text/javascript" language="JavaScript1.2">
+function checkEnv(){
+	this.ok=(parseInt(navigator.appVersion) >= 4)?1:0;
+	this.ns=(navigator.appName == "Netscape" && this.ok)?1:0;
+	this.ie=(!this.ns && this.ok)?1:0;
+	this.w=screen.width;
+	this.h=screen.height;
+	this.pady=(this.ns)?(window.outerHeight-window.innerHeight):0;
+	this.padx=(this.ns)?(window.outerWidth-window.innerWidth):0;
+	this.mac=(navigator.platform.indexOf("Mac")>-1 && this.ok)?1:0;
+	this.win=(navigator.platform.indexOf("Win")>-1 && this.ok)?1:0;
+	return this;
+}
+var env = new checkEnv();
+function winx(x){
+  	if(env.mac){
+    	newx=(env.ns)?(x+env.padx):(x+6);
+    	return newx;
+    }
+    else if(env.win){
+		newx=(env.ns)?(x+env.padx):(x+3);
+		return newx;
+	}
+	else{
+		return x+23;
+	}
+}
+function winy(y){
+	if(env.mac){
+		newy=(env.ns)?(y+env.pady):(y+26);
+		return newy;
+	}
+	else if(env.win) {
+		newy=(env.ns)?(y+env.pady):(y+3);
+		return newy;
+	}
+	else {
+		return y+39;
+	}
+}
+function setoptions(wx,wy,sx,sy) {
+	var globalopts = "toolbar=no,location=no,directories=no,status=no,scrollbars=no,resizeable=no,copyhistory=no,menubar=no"
+	if (env.ns) {
+		var opts = globalopts+",width="+wx+",height="+wy+",screenX="+sx+",screenY="+sy;
+		return opts;
+	}
+	else {
+		var opts = globalopts+",width="+wx+",height="+wy+",left="+sx+",top="+sy;
+		return opts;
+	}
+}
+var loadtime = new Date();
+var seed = loadtime.valueOf();
+function origamitimer() {
+    var origamitime = seed + 3750;
+    var now = new Date();
+    now = now.valueOf();
+    if (now > origamitime) {
+        var origamiw = 490;
+        var origamih = 489;
+        var origamisx = (env.w/2)-((winx(origamiw))/2);
+        var origamisy = env.h-(winy(origamih));
+        var origamiopts = setoptions(origamiw,origamih,origamisx,origamisy);
+        var origamiwin = window.open('06origamilist.html','origami',origamiopts);
+        origamiwin.moveTo(origamisx,origamisy);
+        text14timer();
+	      return;
+    }
+    setTimeout("origamitimer()",250)
+}
+function text14timer() {
+    var text14time = seed + 5500;
+    var now = new Date();
+    now = now.valueOf();
+    if (now > text14time) {
+        var text14w = 460;
+        var text14h = 200;
+        var text14sx = env.w-(winx(text14w));
+        var text14sy = env.h/2;
+        var text14opts = setoptions(text14w,text14h,text14sx,text14sy);
+        var text14win = window.open('06text14.html','text14',text14opts);
+        text14win.moveTo(text14sx,text14sy);
+        beardtimer();
+	    return;
+    }
+    setTimeout("text14timer()",250)
+}
+function beardtimer() {
+    var beardtime = seed + 7500;
+    var now = new Date();
+    now = now.valueOf();
+    if (now > beardtime) {
+        var beardw = 384;
+        var beardh = 171;
+        var beardsx = env.w-(winx(beardw));
+        var beardsy = 0;
+        var beardopts = setoptions(beardw,beardh,beardsx,beardsy);
+        var beardwin = window.open('06beardteacher.html','beard',beardopts);
+        beardwin.moveTo(beardsx,beardsy);
+        self.close();
+	      return;
+    }
+    setTimeout("beardtimer()",500)
+}
+origamitimer();
+</script>
+</head>
+<body topmargin="0" leftmargin="0" marginwidth="0" marginheight="0">
+<center><img src="images/Dodecahedron1.gif" width="320" height="240" alt="Dodecahedron"></center>
+</body>
+</html>

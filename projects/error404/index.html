@@ -1,0 +1,735 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
+<html>
+<head>
+<title>404 NOT FOUND... the document at the specified URL does not exist</title>
+<script language="JavaScript1.2" type="text/javascript">
+function checkEnv(){
+	this.ok=(parseInt(navigator.appVersion) >= 4)?1:0;
+	this.ns=(navigator.appName == "Netscape" && this.ok)?1:0;
+	this.ie=(!this.ns && this.ok)?1:0;
+	this.w=screen.width;
+	this.h=screen.height;
+	this.pady=(this.ns)?(window.outerHeight-window.innerHeight):0;
+	this.padx=(this.ns)?(window.outerWidth-window.innerWidth):0;
+	this.mac=(navigator.platform.indexOf("Mac")>-1 && this.ok)?1:0;
+	this.win=(navigator.platform.indexOf("Win")>-1 && this.ok)?1:0;
+	return this;
+}
+var env = new checkEnv();
+function winx(x){
+  	if(env.mac){
+    	newx=(env.ns)?(x+env.padx):(x+6);
+    	return newx;
+    }
+    else if(env.win){
+		newx=(env.ns)?(x+env.padx):(x+3);
+		return newx;
+	}
+	else{
+		return x+23;
+	}
+}
+function winy(y){
+	if(env.mac){
+		newy=(env.ns)?(y+env.pady):(y+26);
+		return newy;
+	}
+	else if(env.win) {
+		newy=(env.ns)?(y+env.pady):(y+3);
+  	return newy;
+	}
+	else {
+		return y+39;
+	}
+}
+function setoptions(wx,wy,sx,sy) {
+	var globalopts = "toolbar=no,location=no,directories=no,status=no,scrollbars=no,resizeable=no,copyhistory=no,menubar=no"
+	if (env.ns) {
+		var opts = globalopts+",width="+wx+",height="+wy+",screenX="+sx+",screenY="+sy;
+		return opts;
+	}
+	else {
+		var opts = globalopts+",width="+wx+",height="+wy+",left="+sx+",top="+sy;
+		return opts;
+	}
+}
+function setendoptions(wx,wy,sx,sy) {
+	var globalopts = "toolbar=yes,location=yes,directories=no,status=yes,scrollbars=yes,resizeable=yes,copyhistory=yes,menubar=yes"
+	if (env.ns) {
+		var opts = globalopts+",width="+wx+",height="+wy+",screenX="+sx+",screenY="+sy;
+		return opts;
+	}
+	else {
+		var opts = globalopts+",width="+wx+",height="+wy+",left="+sx+",top="+sy;
+		return opts;
+	}
+}
+var loadtime = new Date();
+var seed = loadtime.valueOf();
+function carlatimer() {
+	var carlatime = seed + 499;
+	var now = new Date();
+	now = now.valueOf();
+	if (now > carlatime) {
+		var carlaw = 100;
+		var carlah = 130;
+		var carlasx = (env.w-(winx(carlaw)));
+		var carlasy = 0;
+		var carlaopts = setoptions(carlaw,carlah,carlasx,carlasy);
+		var carlawin = window.open('01carla.html','carla',carlaopts);
+		carlawin.window.moveTo(carlasx,carlasy);
+		malltimer();
+		return;
+	}
+	setTimeout("carlatimer()",500)
+}
+function malltimer() {
+	var malltime = seed + 8000;
+	var now = new Date();
+	now = now.valueOf();
+	if (now > malltime) {
+		var mallw = 150;
+		var mallh = 160;
+		var mallsx = ((env.w/2)-(mallw/2));
+		var mallsy = (env.h-(winy(mallh)));
+		var mallopts = setoptions(mallw,mallh,mallsx,mallsy);
+		var mallwin = window.open('01mall.html','mall',mallopts);
+		mallwin.window.moveTo(mallsx,mallsy);
+		self.focus();
+		Focus1();
+		return;
+  }
+  setTimeout("malltimer()",500)
+}
+function Focus1() {
+	var focustime1 = seed +26000;
+	var now = new Date();
+	now = now.valueOf();
+	if (now>focustime1){
+		self.focus();
+		text02timer();
+		return;
+	}
+	setTimeout("Focus1()",500);
+}
+function text02timer() {
+	var text02time = seed + 50500;
+	var now = new Date();
+	now = now.valueOf();
+	if (now > text02time) {
+		var text02w = 640;
+		var text02h = 290;
+		var text02sx = env.ns?(env.w-(winx(text02w))):env.w-text02w;
+		var text02sy = ((env.h/2)+50);
+		var text02opts = setoptions(text02w,text02h,text02sx,text02sy);
+		var text02win = window.open('01text02.html','text02',text02opts);
+		text02win.window.moveTo(text02sx,text02sy);
+		self.focus();
+		indiawtimer();
+	  return;
+  }
+  setTimeout("text02timer()",500)
+}
+function indiawtimer() {
+	var indiawtime = seed + 52000;
+	var now = new Date();
+	now = now.valueOf();
+	if (now > indiawtime) {
+		var indiaww = 241;
+		var indiawh = 364;
+		var indiawsx = (env.w-(winx(indiaww)));
+		var indiawsy = 0;
+		var indiawopts = setoptions(indiaww,indiawh,indiawsx,indiawsy);
+		var indiawwin = window.open('02indiaw.html','indiaw',indiawopts);
+		indiawwin.window.moveTo(indiawsx,indiawsy);
+		self.focus();
+		Focus2();
+		return;
+	}
+	setTimeout("indiawtimer()",200)
+}
+function Focus2() {
+	var focustime2 = seed + 52000;
+	var blurtime2 = seed + 93750;
+	var now = new Date();
+	now = now.valueOf();
+	if ((now >= focustime2) && (now <= blurtime2)) {
+		self.focus();
+	}
+	else {
+		var geocityw = 181;
+		var geocityh = 286;
+		var geocitysx = env.w-(winx(geocityw));
+		var geocitysy = 0;
+		var geocityopts = setoptions(geocityw,geocityh,geocitysx,geocitysy);
+		var geocitywin = window.open('03geocitysrch.html','geocity',geocityopts);
+		geocitywin.moveTo(geocitysx,geocitysy);
+		halfannaktimer();
+		return;
+	}
+	setTimeout("Focus2()",1000);
+}
+function halfannaktimer() {
+	var halfannaktime = seed + 100750;
+	var now = new Date();
+	now = now.valueOf();
+	if (now > halfannaktime) {
+		var halfannakw = 300;
+		var halfannakh = 267;
+		var halfannaksx = env.w/2;
+		var halfannaksy = (env.h/2)-200;
+		var halfannakopts = setoptions(halfannakw,halfannakh,halfannaksx,halfannaksy);
+		var halfannakwin = window.open('03halfannak.html','halfannak',halfannakopts);
+		halfannakwin.moveTo(halfannaksx,halfannaksy);
+		self.focus();
+		Focus3();
+		return;
+	}
+	setTimeout("halfannaktimer()",500)
+}
+function Focus3() {
+	var focustime3 = seed + 100750;
+	var blurtime3 = seed + 142750;
+	var now = new Date();
+	now = now.valueOf();
+	if ((now >= focustime3) && (now < blurtime3)) {
+		self.focus();
+	}
+	else {
+		var bluew = 833;
+		var blueh = 199;
+		var bluesx = 0;
+		var bluesy = 0;
+		var blueopts = setoptions(bluew,blueh,bluesx,bluesy);
+		var bluewin = window.open('04blue.html','blue',blueopts);
+		bluewin.moveTo(bluesx,bluesy);
+		text09timer();
+		return;
+	}
+	setTimeout("Focus3()",1000);
+}
+function text09timer() {
+	var focustimex = seed + 142750;
+	var blurtimex = seed + 223750;
+	var now = new Date();
+	now = now.valueOf();
+	if ((now >= focustimex) && (now < blurtimex)) {
+		self.focus();
+	}
+	else {
+		var text09w = 740;
+		var text09h = 180;
+		var text09sx = env.w-(winx(text09w));
+		var text09sy = (env.h/2)+60;
+		var text09opts = setoptions(text09w,text09h,text09sx,text09sy);
+		var text09win = window.open('04text09.html','text09',text09opts);
+		text09win.moveTo(text09sx,text09sy);
+		Focus4();
+		return;
+	}
+	setTimeout("text09timer()",1000)
+}
+function Focus4() {
+	var focustime4 = seed + 223750;
+	var nextevent1 = seed + 252750;
+	var now = new Date();
+	now = now.valueOf();
+	if ((now >= focustime4) && (now < nextevent1)) {
+		self.focus();
+	}
+	else {
+		var pcardsw = 454;
+		var pcardsh = 607;
+		var pcardssx = 0;
+		var pcardssy = (env.h-pcardsh)/2;
+		var pcardsopts = setoptions(pcardsw,pcardsh,pcardssx,pcardssy);
+		var pcardswin = window.open('05pcards.html','pcards',pcardsopts);
+		pcardswin.moveTo(pcardssx,pcardssy);
+		Focus5();
+		return;
+	}
+	setTimeout("Focus4()",1000);
+}
+function Focus5() {
+	var focustime5 = seed + 252750;
+	var nextevent2 = seed + 286000;
+	var now = new Date();
+	now = now.valueOf();
+	if ((now >= focustime5) && (now < nextevent2)) {
+		self.focus();
+	}
+	else {
+		var pcardtitlew = 528;
+		var pcardtitleh = 101;
+		var pcardtitlesx = (env.w-pcardtitlew)/2;
+		var pcardtitlesy = env.h-(winy(pcardtitleh)+20);
+		var pcardtitleopts = setoptions(pcardtitlew,pcardtitleh,pcardtitlesx,pcardtitlesy);
+		var pcardtitlewin = window.open('05pcardtitle.html','pcardtitle',pcardtitleopts);
+		pcardtitlewin.moveTo(pcardtitlesx,pcardtitlesy);
+		dodectimer();
+		return;
+	}
+	setTimeout("Focus5()",1000);
+}
+function dodectimer() {
+	var focustimer = seed + 286000;
+	var dodectime = seed + 334500;
+	var now = new Date();
+	now = now.valueOf();
+	if ((now >= focustimer) && (now < dodectime)) {
+		self.focus();
+	}
+	else {
+        var dodecw = 320;
+        var dodech = 240;
+        var dodecsx = 0;
+        var dodecsy = 0;
+        var dodecopts = setoptions(dodecw,dodech,dodecsx,dodecsy);
+        var dodecwin = window.open('06dodecahedron.html','dodec',dodecopts);
+        dodecwin.moveTo(dodecsx,dodecsy);
+        Focus6();
+	      return;
+    }
+    setTimeout("dodectimer()",500)
+}
+function Focus6() {
+	var focustime6 = seed + 334500;
+	var nextevent3 = seed + 375500;
+	var now = new Date();
+	now = now.valueOf();
+	if ((now >= focustime6) && (now < nextevent3)) {
+		self.focus();
+	}
+	else {
+    var sermonw = 400;
+    var sermonh = 276;
+    var sermonsx = (env.w/2)-(sermonw/2);
+    var sermonsy = env.h-(winy(sermonh));
+    var sermonopts = setoptions(sermonw,sermonh,sermonsx,sermonsy);
+    var sermonwin = window.open('07sermon.html','sermon',sermonopts);
+    sermonwin.moveTo(sermonsx,sermonsy);
+    stacytimer();
+	  return;
+  }
+  setTimeout("Focus6()",500)
+}
+function stacytimer() {
+    var stacytime = seed + 392000;
+    var now = new Date();
+    now = now.valueOf();
+    if (now >= stacytime) {
+       var stacyw = 540;
+       var stacyh = 298;
+       var stacysx = 0;
+       var stacysy = env.h-(winy(stacyh));
+       var stacyopts = setoptions(stacyw,stacyh,stacysx,stacysy);
+       var stacywin = window.open('07stacy.html','stacy',stacyopts);
+       stacywin.moveTo(stacysx,stacysy);
+       Focus7();
+       return;
+    }
+    setTimeout("stacytimer()",500)
+}
+function Focus7() {
+	var focustime7 = seed + 392000;
+	var nextevent4 = seed + 465500;
+	var now = new Date();
+	now = now.valueOf();
+	if ((now >= focustime7) && (now < nextevent4)) {
+		self.focus();
+	}
+	else {
+    var predictw = 500;
+    var predicth = 400;
+    var predictsx = (env.w/2)-(predictw/2);
+    var predictsy = 0;
+    var predictopts = setoptions(predictw,predicth,predictsx,predictsy);
+    var predictwin = window.open('08predict.html','predict',predictopts);
+    predictwin.moveTo(predictsx,predictsy);
+    Focus8();
+	  return;
+  }
+  setTimeout("Focus7()",500)
+}
+function Focus8() {
+	var focustime8 = seed + 465500;
+	var nextevent5= seed + 585000;
+	var now = new Date();
+	now = now.valueOf();
+	if ((now >= focustime8) && (now < nextevent5)) {
+		self.focus();
+	}
+	else {
+    var geospiderw = 400;
+    var geospiderh = 229;
+    var geospidersx = 0;
+    var geospidersy = 0;
+    var geospideropts = setoptions(geospiderw,geospiderh,geospidersx,geospidersy);
+    var geospiderwin = window.open('09geospider.html','geospider',geospideropts);
+    geospiderwin.moveTo(geospidersx,geospidersy);
+    self.focus();
+		text22timer();
+	  return;
+  }
+  setTimeout("Focus8()",500)
+}
+function text22timer() {
+    var text22time = seed + 590500;
+    var now = new Date();
+    now = now.valueOf();
+    if (now > text22time) {
+        var text22w = 590;
+        var text22h = 170;
+        var text22sx = env.w-(winx(text22w));
+        var text22sy = (env.h/2)+60;
+        var text22opts = setoptions(text22w,text22h,text22sx,text22sy);
+        var text22win = window.open('09text22.html','text22',text22opts);
+        text22win.moveTo(text22sx,text22sy);
+        Focus9();
+	      return;
+    }
+    setTimeout("text22timer()",500)
+}
+function Focus9() {
+	var focustime9 = seed + 590500;
+	var nextevent6= seed + 697000;
+	var now = new Date();
+	now = now.valueOf();
+	if ((now >= focustime9) && (now < nextevent6)) {
+		self.focus();
+	}
+	else {
+    var text27w = 780;
+    var text27h = 360;
+    var text27sx = 0;
+    var text27sy = 0;
+    var text27opts = setoptions(text27w,text27h,text27sx,text27sy);
+    var text27win = window.open('10text27.html','text27',text27opts);
+    text27win.moveTo(text27sx,text27sy);
+		Focus10();
+		return;
+  }
+  setTimeout("Focus9()",500)
+}
+function Focus10() {
+	var focustime10 = seed + 697000;
+	var nextevent7= seed + 712250;
+	var now = new Date();
+	now = now.valueOf();
+	if ((now >= focustime10) && (now < nextevent7)) {
+		self.focus();
+	}
+	else {
+    var trolleymanw = 142;
+    var trolleymanh = 134;
+    var trolleymansx = (env.ns)?(env.w-(winx(trolleymanw))):env.w;
+    var trolleymansy = (env.h/2)-250;
+    var trolleymanopts = setoptions(trolleymanw,trolleymanh,trolleymansx,trolleymansy);
+    var trolleymanwin = window.open('10trolleyman.html','trolleyman',trolleymanopts);
+    trolleymanwin.moveTo(trolleymansx,trolleymansy);
+		acworldtimer();
+	  return;
+  }
+  setTimeout("Focus10()",250)
+}
+function acworldtimer() {
+    var acworldtime = seed + 718500;
+    var now = new Date();
+    now = now.valueOf();
+    if (now > acworldtime) {
+        var acworldw = 100;
+        var acworldh = 100;
+        var acworldsx = 30;
+        var acworldsy = 30;
+        var acworldopts = setoptions(acworldw,acworldh,acworldsx,acworldsy);
+        var acworldwin = window.open('10acworld.html','acworld',acworldopts);
+        acworldwin.moveTo(acworldsx,acworldsy);
+        Focus11();
+	      return;
+    }
+    setTimeout("acworldtimer()",500)
+}
+function Focus11() {
+	var focustime11 = seed + 718500;
+	var nextevent8= seed + 767500;
+	var now = new Date();
+	now = now.valueOf();
+	if ((now >= focustime11) && (now < nextevent8)) {
+		self.focus();
+	}
+	else {
+    var countrylistw = 316;
+    var countrylisth = 500;
+    var countrylistsx = (env.w/2)-(countrylistw/2);
+    var countrylistsy = 0;
+    var countrylistopts = setoptions(countrylistw,countrylisth,countrylistsx,countrylistsy);
+    var countrylistwin = window.open('11countrylist.html','countrylist',countrylistopts);
+    countrylistwin.moveTo(countrylistsx,countrylistsy);
+		Focus12();
+	  return;
+  }
+  setTimeout("Focus11()",500)
+}
+function Focus12() {
+	var focustime12 = seed + 767500;
+	var nextevent9= seed + 829500;
+	var now = new Date();
+	now = now.valueOf();
+	if ((now >= focustime12) && (now < nextevent9)) {
+		self.focus();
+	}
+	else {
+      var text34w = 800;
+      var text34h = 400;
+      var text34sx = 30;
+      var text34sy = 30;
+      var text34opts = setoptions(text34w,text34h,text34sx,text34sy);
+      var text34win = window.open('12text34.html','text34',text34opts);
+      text34win.moveTo(text34sx,text34sy);
+	    Focus13();
+			return;
+  }
+  setTimeout("Focus12()",500)
+}
+function Focus13() {
+	var focustime13 = seed + 829500;
+	var nextevent10= seed + 900000;
+	var now = new Date();
+	now = now.valueOf();
+	if ((now >= focustime13) && (now < nextevent10)) {
+		self.focus();
+	}
+	else {
+      var luckyelecw = 174;
+      var luckyelech = 207;
+      var luckyelecsx = env.w-(winx(luckyelecw));
+      var luckyelecsy = 30;
+      var luckyelecopts = setoptions(luckyelecw,luckyelech,luckyelecsx,luckyelecsy);
+      var luckyelecwin = window.open('13luckyelec.html','luckyelec',luckyelecopts);
+      luckyelecwin.moveTo(luckyelecsx,luckyelecsy);
+	  Focus14();
+	    return;
+  }
+  setTimeout("Focus13()",500)
+}
+function Focus14() {
+	var focustime14 = seed + 900000;
+	var nextevent11= seed + 992500;
+	var now = new Date();
+	now = now.valueOf();
+	if ((now >= focustime14) && (now < nextevent11)) {
+		self.focus();
+	}
+	else {
+      var text37w = 174;
+      var text37h = 207;
+      var text37sx = env.w-(winx(text37w));
+      var text37sy = 30;
+      var text37opts = setoptions(text37w,text37h,text37sx,text37sy);
+      var text37win = window.open('14text37.html','text37',text37opts);
+      text37win.moveTo(text37sx,text37sy);
+      Focus15();
+			return;
+  }
+  setTimeout("Focus14()",500)
+}
+function Focus15() {
+	var focustime15 = seed + 992500;
+	var nextevent12= seed + 1037000;
+	var now = new Date();
+	now = now.valueOf();
+	if ((now >= focustime15) && (now < nextevent12)) {
+		self.focus();
+	}
+	else {
+      var mischorrorw = 590;
+      var mischorrorh = 100;
+      var mischorrorsx = env.w-(winx(mischorrorw));
+      var mischorrorsy = env.h-(winy(mischorrorh));
+      var mischorroropts = setoptions(mischorrorw,mischorrorh,mischorrorsx,mischorrorsy);
+      var mischorrorwin = window.open('15mischorror.html','mischorror',mischorroropts);
+      mischorrorwin.moveTo(mischorrorsx,mischorrorsy);
+	    Focus16();
+			return;
+  }
+  setTimeout("Focus15()",500)
+}
+function Focus16() {
+	var focustime16 = seed + 1037000;
+	var nextevent13= seed + 1151500;
+	var now = new Date();
+	now = now.valueOf();
+	if ((now > focustime16) && (now < nextevent13)) {
+		self.focus();
+	}
+	else {
+      var text60w = 620;
+      var text60h = env.h-env.pady;
+      var text60sx = env.w-(winx(text60w));
+      var text60sy = 0;
+      var text60opts = setoptions(text60w,text60h,text60sx,text60sy);
+      var text60win = window.open('16text60.html','text60',text60opts);
+      text60win.moveTo(text60sx,text60sy);
+	  EndFocus();
+	    return;
+  }
+  setTimeout("Focus16()",500)
+}
+function EndFocus() {
+	var focustime17 = seed + 1151500;
+	var nextevent14= seed + 1200000;
+	var now = new Date();
+	now = now.valueOf();
+	if ((now >= focustime17) && (now < nextevent14)) {
+		self.focus();
+	}
+	else {
+		var cshipx = screen.availWidth;
+		var cshipy = screen.availHeight;
+		var cshipsx = 0;
+		var cshipsy = 0;
+		var cshipopts = setendoptions(cshipx,cshipy,cshipsx,cshipsy);
+	    var cshipwin = window.open('http://cship.e-2.org/acab.html','acab',cshipopts);
+	    cshipwin.moveTo(cshipsx,cshipsy);
+	    self.close();
+	    return;
+  }
+  setTimeout("EndFocus()",500)
+}
+function EndIt() {
+		var cshipx = screen.availWidth;
+		var cshipy = screen.availHeight;
+		var cshipsx = 0;
+		var cshipsy = 0;
+		var cshipopts = setendoptions(cshipx,cshipy,cshipsx,cshipsy);
+	    var cshipwin = window.open('http://cship.e-2.org/acab.html','acab',cshipopts);
+	    cshipwin.moveTo(cshipsx,cshipsy);
+	    self.close();
+	    return;
+}
+function Init() {
+	loadtime = new Date();
+	seed = loadtime.valueOf();
+	carlatimer();
+	return;
+}
+</script>
+</head>
+<body onLoad="Init();" onUnload="EndIt();" topmargin="0" leftmargin="0" marginwidth="0" marginheight="0">
+<div align="center">
+<applet code="tinyType.class" height="75" width="1010" viewastext>
+<param name="LINE1" value="Mrs L. started out in the world's most extensive department store... they had everything.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;">
+<param name="LINE2" value="&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;She&nbsp;worked&nbsp;in&nbsp;first&nbsp;one&nbsp;department&nbsp;then&nbsp;another.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;">
+<param name="LINE3" value="General&nbsp;Merchandise&nbsp;laid&nbsp;the&nbsp;rules&nbsp;for&nbsp;all&nbsp;further&nbsp;desk&nbsp;jobs&nbsp;within&nbsp;the&nbsp;company,&nbsp;so&nbsp;she&nbsp;started&nbsp;there.">
+<param name="LINE4" value="&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;While&nbsp;sitting&nbsp;down&nbsp;one&nbsp;day&nbsp;a&nbsp;person&nbsp;called&nbsp;her&nbsp;for&nbsp;information...">
+<param name="LINE5" value="&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;">
+<param name="LINE6" value="this&nbsp;voice&nbsp;belonged&nbsp;to&nbsp;a&nbsp;man&nbsp;who&nbsp;was&nbsp;extremely&nbsp;interesting.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;">
+<param name="LINE7" value="&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Back&nbsp;to&nbsp;Mrs.L&nbsp;at&nbsp;her&nbsp;desk&nbsp;in&nbsp;the&nbsp;world's&nbsp;largest&nbsp;department&nbsp;store...&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;">
+<param name="LINE8" value="as&nbsp;she&nbsp;put&nbsp;down&nbsp;the&nbsp;phone&nbsp;she&nbsp;pulled&nbsp;her&nbsp;address&nbsp;book&nbsp;out&nbsp;of&nbsp;the&nbsp;drawer&nbsp;and&nbsp;went&nbsp;to&nbsp;A&nbsp;for&nbsp;Anna&nbsp;K....">
+<param name="LINE9" value="She&nbsp;added&nbsp;it&nbsp;and&nbsp;scanned&nbsp;through&nbsp;the&nbsp;other&nbsp;people&nbsp;in&nbsp;the&nbsp;list.&nbsp;There&nbsp;were&nbsp;a&nbsp;total&nbsp;of&nbsp;6584.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;">
+<param name="LINE10" value="Her&nbsp;mind&nbsp;drifted&nbsp;absent&nbsp;mindedly&nbsp;and&nbsp;she&nbsp;slept....&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;">
+<param name="LINE11" value="God&nbsp;Bless&nbsp;You&nbsp;All!!!&nbsp;suddenly&nbsp;woke&nbsp;her&nbsp;up....&nbsp;it&nbsp;was&nbsp;Princess&nbsp;Bride.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;She&nbsp;asked&nbsp;Mrs.&nbsp;L&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;">
+<param name="LINE12" value="&quot;Do&nbsp;you&nbsp;believe&nbsp;in&nbsp;heaven?&quot;...and&nbsp;went&nbsp;on&nbsp;proclaiming.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;">
+<param name="LINE13" value="Years&nbsp;later&nbsp;Mrs&nbsp;L&nbsp;was&nbsp;living&nbsp;in&nbsp;the&nbsp;UK.&nbsp;She&nbsp;was&nbsp;working&nbsp;as&nbsp;import&nbsp;agent&nbsp;for&nbsp;a&nbsp;company&nbsp;in&nbsp;the&nbsp;Ukraine">
+<param name="LINE14" value="and&nbsp;one&nbsp;day&nbsp;found&nbsp;herself&nbsp;trying&nbsp;to&nbsp;translate&nbsp;the&nbsp;text&nbsp;for&nbsp;a&nbsp;new&nbsp;product&nbsp;catalogue.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;">
+<param name="LINE15" value="&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;">
+<param name="LINE16" value="This&nbsp;product&nbsp;had&nbsp;been&nbsp;imported&nbsp;by&nbsp;Mrs&nbsp;L&nbsp;in&nbsp;response&nbsp;to&nbsp;a&nbsp;valuable&nbsp;source&nbsp;of&nbsp;information&nbsp;that&nbsp;she&nbsp;had">
+<param name="LINE17" value="come&nbsp;across&nbsp;while&nbsp;working&nbsp;in&nbsp;the&nbsp;world&rsquo;s&nbsp;largest&nbsp;department&nbsp;store.">
+<param name="LINE18" value="Her&nbsp;correspondence&nbsp;over&nbsp;this&nbsp;period&nbsp;threw&nbsp;some&nbsp;light&nbsp;on&nbsp;her&nbsp;choice&nbsp;of&nbsp;import&nbsp;business.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;">
+<param name="LINE19" value="&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;">
+<param name="LINE20" value="There&nbsp;has&nbsp;been&nbsp;no&nbsp;trace&nbsp;of&nbsp;the&nbsp;'pencil'&nbsp;and&nbsp;much&nbsp;speculation&nbsp;about&nbsp;the&nbsp;darkened&nbsp;glasses&nbsp;and&nbsp;the&nbsp;comet;">
+<param name="LINE21" value="&nbsp;was&nbsp;there&nbsp;a&nbsp;connection?&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;">
+<param name="LINE22" value="A&nbsp;large&nbsp;bundle&nbsp;of&nbsp;cards&nbsp;was&nbsp;found,&nbsp;all&nbsp;carefully&nbsp;kept&nbsp;and&nbsp;wrapped&nbsp;in&nbsp;clingfilm...&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;">
+<param name="LINE23" value="&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Few&nbsp;of&nbsp;the&nbsp;cards&nbsp;were&nbsp;signed,&nbsp;and&nbsp;many&nbsp;had&nbsp;different&nbsp;handwriting.&nbsp;They&nbsp;appeared">
+<param name="LINE24" value="to&nbsp;be&nbsp;kept&nbsp;in&nbsp;some&nbsp;sort&nbsp;of&nbsp;chronological&nbsp;order...&nbsp;The&nbsp;images&nbsp;on&nbsp;the&nbsp;front&nbsp;of&nbsp;the&nbsp;post&nbsp;cards&nbsp;were&nbsp;a&nbsp;&nbsp;">
+<param name="LINE25" value="fine&nbsp;selection:&nbsp;some&nbsp;of&nbsp;the&nbsp;usual&nbsp;subjects...&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;">
+<param name="LINE26" value="and&nbsp;at&nbsp;the&nbsp;end&nbsp;of&nbsp;the&nbsp;bundle&nbsp;they&nbsp;became&nbsp;increasingly&nbsp;intriguing....&nbsp;for&nbsp;example&nbsp;a&nbsp;postcard&nbsp;read....">
+<param name="LINE27" value="&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;">
+<param name="LINE28" value="There&nbsp;was&nbsp;a&nbsp;whole&nbsp;series&nbsp;ostensibly&nbsp;about&nbsp;paper&nbsp;folding&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;">
+<param name="LINE29" value="&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;And&nbsp;yet&nbsp;another&nbsp;which&nbsp;seemed&nbsp;to&nbsp;answer&nbsp;the&nbsp;question&nbsp;on&nbsp;a&nbsp;previous&nbsp;postcard...">
+<param name="LINE30" value="&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;">
+<param name="LINE31" value="One&nbsp;postcard&nbsp;had&nbsp;written&nbsp;in&nbsp;capital&nbsp;letters...">
+<param name="LINE32" value="&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;">
+<param name="LINE33" value="Lodged&nbsp;in&nbsp;between&nbsp;the&nbsp;postcard&nbsp;bundle&nbsp;was&nbsp;a&nbsp;piece&nbsp;of&nbsp;thin&nbsp;computer&nbsp;printout&nbsp;paper.">
+<param name="LINE34" value="It&nbsp;had&nbsp;the&nbsp;following&nbsp;words&nbsp;on&nbsp;it...&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;">
+<param name="LINE35" value="The&nbsp;consequence&nbsp;of&nbsp;looking&nbsp;at&nbsp;all&nbsp;these&nbsp;cards&nbsp;left&nbsp;Mrs.L's&nbsp;biographer&nbsp;feeling&nbsp;as&nbsp;if&nbsp;there&nbsp;were">
+<param name="LINE36" value="1000&nbsp;people&nbsp;chatting&nbsp;in&nbsp;her&nbsp;head.&nbsp;This&nbsp;would&nbsp;not&nbsp;be&nbsp;the&nbsp;last&nbsp;time&nbsp;she&nbsp;felt&nbsp;this&nbsp;way...&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;">
+<param name="LINE37" value="The&nbsp;biographer&nbsp;Ms.&nbsp;A-Z&nbsp;was&nbsp;working&nbsp;for&nbsp;an&nbsp;agency&nbsp;called&nbsp;'Find&nbsp;Exciting&nbsp;People.'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;">
+<param name="LINE38" value="Her&nbsp;work&nbsp;was&nbsp;very&nbsp;involving.&nbsp;She&nbsp;had&nbsp;the&nbsp;ability&nbsp;to&nbsp;look&nbsp;into&nbsp;the&nbsp;past,&nbsp;present&nbsp;and&nbsp;future&nbsp;and">
+<param name="LINE39" value="specialized&nbsp;in&nbsp;dealing&nbsp;with&nbsp;problems&nbsp;involving&nbsp;runaways&nbsp;and&nbsp;missing&nbsp;persons.">
+<param name="LINE40" value="She&nbsp;also&nbsp;possessed&nbsp;the&nbsp;ability&nbsp;to&nbsp;contact&nbsp;the&nbsp;dearly&nbsp;departed.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;">
+<param name="LINE41" value="The&nbsp;biographer&nbsp;Ms&nbsp;A-Z&nbsp;finally,&nbsp;began&nbsp;to&nbsp;write&nbsp;some&nbsp;notes...&nbsp;">
+<param name="LINE42" value="&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;">
+<param name="LINE43" value="&quot;Mrs.L&nbsp;was&nbsp;born&nbsp;and&nbsp;raised&nbsp;in&nbsp;the&nbsp;magical&nbsp;city&nbsp;of&nbsp;New&nbsp;O;&nbsp;with&nbsp;a&nbsp;doctorate&nbsp;in&nbsp;meta-physics&nbsp;as&nbsp;well&nbsp;as">
+<param name="LINE44" value="degree&nbsp;in&nbsp;Radio/TV/Film&nbsp;production,&nbsp;Mrs.L&nbsp;has&nbsp;striven&nbsp;to&nbsp;bring&nbsp;an&nbsp;understanding&nbsp;of&nbsp;the&nbsp;metaphysical&nbsp;">
+<param name="LINE45" value="realms&nbsp;to&nbsp;the&nbsp;public&nbsp;through&nbsp;radio,&nbsp;television,&nbsp;print,&nbsp;and&nbsp;she&nbsp;once&nbsp;won&nbsp;$10,000&nbsp;in&nbsp;time&nbsp;to&nbsp;avoid">
+<param name="LINE46" value="serious&nbsp;medical&nbsp;problems.&quot;&nbsp;Mrs&nbsp;L&nbsp;had&nbsp;contributed&nbsp;the&nbsp;following&nbsp;articles&nbsp;to&nbsp;'Myths&nbsp;And&nbsp;Facts'&nbsp;magazine.">
+<param name="LINE47" value="&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;">
+<param name="LINE48" value="The&nbsp;articles&nbsp;reveal&nbsp;a&nbsp;sincere&nbsp;quest&nbsp;into&nbsp;a&nbsp;series&nbsp;of&nbsp;interrelated&nbsp;subjects...&nbsp;&nbsp;&nbsp;">
+<param name="LINE49" value="Certain&nbsp;quotations&nbsp;which&nbsp;touch&nbsp;on&nbsp;key&nbsp;thoughts&nbsp;are&nbsp;seen&nbsp;below,&nbsp;in&nbsp;the&nbsp;only&nbsp;remaining&nbsp;copies&nbsp;of&nbsp;the">
+<param name="LINE50" value="magazines&nbsp;as&nbsp;cuttings&nbsp;made&nbsp;by&nbsp;Mrs&nbsp;L&nbsp;herself...">
+<param name="LINE51" value="&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;">
+<param name="LINE52" value="Ms.&nbsp;A-Z&nbsp;was&nbsp;an&nbsp;intrepid&nbsp;biographer&nbsp;wishing&nbsp;to&nbsp;see&nbsp;no&nbsp;stone&nbsp;unturned...">
+<param name="LINE53" value="with&nbsp;a&nbsp;MINOX&nbsp;CAMERA&nbsp;she&nbsp;had&nbsp;made&nbsp;a&nbsp;photographic&nbsp;record&nbsp;of&nbsp;the&nbsp;study&nbsp;occupied&nbsp;by&nbsp;Mrs&nbsp;L&nbsp;over&nbsp;this">
+<param name="LINE54" value="late&nbsp;period&nbsp;when&nbsp;her&nbsp;dealings&nbsp;became&nbsp;rather&nbsp;furtive&nbsp;or&nbsp;even&nbsp;circumspect...">
+<param name="LINE55" value="On&nbsp;the&nbsp;nearest&nbsp;bookshelf&nbsp;one&nbsp;could&nbsp;just&nbsp;make&nbsp;out&nbsp;the&nbsp;following&nbsp;titles...">
+<param name="LINE56" value="&nbsp;it&nbsp;just&nbsp;so&nbsp;happened&nbsp;that&nbsp;the&nbsp;biographer&nbsp;had&nbsp;a&nbsp;copy&nbsp;of&nbsp;this&nbsp;CIA&nbsp;book&nbsp;herself,&nbsp;she&nbsp;had&nbsp;thought&nbsp;it">
+<param name="LINE57" value="prudent&nbsp;to&nbsp;be&nbsp;aware&nbsp;of&nbsp;such&nbsp;things...&nbsp;she&nbsp;was&nbsp;able&nbsp;to&nbsp;cross&nbsp;reference&nbsp;in&nbsp;greater&nbsp;detail...">
+<param name="LINE58" value="the&nbsp;chapter&nbsp;headings&nbsp;were&nbsp;as&nbsp;follows&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;">
+<param name="LINE59" value="It&nbsp;went&nbsp;like&nbsp;this...&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;">
+<param name="LINE60" value="Mrs&nbsp;L&nbsp;is&nbsp;on&nbsp;the&nbsp;move&nbsp;once&nbsp;again...&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;we&nbsp;find&nbsp;her&nbsp;in&nbsp;an&nbsp;airport&nbsp;in&nbsp;front&nbsp;of&nbsp;a&nbsp;set&nbsp;of&nbsp;screens...&nbsp;">
+<param name="LINE61" value="The&nbsp;business&nbsp;is&nbsp;branching&nbsp;out&nbsp;into&nbsp;worldwide&nbsp;distribution&nbsp;and&nbsp;she&nbsp;is&nbsp;researching&nbsp;the&nbsp;airline's">
+<param name="LINE62" value="Cargo&nbsp;Destinations.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;">
+<param name="LINE63" value="She&nbsp;has&nbsp;typed&nbsp;in&nbsp;her&nbsp;query&nbsp;and&nbsp;receives&nbsp;the&nbsp;following&nbsp;printout&nbsp;details&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;">
+<param name="LINE64" value="&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Many&nbsp;years&nbsp;later&nbsp;Ms.&nbsp;A-Z&nbsp;noticed&nbsp;on&nbsp;the&nbsp;bottom&nbsp;of&nbsp;this&nbsp;list&nbsp;of&nbsp;destinations&nbsp;in&nbsp;the&nbsp;ledger:">
+<param name="LINE65" value="&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;In&nbsp;this&nbsp;same&nbsp;ledger&nbsp;Ms.&nbsp;A-Z&nbsp;found&nbsp;some&nbsp;notes/letters&nbsp;believed&nbsp;to&nbsp;be&nbsp;from&nbsp;Mrs&nbsp;L's">
+<param name="LINE66" value="little&nbsp;known&nbsp;daughter.&nbsp;It&nbsp;was&nbsp;on&nbsp;a&nbsp;completely&nbsp;different&nbsp;level&nbsp;to&nbsp;the&nbsp;rest&nbsp;of&nbsp;Mrs&nbsp;L's&nbsp;correspondence.">
+<param name="LINE67" value="&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;">
+<param name="LINE67" value="And&nbsp;a&nbsp;snapshot&nbsp;with&nbsp;the&nbsp;following&nbsp;in&nbsp;biro&nbsp;on&nbsp;the&nbsp;back&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;">
+<param name="LINE68" value="a&nbsp;card&nbsp;saying&nbsp;'I&nbsp;have&nbsp;a&nbsp;bat&nbsp;in&nbsp;my&nbsp;chimney'&nbsp;had&nbsp;stapled&nbsp;to&nbsp;the&nbsp;back&nbsp;of&nbsp;it&nbsp;a&nbsp;printout&nbsp;with&nbsp;the">
+<param name="LINE69" value="following&nbsp;instructions&nbsp;on&nbsp;it...&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;">
+<param name="LINE70" value="&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Ms.&nbsp;A-Z&nbsp;wrote&nbsp;well.&nbsp;She&nbsp;accompanied&nbsp;her&nbsp;research&nbsp;with&nbsp;detailed&nbsp;anecdotes...">
+<param name="LINE71" value="&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Mrs&nbsp;L&nbsp;is&nbsp;enlarging&nbsp;her&nbsp;import&nbsp;business&nbsp;to&nbsp;worldwide&nbsp;distribution&nbsp;and&nbsp;it&nbsp;was&nbsp;this&nbsp;never">
+<param name="LINE72" value="ending&nbsp;process&nbsp;that&nbsp;gave&nbsp;her&nbsp;a&nbsp;really&nbsp;bad&nbsp;headache...&nbsp;she&nbsp;tried&nbsp;everything&nbsp;to&nbsp;rid&nbsp;herself&nbsp;of&nbsp;these&nbsp;&nbsp;">
+<param name="LINE73" value="wicked&nbsp;headaches.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;">
+<param name="LINE74" value="&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;She&nbsp;has&nbsp;joined&nbsp;a&nbsp;club&nbsp;to&nbsp;do&nbsp;with&nbsp;her&nbsp;business,&nbsp;there&nbsp;are&nbsp;some&nbsp;interesting&nbsp;characters&nbsp;in&nbsp;it...">
+<param name="LINE75" value="&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;she&nbsp;gets&nbsp;to&nbsp;know&nbsp;them&nbsp;out&nbsp;of&nbsp;curiosity,&nbsp;while&nbsp;they&nbsp;sit&nbsp;and&nbsp;relax&nbsp;in">
+<param name="LINE76" value="the&nbsp;club&nbsp;room.&nbsp;A&nbsp;person&nbsp;called&nbsp;Kurt&nbsp;K.&nbsp;speaks&nbsp;incessantly&nbsp;about&nbsp;the&nbsp;New&nbsp;World&nbsp;Order&nbsp;">
+<param name="LINE77" value="&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;">
+<param name="LINE78" value="Mrs&nbsp;L&nbsp;secretly&nbsp;wishes&nbsp;to&nbsp;speak&nbsp;on&nbsp;subjects&nbsp;like&nbsp;Miscellaneous&nbsp;Miscellaneous;&nbsp;an&nbsp;obscure&nbsp;esoteric">
+<param name="LINE79" value="class&nbsp;she&nbsp;had&nbsp;done&nbsp;at&nbsp;school&nbsp;years&nbsp;ago.&nbsp;It&nbsp;had&nbsp;inspired&nbsp;her&nbsp;with&nbsp;a&nbsp;love&nbsp;of&nbsp;things&nbsp;diverse&nbsp;&nbsp;&nbsp;">
+<param name="LINE80" value="&nbsp;and&nbsp;miscellaneous&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;">
+<param name="LINE81" value="...&nbsp;but&nbsp;instead&nbsp;she&nbsp;answers&nbsp;him&nbsp;back&nbsp;with&nbsp;some&nbsp;tales&nbsp;of&nbsp;volcanoes&nbsp;and&nbsp;meteorite&nbsp;impacts...&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;">
+<param name="LINE82" value="They&nbsp;end&nbsp;up&nbsp;rambling&nbsp;on&nbsp;a&nbsp;bit...&nbsp;Mrs&nbsp;L&nbsp;telling&nbsp;him&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;not&nbsp;long&nbsp;after&nbsp;a&nbsp;reply&nbsp;comes...">
+<param name="LINE83" value="&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;">
+<param name="LINE84" value="unable&nbsp;to&nbsp;take&nbsp;any&nbsp;more&nbsp;Mrs&nbsp;L&nbsp;departs&nbsp;quickly&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;">
+<param name="LINE85" value="she&nbsp;has&nbsp;a&nbsp;dream&nbsp;full&nbsp;of&nbsp;Abandoned&nbsp;Memories&nbsp;and&nbsp;Missing&nbsp;Characters...&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;">
+<param name="LINE86" value="&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;She&nbsp;remembers&nbsp;lots&nbsp;of&nbsp;people&nbsp;and&nbsp;what&nbsp;they're&nbsp;saying&nbsp;clear&nbsp;as&nbsp;the&nbsp;light&nbsp;of&nbsp;day">
+<param name="LINE87" value="&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;">
+<param name="LINE88" value="When&nbsp;she&nbsp;awakes&nbsp;her&nbsp;mind&nbsp;goes&nbsp;at&nbsp;once&nbsp;to&nbsp;the&nbsp;job&nbsp;in&nbsp;hand&nbsp;and&nbsp;how&nbsp;it&nbsp;all&nbsp;began...">
+<param name="LINE89" value="&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;">
+<param name="LINE90" value="and&nbsp;in&nbsp;between&nbsp;typing&nbsp;endlessly&nbsp;she&nbsp;learned&nbsp;more&nbsp;and&nbsp;more&nbsp;about&nbsp;Mrs&nbsp;Ls&nbsp;very&nbsp;hidden&nbsp;talent&nbsp;of">
+<param name="LINE91" value="predicting&nbsp;the&nbsp;future&nbsp;and&nbsp;the&nbsp;&quot;King&nbsp;of&nbsp;Frightfulness&quot;&nbsp;descending&nbsp;from&nbsp;the&nbsp;sky&nbsp;(presumably&nbsp;in&nbsp;France)">
+<param name="LINE92" value="&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;">
+<param name="LINE93" value="The&nbsp;significance&nbsp;of&nbsp;the&nbsp;events&nbsp;she&nbsp;chose&nbsp;was&nbsp;in&nbsp;the&nbsp;subjects,&nbsp;revisited&nbsp;so&nbsp;many&nbsp;times&nbsp;via&nbsp;Mrs&nbsp;L's&nbsp;">
+<param name="LINE94" value="biography:&nbsp;travel,&nbsp;exploration,&nbsp;communications,&nbsp;weapons,&nbsp;and&nbsp;photography&nbsp;and&nbsp;the&nbsp;weather">
+<param name="LINE95" value="&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;">
+<param name="LINE96" value="Mrs&nbsp;A-Z&nbsp;took&nbsp;off&nbsp;her&nbsp;headphones&nbsp;and&nbsp;though&nbsp;about&nbsp;Mrs&nbsp;L&nbsp;going&nbsp;back&nbsp;to&nbsp;the&nbsp;root&nbsp;of&nbsp;it&nbsp;all,">
+<param name="LINE97" value="her&nbsp;tenacity,&nbsp;her&nbsp;enormous&nbsp;archive&nbsp;and&nbsp;status&nbsp;as&nbsp;a&nbsp;nobody&nbsp;">
+<param name="LINE98" value="&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;">
+<param name="LINE99" value="then&nbsp;she&nbsp;started&nbsp;on&nbsp;the&nbsp;index.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;">
+<param name="BGRED" value="255">
+<param name="BGGREEN" value="255">
+<param name="BGBLUE" value="255">
+<param name="FGRED" value="0">
+<param name="FGGREEN" value="0">
+<param name="FGBLUE" value="0">
+<param name="FONTNAME" value="Courier">
+<param name="FONTSIZE" value="16">
+<param name="SPACING" value="20">
+<param name="DELAY" value="35">
+<param name="TYPEDELAY" value="125">
+</applet>
+</div>
+</body>
+</html>

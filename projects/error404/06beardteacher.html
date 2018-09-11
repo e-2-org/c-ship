@@ -1,0 +1,136 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+<head>
+<title>Beard Teacher</title>
+<script type="text/javascript" language="JavaScript1.2">
+function checkEnv(){
+	this.ok=(parseInt(navigator.appVersion) >= 4)?1:0;
+	this.ns=(navigator.appName == "Netscape" && this.ok)?1:0;
+	this.ie=(!this.ns && this.ok)?1:0;
+	this.w=screen.width;
+	this.h=screen.height;
+	this.pady=(this.ns)?(window.outerHeight-window.innerHeight):0;
+	this.padx=(this.ns)?(window.outerWidth-window.innerWidth):0;
+	this.mac=(navigator.platform.indexOf("Mac")>-1 && this.ok)?1:0;
+	this.win=(navigator.platform.indexOf("Win")>-1 && this.ok)?1:0;
+	return this;
+}
+var env = new checkEnv();
+function winx(x){
+  	if(env.mac){
+    	newx=(env.ns)?(x+env.padx):(x+6);
+    	return newx;
+    }
+    else if(env.win){
+		newx=(env.ns)?(x+env.padx):(x+3);
+		return newx;
+	}
+	else{
+		return x+23;
+	}
+}
+function winy(y){
+	if(env.mac){
+		newy=(env.ns)?(y+env.pady):(y+26);
+		return newy;
+	}
+	else if(env.win) {
+		newy=(env.ns)?(y+env.pady):(y+3);
+		return newy;
+	}
+	else {
+		return y+39;
+	}
+}
+function setoptions(wx,wy,sx,sy) {
+	var globalopts = "toolbar=no,location=no,directories=no,status=no,scrollbars=no,resizeable=no,copyhistory=no,menubar=no"
+	if (env.ns) {
+		var opts = globalopts+",width="+wx+",height="+wy+",screenX="+sx+",screenY="+sy;
+		return opts;
+	}
+	else {
+		var opts = globalopts+",width="+wx+",height="+wy+",left="+sx+",top="+sy;
+		return opts;
+	}
+}
+var loadtime = new Date();
+var seed = loadtime.valueOf();
+function text15atimer() {
+    var text15atime = seed + 7000;
+    var now = new Date();
+    now = now.valueOf();
+    if (now > text15atime) {
+        var text15aw = env.w-env.padx;
+        var text15ah = env.h-env.pady;
+        var text15asx = 0;
+        var text15asy = 0;
+        var text15aopts = setoptions(text15aw,text15ah,text15asx,text15asy);
+        var text15awin = window.open('06text15a.html','text15a',text15aopts);
+        text15awin.moveTo(text15asx,text15asy);
+        text15timer();
+	      return;
+    }
+    setTimeout("text15atimer()",500)
+}
+function text15timer() {
+    var text15time = seed + 11250;
+    var now = new Date();
+    now = now.valueOf();
+    if (now > text15time) {
+        var text15w = 680;
+        var text15h = 150;
+        var text15sx = (env.w/2)-(text15w/2);
+        var text15sy = env.h-(winy(text15h));
+        var text15opts = setoptions(text15w,text15h,text15sx,text15sy);
+        var text15win = window.open('06text15.html','text15',text15opts);
+        text15win.moveTo(text15sx,text15sy);
+        morecardstimer();
+	      return;
+    }
+    setTimeout("text15timer()",250)
+}
+function morecardstimer() {
+    var morecardstime = seed + 17000;
+    var now = new Date();
+    now = now.valueOf();
+    if (now > morecardstime) {
+        var pigw = 284;
+        var pigh = 168;
+        var pigsx = 0;
+        var pigsy = 0;
+        var pigopts = setoptions(pigw,pigh,pigsx,pigsy);
+        var pigwin = window.open('06pig.html','pig',pigopts);
+        pigwin.moveTo(pigsx,pigsy);
+        var cranew = 214;
+        var craneh = 276;
+        var cranesx = (env.w/2)-(winx(cranew)/2);
+        var cranesy = 0;
+        var craneopts = setoptions(cranew,craneh,cranesx,cranesy);
+        var cranewin = window.open('06crane.html','crane',craneopts);
+        cranewin.moveTo(cranesx,cranesy);
+        var plussignw = 170;
+        var plussignh = 155;
+        var plussignsx = env.w-(winx(plussignw));
+        var plussignsy = 0;
+        var plussignopts = setoptions(plussignw,plussignh,plussignsx,plussignsy);
+        var plussignwin = window.open('06plussign.html','plussign',plussignopts);
+        plussignwin.moveTo(plussignsx,plussignsy);
+        var pinwheelw = 320;
+        var pinwheelh = 240;
+        var pinwheelsx = env.w-(winx(pinwheelw));
+        var pinwheelsy = env.h-(winy(pinwheelh));
+        var pinwheelopts = setoptions(pinwheelw,pinwheelh,pinwheelsx,pinwheelsy);
+        var pinwheelwin = window.open('06pinwheel.html','pinwheel',pinwheelopts);
+        pinwheelwin.moveTo(pinwheelsx,pinwheelsy);
+        self.close();
+	      return;
+    }
+    setTimeout("morecardstimer()",250)
+}
+text15atimer();
+</script>
+</head>
+<body topmargin="0" leftmargin="0" marginwidth="0" marginheight="0">
+<center><img src="images/beardteacher.gif" width="384" height="171" alt="Beard Teacher"></center>
+</body>
+</html>

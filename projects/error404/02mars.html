@@ -1,0 +1,150 @@
+<!DOCTYPE html PUBLIC "-//w3c//dtd html 4.0 transitional//en">
+<html>
+<head>
+<title>Mars</title>
+<script type="text/javascript" language="JavaScript1.2">
+function checkEnv(){
+	this.ok=(parseInt(navigator.appVersion) >= 4)?1:0;
+	this.ns=(navigator.appName == "Netscape" && this.ok)?1:0;
+	this.ie=(!this.ns && this.ok)?1:0;
+	this.w=screen.width;
+	this.h=screen.height;
+	this.pady=(this.ns)?(window.outerHeight-window.innerHeight):0;
+	this.padx=(this.ns)?(window.outerWidth-window.innerWidth):0;
+	this.mac=(navigator.platform.indexOf("Mac")>-1 && this.ok)?1:0;
+	this.win=(navigator.platform.indexOf("Win")>-1 && this.ok)?1:0;
+	return this;
+}
+var env = new checkEnv();
+function winx(x){
+  	if(env.mac){
+    	newx=(env.ns)?(x+env.padx):(x+6);
+    	return newx;
+    }
+    else if(env.win){
+		newx=(env.ns)?(x+env.padx):(x+3);
+		return newx;
+	}
+	else{
+		return x+23;
+	}
+}
+function winy(y){
+	if(env.mac){
+		newy=(env.ns)?(y+env.pady):(y+26);
+		return newy;
+	}
+	else if(env.win) {
+		newy=(env.ns)?(y+env.pady):(y+3);
+		return newy;
+	}
+	else {
+		return y+39;
+	}
+}
+function setoptions(wx,wy,sx,sy) {
+	var globalopts = "toolbar=no,location=no,directories=no,status=no,scrollbars=no,resizeable=no,copyhistory=no,menubar=no"
+	if (env.ns) {
+		var opts = globalopts+",width="+wx+",height="+wy+",screenX="+sx+",screenY="+sy;
+		return opts;
+	}
+	else {
+		var opts = globalopts+",width="+wx+",height="+wy+",left="+sx+",top="+sy;
+		return opts;
+	}
+}
+var loadtime = new Date();
+var seed = loadtime.valueOf();
+function indiatexttimer() {
+	var indiatexttime = seed + 11999;
+	var now = new Date();
+	now = now.valueOf();
+	if (now > indiatexttime) {
+		var indiatextw = 600;
+		var indiatexth = 85;
+		var indiatextsx = env.w-(winy(indiatextw));
+		var indiatextsy = 40;
+		var indiatextopts = setoptions(indiatextw,indiatexth,indiatextsx,indiatextsy);
+		var indiatextwin = window.open('02indiatext.html','indiatext',indiatextopts);
+		indiatextwin.moveTo(indiatextsx,indiatextsy);
+		indiatextw = indiatexth = indiatextsx = indiatextsy = indiatextopts = indiatextwin = null;
+		text03timer();
+		return;
+  }
+  setTimeout("indiatexttimer()",12000)
+}
+function text03timer() {
+	var text03time = seed + 12500;
+	var now = new Date();
+	now = now.valueOf();
+	if (now > text03time) {
+		var text03w = 310;
+		var text03h = 330;
+		var text03sx = (env.w-(winx(text03w)));
+		var text03sy = 0;
+		var text03opts = setoptions(text03w,text03h,text03sx,text03sy);
+		var text03win = window.open('02text03.html','text03',text03opts);
+		text03win.moveTo(text03sx,text03sy);
+		text04timer();
+		return;
+	}
+	setTimeout("text03timer()",500)
+}
+function text04timer() {
+	var text04time = seed + 13500;
+	var now = new Date();
+	now = now.valueOf();
+	if (now > text04time) {
+		var text04w = 600;
+		var text04h = 300;
+		var text04sx = (env.w-(winx(text04w)));
+		var text04sy = (env.h-(winy(text04h)));
+		var text04opts = setoptions(text04w,text04h,text04sx,text04sy);
+		var text04win = window.open('02text04.html','text04',text04opts);
+		text04win.moveTo(text04sx,text04sy);
+		saturntimer();
+		return;
+	}
+	setTimeout("text04timer()",350)
+}
+function saturntimer() {
+	var saturntime = seed + 14500;
+	var now = new Date();
+	now = now.valueOf();
+	if (now > saturntime) {
+		var saturnw = 400;
+		var saturnh = 173;
+		var saturnsx = 0;
+		var saturnsy = env.ns?(env.h-(winy(saturnh))):env.h-saturnh;
+		var saturnopts = setoptions(saturnw,saturnh,saturnsx,saturnsy);
+		var saturnwin = window.open('02saturn.html','saturn',saturnopts);
+		saturnwin.moveTo(saturnsx,saturnsy);
+		mercurytimer();
+		return;
+	}
+	setTimeout("saturntimer()",250)
+}
+function mercurytimer() {
+	var mercurytime = seed + 16000;
+	var now = new Date();
+	now = now.valueOf();
+	if (now > mercurytime) {
+		var mercuryw = 400;
+		var mercuryh = 203;
+		var mercurysx = 0;
+		var mercurysy = Math.floor((env.h/2)+50);
+		var mercuryopts = setoptions(mercuryw,mercuryh,mercurysx,mercurysy);
+		var mercurywin = window.open('02mercury.html','mercury',mercuryopts);
+		mercurywin.moveTo(mercurysx,mercurysy);
+		self.close();
+		return;
+	}
+	setTimeout("mercurytimer()",250)
+}
+indiatexttimer();
+</script>
+</head>
+<body topmargin="0" leftmargin="0" marginwidth="0" marginheight="0">
+<img src="images/Mars.jpg" width="300" height="196" alt="mars">
+</body>
+</html>

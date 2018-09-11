@@ -1,0 +1,23 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+<head>
+<title>Subscribe newsgps</title>
+<script type="text/javascript" language="JavaScript1.2">
+var loadtime = new Date();
+var seed = loadtime.valueOf();
+function CloseYourself() {
+    var closetime = seed + 16500;
+    var now = new Date();
+    now = now.valueOf();
+    if (now > closetime) {
+        self.close();
+        return;
+    }
+    setTimeout("CloseYourself()",16501)
+}
+</script>
+</head>
+<body onLoad="CloseYourself();" topmargin="0" leftmargin="0" marginwidth="0" marginheight="0">
+<center><img src="images/subscribe.gif" width="131" height="328" alt="Subscribe news groups"></center>
+</body>
+</html>

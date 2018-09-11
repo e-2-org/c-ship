@@ -1,0 +1,139 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+<head>
+<title>Air Cargo World</title>
+<script type="text/javascript" language="JavaScript1.2">
+function checkEnv(){
+	this.ok=(parseInt(navigator.appVersion) >= 4)?1:0;
+	this.ns=(navigator.appName == "Netscape" && this.ok)?1:0;
+	this.ie=(!this.ns && this.ok)?1:0;
+	this.w=screen.width;
+	this.h=screen.height;
+	this.pady=(this.ns)?(window.outerHeight-window.innerHeight):0;
+	this.padx=(this.ns)?(window.outerWidth-window.innerWidth):0;
+	this.mac=(navigator.platform.indexOf("Mac")>-1 && this.ok)?1:0;
+	this.win=(navigator.platform.indexOf("Win")>-1 && this.ok)?1:0;
+	return this;
+}
+var env = new checkEnv();
+function winx(x){
+  	if(env.mac){
+    	newx=(env.ns)?(x+env.padx):(x+6);
+    	return newx;
+    }
+    else if(env.win){
+		newx=(env.ns)?(x+env.padx):(x+3);
+		return newx;
+	}
+	else{
+		return x+23;
+	}
+}
+function winy(y){
+	if(env.mac){
+		newy=(env.ns)?(y+env.pady):(y+26);
+		return newy;
+	}
+	else if(env.win) {
+		newy=(env.ns)?(y+env.pady):(y+3);
+		return newy;
+	}
+	else {
+		return y+39;
+	}
+}
+function setoptions(wx,wy,sx,sy) {
+	var globalopts = "toolbar=no,location=no,directories=no,status=no,scrollbars=no,resizeable=no,copyhistory=no,menubar=no"
+	if (env.ns) {
+		var opts = globalopts+",width="+wx+",height="+wy+",screenX="+sx+",screenY="+sy;
+		return opts;
+	}
+	else {
+		var opts = globalopts+",width="+wx+",height="+wy+",left="+sx+",top="+sy;
+		return opts;
+	}
+}
+var loadtime = new Date();
+var seed = loadtime.valueOf();
+function dhltimer() {
+    var dhltime = seed + 9500;
+    var now = new Date();
+    now = now.valueOf();
+    if (now > dhltime) {
+        var dhlrw = 700;
+        var dhlrh = 259;
+        var dhlrsx = env.w-(winx(dhlrw));
+        var dhlrsy = env.h-(winy(dhlrh));
+        var dhlropts = setoptions(dhlrw,dhlrh,dhlrsx,dhlrsy);
+        var dhlrwin = window.open('10dhlr.html','dhlr',dhlropts);
+        dhlrwin.moveTo(dhlrsx,dhlrsy);
+        var dhlw = 150;
+        var dhlh = 100;
+        var dhlsx = 0;
+        var dhlsy = env.h-(winy(dhlrh));
+        var dhlopts = setoptions(dhlw,dhlh,dhlsx,dhlsy);
+        var dhlwin = window.open('10dhl.html','dhl',dhlopts);
+        dhlwin.moveTo(dhlsx,dhlsy);
+        var dhlwebw = 105;
+        var dhlwebh = 101;
+        var dhlwebsx = (winx(dhlw))+20;
+        var dhlwebsy = env.h-(winy(dhlrh));
+        var dhlwebopts = setoptions(dhlwebw,dhlwebh,dhlwebsx,dhlwebsy);
+        var dhlwebwin = window.open('10dhlweb.html','dhlweb',dhlwebopts);
+        dhlwebwin.moveTo(dhlwebsx,dhlwebsy);
+        text28timer();
+	      return;
+    }
+    setTimeout("dhltimer()",500)
+}
+function text28timer() {
+    var text28time = seed + 20000;
+    var now = new Date();
+    now = now.valueOf();
+    if (now > text28time) {
+        var text28w = 680;
+        var text28h = 130;
+        var text28sx = (env.w/2)-((winx(text28w))/2);
+        var text28sy = (env.h/2)-(text28h+100);
+        var text28opts = setoptions(text28w,text28h,text28sx,text28sy);
+        var text28win = window.open('10text28.html','text28',text28opts);
+        text28win.moveTo(text28sx,text28sy);
+        text29timer();
+	    return;
+    }
+    setTimeout("text28timer()",500)
+}
+function text29timer() {
+    var text29time = seed + 43500;
+    var now = new Date();
+    now = now.valueOf();
+    if (now > text29time) {
+        var text29w = env.w-env.padx;
+        var text29h = 230;
+        var text29sx = 0;
+        var text29sy = 0;
+        var text29opts = setoptions(text29w,text29h,text29sx,text29sy);
+        var text29win = window.open('10text29.html','text29',text29opts);
+        text29win.moveTo(text29sx,text29sy);
+        CloseYourself();
+	      return;
+    }
+    setTimeout("text29timer()",500)
+}
+function CloseYourself() {
+    var closetime = seed + 44500;
+    var now = new Date();
+    now = now.valueOf();
+    if (now > closetime) {
+        self.close();
+        return;
+    }
+    setTimeout("CloseYourself()",1000)
+}
+dhltimer();
+</script>
+</head>
+<body topmargin="0" leftmargin="0" marginwidth="0" marginheight="0" bgcolor="white">
+<center><img src="images/acworld.gif" width="88" height="31" vspace="34" hspace="6" alt="Air Cargo World"></center>
+</body>
+</html>

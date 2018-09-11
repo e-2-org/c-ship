@@ -1,0 +1,124 @@
+<html>
+<head>
+<title>Allshops</title>
+<script type="text/javascript" language="JavaScript1.2">
+function checkEnv(){
+	this.ok=(parseInt(navigator.appVersion) >= 4)?1:0;
+	this.ns=(navigator.appName == "Netscape" && this.ok)?1:0;
+	this.ie=(!this.ns && this.ok)?1:0;
+	this.w=screen.width;
+	this.h=screen.height;
+	this.pady=(this.ns)?(window.outerHeight-window.innerHeight):0;
+	this.padx=(this.ns)?(window.outerWidth-window.innerWidth):0;
+	this.mac=(navigator.platform.indexOf("Mac")>-1 && this.ok)?1:0;
+	this.win=(navigator.platform.indexOf("Win")>-1 && this.ok)?1:0;
+	return this;
+}
+var env = new checkEnv();
+function winx(x){
+  	if(env.mac){
+    	newx=(env.ns)?(x+env.padx):(x+6);
+    	return newx;
+    }
+    else if(env.win){
+		newx=(env.ns)?(x+env.padx):(x+3);
+		return newx;
+	}
+	else{
+		return x+23;
+	}
+}
+function winy(y){
+	if(env.mac){
+		newy=(env.ns)?(y+env.pady):(y+26);
+		return newy;
+	}
+	else if(env.win) {
+		newy=(env.ns)?(y+env.pady):(y+3);
+		return newy;
+	}
+	else {
+		return y+39;
+	}
+}
+function setoptions(wx,wy,sx,sy) {
+	var globalopts = "toolbar=no,location=no,directories=no,status=no,scrollbars=no,resizeable=no,copyhistory=no,menubar=no"
+	if (env.ns) {
+		var opts = globalopts+",width="+wx+",height="+wy+",screenX="+sx+",screenY="+sy;
+		return opts;
+	}
+	else {
+		var opts = globalopts+",width="+wx+",height="+wy+",left="+sx+",top="+sy;
+		return opts;
+	}
+}
+var loadtime = new Date();
+var seed = loadtime.valueOf();
+function maptimer() {
+	var maptime = seed + 499;
+	var now = new Date();
+	now = now.valueOf();
+	if (now > maptime) {
+		var mapw = 200;
+		var maph = 277;
+		var mapsx = ((env.w/2)-200);
+		var mapsy = 0;
+		var mapopts = setoptions(mapw,maph,mapsx,mapsy);
+		var mapwin = window.open('01map.html','map',mapopts);
+		mapwin.moveTo(mapsx,mapsy);
+		downloadfreetimer();
+		return;
+	}
+	setTimeout("maptimer()",500)
+}
+function downloadfreetimer() {
+	var downloadfreetime = seed + 499;
+	var now = new Date();
+	now = now.valueOf();
+	if (now > downloadfreetime) {
+		var downloadfreew = 287;
+		var downloadfreeh = 100;
+		var downloadfreesx = 0;
+		var downloadfreesy = 0;
+		var downloadfreeopts = setoptions(downloadfreew,downloadfreeh,downloadfreesx,downloadfreesy);
+		var downloadfreewin = window.open('01downloadfree.html','downloadfree',downloadfreeopts);
+		downloadfreewin.moveTo(downloadfreesx,downloadfreesy);
+		carshowroomtimer();
+		return;
+	}
+	setTimeout("downloadfreetimer()",500)
+}
+function carshowroomtimer() {
+	var carshowroomtime = seed + 999;
+	var now = new Date();
+	now = now.valueOf();
+	if (now > carshowroomtime) {
+		var carshowroomw = 333;
+		var carshowroomh = 230;
+		var carshowroomsx = Math.floor(env.w/2.5);
+		var carshowroomsy = (env.h-(winy(carshowroomh)));
+		var carshowroomopts = setoptions(carshowroomw,carshowroomh,carshowroomsx,carshowroomsy);
+		var carshowroomwin = window.open('01carshowroom.html','carshowroom',carshowroomopts);
+		carshowroomwin.moveTo(carshowroomsx,carshowroomsy);
+		carshowroomw = carshowroomh = carshowroomsx = carshowroomsy = carshowroomtime = carshowroomopts = carshowroomwin = null;
+		CloseYourself();
+		return;
+	}
+	setTimeout("carshowroomtimer()",500)
+}
+function CloseYourself() {
+	var closetime = seed + 10700;
+	var now = new Date();
+	now = now.valueOf();
+	if (now > closetime) {
+		self.close();
+	}
+	setTimeout("CloseYourself()",1000);
+}
+maptimer();
+</script>
+</head>
+<body topmargin="0" leftmargin="0" marginwidth="0" marginheight="0">
+<img src="images/allshops.jpg" width="390" height="275" alt="allshops">
+</body>
+</html>

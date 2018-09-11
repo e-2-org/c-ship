@@ -1,0 +1,26 @@
+<!doctype html public "-//w3c//dtd html 4.0 transitional//en">
+<html>
+<head>
+<title>28text</title>
+<script type="text/javascript" language="JavaScript1.2">
+var loadtime = new Date();
+var seed = loadtime.valueOf();
+function CloseYourself() {
+    var closetime = seed + 6000;
+    var now = new Date();
+    now = now.valueOf();
+    if (now > closetime) {
+        self.close();
+        return;
+    }
+    setTimeout("CloseYourself()",6001)
+}
+</script>
+</head>
+<body onLoad="CloseYourself();">
+<font face="Teletext"><font color="#FF0000"><font size=+2>If goods
+have to get from A to Z as quickly as possible, not only at night but at
+any time of day when, for example, line stoppages are imminent due to missing
+parts, or the Just-In-Time supply system fails. What is possible?</font></font></font>
+</body>
+</html>

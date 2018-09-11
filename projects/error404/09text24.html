@@ -1,0 +1,172 @@
+<!doctype html public "-//w3c//dtd html 4.0 transitional//en">
+<html>
+<head>
+<title>24text</title>
+<script type="text/javascript" language="JavaScript1.2">
+function checkEnv(){
+	this.ok=(parseInt(navigator.appVersion) >= 4)?1:0;
+	this.ns=(navigator.appName == "Netscape" && this.ok)?1:0;
+	this.ie=(!this.ns && this.ok)?1:0;
+	this.w=screen.width;
+	this.h=screen.height;
+	this.pady=(this.ns)?(window.outerHeight-window.innerHeight):0;
+	this.padx=(this.ns)?(window.outerWidth-window.innerWidth):0;
+	this.mac=(navigator.platform.indexOf("Mac")>-1 && this.ok)?1:0;
+	this.win=(navigator.platform.indexOf("Win")>-1 && this.ok)?1:0;
+	return this;
+}
+var env = new checkEnv();
+function winx(x){
+  	if(env.mac){
+    	newx=(env.ns)?(x+env.padx):(x+6);
+    	return newx;
+    }
+    else if(env.win){
+		newx=(env.ns)?(x+env.padx):(x+3);
+		return newx;
+	}
+	else{
+		return x+23;
+	}
+}
+function winy(y){
+	if(env.mac){
+		newy=(env.ns)?(y+env.pady):(y+26);
+		return newy;
+	}
+	else if(env.win) {
+		newy=(env.ns)?(y+env.pady):(y+3);
+		return newy;
+	}
+	else {
+		return y+39;
+	}
+}
+function setoptions(wx,wy,sx,sy) {
+	var globalopts = "toolbar=no,location=no,directories=no,status=no,scrollbars=no,resizeable=no,copyhistory=no,menubar=no"
+	if (env.ns) {
+		var opts = globalopts+",width="+wx+",height="+wy+",screenX="+sx+",screenY="+sy;
+		return opts;
+	}
+	else {
+		var opts = globalopts+",width="+wx+",height="+wy+",left="+sx+",top="+sy;
+		return opts;
+	}
+}
+var loadtime = new Date();
+var seed = loadtime.valueOf();
+function FocusYourself() {
+    var Focustime = seed + 12000;
+    var now = new Date();
+    now = now.valueOf();
+    if (now > Focustime) {
+        self.focus();
+        minoxtimer();
+				return;
+    }
+    setTimeout("FocusYourself()",12001)
+}
+
+function minoxtimer() {
+    var minoxtime = seed + 27500;
+    var now = new Date();
+    now = now.valueOf();
+    if (now > minoxtime) {
+        var minoxw = 300;
+        var minoxh = 145;
+        var minoxsx = env.w-(winx(minoxw)+50);
+        var minoxsy = env.h-(winy(minoxh)+50);
+        var minoxopts = setoptions(minoxw,minoxh,minoxsx,minoxsy);
+        var minoxwin = window.open('09minox.html','minox',minoxopts);
+        minoxwin.moveTo(minoxsx,minoxsy);
+        text25timer();
+	      return;
+    }
+    setTimeout("minoxtimer()",500)
+}
+function text25timer() {
+    var text25time = seed + 58500;
+    var now = new Date();
+    now = now.valueOf();
+    if (now > text25time) {
+        var text25w = 440;
+        var text25h = 220;
+        var text25sx = env.w-(winx(text25w));
+        var text25sy = 0;
+        var text25opts = setoptions(text25w,text25h,text25sx,text25sy);
+        var text25win = window.open('09text25.html','text25',text25opts);
+        text25win.moveTo(text25sx,text25sy);
+        equipbombtimer();
+	      return;
+    }
+    setTimeout("text25timer()",500)
+}
+function equipbombtimer() {
+    var equipbombtime = seed + 74500;
+    var now = new Date();
+    now = now.valueOf();
+    if (now > equipbombtime) {
+        var equipbombw = 535;
+        var equipbombh = 362;
+        var equipbombsx = (env.w/2)-(equipbombw/2);
+        var equipbombsy = env.h-(winy(equipbombh));
+        var equipbombopts = setoptions(equipbombw,equipbombh,equipbombsx,equipbombsy);
+        var equipbombwin = window.open('09equipbomb.html','equipbomb',equipbombopts);
+        equipbombwin.moveTo(equipbombsx,equipbombsy);
+        text26timer();
+	      return;
+    }
+    setTimeout("equipbombtimer()",500)
+}
+function text26timer() {
+    var text26time = seed + 84250;
+    var now = new Date();
+    now = now.valueOf();
+    if (now > text26time) {
+        var text26w = 320;
+        var text26h = 280;
+        var text26sx = env.w-(text26w+50);
+        var text26sy = 0;
+        var text26opts = setoptions(text26w,text26h,text26sx,text26sy);
+        var text26win = window.open('09text26.html','text26',text26opts);
+        text26win.moveTo(text26sx,text26sy);
+        CloseYourself();
+	      return;
+    }
+    setTimeout("text26timer()",250)
+}
+function CloseYourself() {
+    var closetime = seed + 95750;
+    var now = new Date();
+    now = now.valueOf();
+    if (now > closetime) {
+        self.close();
+        return;
+    }
+    setTimeout("CloseYourself()",250)
+}
+FocusYourself();
+</script>
+</head>
+<body>
+<font face="Arial,Helvetica">&nbsp;Workers in the field of atmospheric
+electricity and cloud physics have accumulated sufficient evidence to</font>
+<br><font face="Arial,Helvetica">suggest that <font size=+3>electric fields
+in the Earth's lower atmosphere</font></font>
+<br><font face="Arial,Helvetica"><font size=+3>play a critical role...perhaps
+the critical role...</font></font>
+<br><font face="Arial,Helvetica"><font size=+3>in the development and behavior
+of clouds</font></font>
+<br><font face="Arial,Helvetica">that produces precipitation. For the past
+four months, a single weather pattern...</font>
+<br><font face="Arial,Helvetica">causing the drought is one of the most
+unusual national patterns ever recorded...</font>
+<br><font face="Arial,Helvetica">the huge transmitters which emit signals
+primarily in</font>
+<br><font face="Arial,Helvetica"><font size=+2>the very dangerous 10-Hertz
+range,</font></font>
+<br><font face="Arial,Helvetica"><font size=+2>otherwise known as&nbsp;
+</font><font size=+3>Extreme.Low.Frequency.</font></font>
+<br>&nbsp;
+</body>
+</html>

@@ -1,0 +1,104 @@
+<!doctype html public "-//w3c//dtd html 4.0 transitional//en">
+<html>
+<head>
+<title>45text</title>
+<script type="text/javascript" language="JavaScript1.2">
+function checkEnv(){
+	this.ok=(parseInt(navigator.appVersion) >= 4)?1:0;
+	this.ns=(navigator.appName == "Netscape" && this.ok)?1:0;
+	this.ie=(!this.ns && this.ok)?1:0;
+	this.w=screen.width;
+	this.h=screen.height;
+	this.pady=(this.ns)?(window.outerHeight-window.innerHeight):0;
+	return this;
+}
+env = new checkEnv();
+function setoptions(wx,wy,sx,sy) {
+	var globalopts = "toolbar=no,location=no,directories=no,status=no,scrollbars=no,resizeable=no,copyhistory=no,menubar=no"
+	if (env.ns) {
+		var opts = globalopts+",width="+wx+",height="+wy+",screenX="+sx+",screenY="+sy;
+		return opts;
+	}
+	else {
+		var opts = globalopts+",width="+wx+",height="+wy+",left="+sx+",top="+sy;
+		return opts;
+	}
+}
+var loadtime = new Date();
+var seed = loadtime.valueOf();
+function blairwitchtimer() {
+    var blairwitchtime = seed + 16000;
+    var now = new Date();
+    now = now.valueOf();
+    if (now > blairwitchtime) {
+        var blairwitchw = 100;
+        var blairwitchh = 100;
+        var blairwitchsx = env.w-(blairwitchw+200);
+        var blairwitchsy = 20;
+        var blairwitchopts = setoptions(blairwitchw,blairwitchh,blairwitchsx,blairwitchsy);
+        var blairwitchwin = window.open('14blairwitch.html','blairwitch',blairwitchopts);
+        blairwitchwin.moveTo(blairwitchsx,blairwitchsy);
+        grimsvotntimer();
+	    return;
+    }
+    setTimeout("blairwitchtimer()",500)
+}
+function grimsvotntimer() {
+    var grimsvotntime = seed + 23500;
+    var now = new Date();
+    now = now.valueOf();
+    if (now > grimsvotntime) {
+        var grimsvotnw = 410;
+        var grimsvotnh = 273;
+        var grimsvotnsx = (env.w/2)-(grimsvotnw/2);
+        var grimsvotnsy = (env.h-env.pady)-grimsvotnh;
+        var grimsvotnopts = setoptions(grimsvotnw,grimsvotnh,grimsvotnsx,grimsvotnsy);
+        var grimsvotnwin = window.open('14grimsvotn.html','grimsvotn',grimsvotnopts);
+        grimsvotnwin.moveTo(grimsvotnsx,grimsvotnsy);
+        CloseYourself();
+	      return;
+    }
+    setTimeout("grimsvotntimer()",500)
+}
+function CloseYourself() {
+    var closetime = seed + 26000;
+    var now = new Date();
+    now = now.valueOf();
+    if (now > closetime) {
+        self.close();
+        return;
+    }
+    setTimeout("CloseYourself()",500)
+}
+blairwitchtimer();
+</script>
+</head>
+<body>
+<font face="Andale Mono">"Look, there isn't any possible way to cure
+anyone's metaphysical dissatisfaction, because what we're dealing with
+here is a cosmological riddle, the likes of which no one is prepared to
+deal with.</font>
+<br><b><font face="Andale Mono">Have you ever had a hair shirt woven into
+your skin? Yes, you have, because you and your generic code are the fabric
+which accumulates into self-organised garments that grasp onto the dead
+tree of non-being.</font></b><font face="Andale Mono"> We don't pretend
+to answer to the insoluble with hackney Q &amp; A sessions which ignorantly
+endeavor to "get to the bottom of it".</font>
+<br><font face="Andale Mono">No, the only thing that links us, you and
+I and everyone, is that none of us will solve the riddle of life outside
+of time and space by using means within time and space. So let's not bore
+each other with anymore desperate and ill-fated attempts at this "reality
+hunting", huh?</font>
+<br><font face="Andale Mono">We're under oath to a tree that will someday
+die.</font>
+<br><font face="Andale Mono">we're supposed to maintain a couple of secrets,
+last spoken of in the dark, damp confines of the forest. This mighty giant
+might at any time may fall, and with it will come the telling of many stories.
+The oath will be broken. Whether it is told on the forest floor or the
+floor boards of an A-frame house on Sturgeon Bay, or on the very paper
+with which you wipe your loins, the vast knowledge held now in the rings
+of this healthy fir will spill gloriously onto the pages&nbsp; and tinto
+the columns and the fine print and the splendid italic font....."</font>
+<br>&nbsp;
+</body>
+</html>

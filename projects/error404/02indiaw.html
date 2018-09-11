@@ -1,0 +1,157 @@
+<!DOCTYPE html PUBLIC "-//w3c//dtd html 4.0 transitional//en">
+<html>
+<head>
+<title>India wimman</title>
+<script type="text/javascript" language="JavaScript1.2">
+function checkEnv(){
+	this.ok=(parseInt(navigator.appVersion) >= 4)?1:0;
+	this.ns=(navigator.appName == "Netscape" && this.ok)?1:0;
+	this.ie=(!this.ns && this.ok)?1:0;
+	this.w=screen.width;
+	this.h=screen.height;
+	this.pady=(this.ns)?(window.outerHeight-window.innerHeight):0;
+	this.padx=(this.ns)?(window.outerWidth-window.innerWidth):0;
+	this.mac=(navigator.platform.indexOf("Mac")>-1 && this.ok)?1:0;
+	this.win=(navigator.platform.indexOf("Win")>-1 && this.ok)?1:0;
+	return this;
+}
+var env = new checkEnv();
+function winx(x){
+  	if(env.mac){
+    	newx=(env.ns)?(x+env.padx):(x+6);
+    	return newx;
+    }
+    else if(env.win){
+		newx=(env.ns)?(x+env.padx):(x+3);
+		return newx;
+	}
+	else{
+		return x+23;
+	}
+}
+function winy(y){
+	if(env.mac){
+		newy=(env.ns)?(y+env.pady):(y+26);
+		return newy;
+	}
+	else if(env.win) {
+		newy=(env.ns)?(y+env.pady):(y+3);
+		return newy;
+	}
+	else {
+		return y+39;
+	}
+}
+function setoptions(wx,wy,sx,sy) {
+	var globalopts = "toolbar=no,location=no,directories=no,status=no,scrollbars=no,resizeable=no,copyhistory=no,menubar=no"
+	if (env.ns) {
+		var opts = globalopts+",width="+wx+",height="+wy+",screenX="+sx+",screenY="+sy;
+		return opts;
+	}
+	else {
+		var opts = globalopts+",width="+wx+",height="+wy+",left="+sx+",top="+sy;
+		return opts;
+	}
+}
+var loadtime = new Date();
+var seed = loadtime.valueOf();
+function bollywelcometimer() {
+	var bollywelcometime = seed + 999;
+	var now = new Date();
+	now = now.valueOf();
+	if (now > bollywelcometime) {
+		var bollywelcomew = 200;
+		var bollywelcomeh = 127;
+		var bollywelcomesx = 0;
+		var bollywelcomesy = env.h-(winy(bollywelcomeh));
+		var bollywelcomeopts = setoptions(bollywelcomew,bollywelcomeh,bollywelcomesx,bollywelcomesy);
+		var bollywelcomewin = window.open('02bollywelcome.html','bollywelcome',bollywelcomeopts);
+		bollywelcomewin.window.moveTo(bollywelcomesx,bollywelcomesy);
+		marstimer();
+		return;
+	}
+	setTimeout("bollywelcometimer()",1000)
+}
+function marstimer() {
+	var marstime = seed + 3000;
+	var now = new Date();
+	now = now.valueOf();
+	if (now > marstime) {
+		var marsw = 300;
+		var marsh = 196;
+		var marssx = Math.floor((env.w/2)-((winx(marsw))/2));
+		var marssy = Math.floor((env.h/2)-(winy(50))-(winy(marsh)));
+		var marsopts = setoptions(marsw,marsh,marssx,marssy);
+		var marswin = window.open('02mars.html','mars',marsopts);
+		marswin.window.moveTo(marssx,marssy);
+		indianewstimer();
+		return;
+	}
+	setTimeout("marstimer()",1000)
+}
+function indianewstimer() {
+	var indianewstime = seed + 5500;
+	var now = new Date();
+	now = now.valueOf();
+	if (now > indianewstime) {
+		var indianewsw = 184;
+		var indianewsh = 100;
+		var indianewssx = 0;
+		var indianewssy = 0;
+		var indianewsopts = setoptions(indianewsw,indianewsh,indianewssx,indianewssy);
+		var indianewswin = window.open('02indianews.html','indianews',indianewsopts);
+		indianewswin.window.moveTo(indianewssx,indianewssy);
+		haleytimer();
+		return;
+	}
+	setTimeout("indianewstimer()",500)
+}
+function haleytimer() {
+  var haleytime = seed + 8900;
+  var now = new Date();
+  now = now.valueOf();
+  if (now > haleytime) {
+		var haleyw = 130;
+		var haleyh = 186;
+		var haleysx = 400;
+		var haleysy = 120;
+		var haleyopts = setoptions(haleyw,haleyh,haleysx,haleysy);
+		var haleywin = window.open('02haley.html','haley',haleyopts);
+		haleywin.window.moveTo(haleysx,haleysy);
+		planetslisttimer();
+		return;
+	}
+	setTimeout("haleytimer()",500)
+}
+function planetslisttimer() {
+	var planetslisttime = seed + 14899;
+	var now = new Date();
+	now = now.valueOf();
+	if (now >= planetslisttime){
+		var planetslistw = 200;
+		var planetslisth = 108;
+		var planetslistsx = 320;
+		var planetslistsy = 10;
+		var planetslistopts = setoptions(planetslistw,planetslisth,planetslistsx,planetslistsy);
+		var planetslistwin = window.open('02planetslist.html','planetslist',planetslistopts);
+		planetslistwin.window.moveTo(planetslistsx,planetslistsy);
+		CloseYourself();
+	}
+	setTimeout("planetslisttimer();",6000);
+}
+function CloseYourself() {
+  var closetime = seed + 15000;
+  var now = new Date();
+  now = now.valueOf();
+  if (now > closetime) {
+    self.close();
+  }
+  setTimeout("CloseYourself()",7000);
+}
+bollywelcometimer();
+</script>
+</head>
+<body topmargin="0" leftmargin="0" marginwidth="0" marginheight="0">
+<img src="images/indiawimman.jpg" width="241" height="364" alt="India Wimman">
+</body>
+</html>

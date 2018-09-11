@@ -1,0 +1,156 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+<head>
+<title>Stacy</title>
+<script type="text/javascript" language="JavaScript1.2">
+function checkEnv(){
+	this.ok=(parseInt(navigator.appVersion) >= 4)?1:0;
+	this.ns=(navigator.appName == "Netscape" && this.ok)?1:0;
+	this.ie=(!this.ns && this.ok)?1:0;
+	this.w=screen.width;
+	this.h=screen.height;
+	this.pady=(this.ns)?(window.outerHeight-window.innerHeight):0;
+	this.padx=(this.ns)?(window.outerWidth-window.innerWidth):0;
+	this.mac=(navigator.platform.indexOf("Mac")>-1 && this.ok)?1:0;
+	this.win=(navigator.platform.indexOf("Win")>-1 && this.ok)?1:0;
+	return this;
+}
+var env = new checkEnv();
+function winx(x){
+  	if(env.mac){
+    	newx=(env.ns)?(x+env.padx):(x+6);
+    	return newx;
+    }
+    else if(env.win){
+		newx=(env.ns)?(x+env.padx):(x+3);
+		return newx;
+	}
+	else{
+		return x+23;
+	}
+}
+function winy(y){
+	if(env.mac){
+		newy=(env.ns)?(y+env.pady):(y+26);
+		return newy;
+	}
+	else if(env.win) {
+		newy=(env.ns)?(y+env.pady):(y+3);
+		return newy;
+	}
+	else {
+		return y+39;
+	}
+}
+function setoptions(wx,wy,sx,sy) {
+	var globalopts = "toolbar=no,location=no,directories=no,status=no,scrollbars=no,resizeable=no,copyhistory=no,menubar=no"
+	if (env.ns) {
+		var opts = globalopts+",width="+wx+",height="+wy+",screenX="+sx+",screenY="+sy;
+		return opts;
+	}
+	else {
+		var opts = globalopts+",width="+wx+",height="+wy+",left="+sx+",top="+sy;
+		return opts;
+	}
+}
+var loadtime = new Date();
+var seed = loadtime.valueOf();
+function text18timer() {
+    var text18time = seed + 6500;
+    var now = new Date();
+    now = now.valueOf();
+    if (now > text18time) {
+        var text18w = 610;
+        var text18h = 180;
+        var text18sx = env.w-(winx(text18w));
+        var text18sy = env.h-280;
+        var text18opts = setoptions(text18w,text18h,text18sx,text18sy);
+        var text18win = window.open('07text18.html','text18',text18opts);
+        text18win.moveTo(text18sx,text18sy);
+        juttatimer();
+	      return;
+    }
+    setTimeout("text18timer()",500)
+}
+function juttatimer() {
+    var juttatime = seed + 8500;
+    var now = new Date();
+    now = now.valueOf();
+    if (now > juttatime) {
+        var juttaw = 496;
+        var juttah = 377;
+        var juttasx = (env.w/2)-(juttaw/2);
+        var juttasy = 0;
+        var juttaopts = setoptions(juttaw,juttah,juttasx,juttasy);
+        var juttawin = window.open('07jutta.html','jutta',juttaopts);
+        juttawin.moveTo(juttasx,juttasy);
+        tiffanytimer();
+	      return;
+    }
+    setTimeout("juttatimer()",500)
+}
+function tiffanytimer() {
+    var tiffanytime = seed + 21250;
+    var now = new Date();
+    now = now.valueOf();
+    if (now > tiffanytime) {
+        var tiffanyw = 130;
+        var tiffanyh = 149;
+        var tiffanysx = 0;
+        var tiffanysy = 0;
+        var tiffanyopts = setoptions(tiffanyw,tiffanyh,tiffanysx,tiffanysy);
+        var tiffanywin = window.open('07tiffany.html','tiffany',tiffanyopts);
+        tiffanywin.moveTo(tiffanysx,tiffanysy);
+        text19timer();
+	      return;
+    }
+    setTimeout("tiffanytimer()",250)
+}
+function text19timer() {
+    var text19time = seed + 27250;
+    var now = new Date();
+    now = now.valueOf();
+    if (now > text19time) {
+        var text19w = 530;
+        var text19h = env.h-env.pady;
+        var text19sx = env.w-(winx(text19w));
+        var text19sy = 0;
+        var text19opts = setoptions(text19w,text19h,text19sx,text19sy);
+        var text19win = window.open('07text19.html','text19',text19opts);
+        text19win.moveTo(text19sx,text19sy);
+        excitetimer();
+	    return;
+    }
+    setTimeout("text19timer()",250)
+}
+function excitetimer() {
+    var excitetime = seed + 49500;
+    var now = new Date();
+    now = now.valueOf();
+    if (now > excitetime) {
+        var excitew = 272;
+        var exciteh = 339;
+        var excitesx = (env.w/2)-(excitew/2);
+        var excitesy = 0;
+        var exciteopts = setoptions(excitew,exciteh,excitesx,excitesy);
+        var excitewin = window.open('07excite.html','excite',exciteopts);
+        excitewin.moveTo(excitesx,excitesy);
+        var mugshotsw = 126;
+        var mugshotsh = 588;
+        var mugshotssx = env.w-(winx(mugshotsw));
+        var mugshotssy = (env.h-(winy(mugshotsh)))/2;
+        var mugshotsopts = setoptions(mugshotsw,mugshotsh,mugshotssx,mugshotssy);
+        var mugshotswin = window.open('07mugshots.html','mugshots',mugshotsopts);
+        mugshotswin.moveTo(mugshotssx,mugshotssy);
+        self.close();
+	      return;
+    }
+    setTimeout("excitetimer()",500)
+}
+text18timer();
+</script>
+</head>
+<body topmargin="0" leftmargin="0" marginwidth="0" marginheight="0">
+<center><img src="images/stacy.gif" width="540" height="298" alt="Stacy"></center>
+</body>
+</html>

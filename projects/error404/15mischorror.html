@@ -1,0 +1,78 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+<head>
+<title>Miscellaneous Horror</title>
+<script type="text/javascript" language="JavaScript1.2">
+function checkEnv(){
+	this.ok=(parseInt(navigator.appVersion) >= 4)?1:0;
+	this.ns=(navigator.appName == "Netscape" && this.ok)?1:0;
+	this.ie=(!this.ns && this.ok)?1:0;
+	this.w=screen.width;
+	this.h=screen.height;
+	return this;
+}
+env = new checkEnv();
+function setoptions(wx,wy,sx,sy) {
+	var globalopts = "toolbar=no,location=no,directories=no,status=no,scrollbars=no,resizeable=no,copyhistory=no,menubar=no"
+	if (env.ns) {
+		var opts = globalopts+",width="+wx+",height="+wy+",screenX="+sx+",screenY="+sy;
+		return opts;
+	}
+	else {
+		var opts = globalopts+",width="+wx+",height="+wy+",left="+sx+",top="+sy;
+		return opts;
+	}
+}
+var loadtime = new Date();
+var seed = loadtime.valueOf();
+function althorrortimer() {
+    var althorrortime = seed + 499;
+    var now = new Date();
+    now = now.valueOf();
+    if (now > althorrortime) {
+        var althorrorw = 473;
+        var althorrorh = 247;
+        var althorrorsx = 0;
+        var althorrorsy = 0;
+        var althorroropts = setoptions(althorrorw,althorrorh,althorrorsx,althorrorsy);
+        var althorrorwin = window.open('15althorror.html','althorror',althorroropts);
+        althorrorwin.moveTo(althorrorsx,althorrorsy);
+        text48timer();
+	      return;
+    }
+    setTimeout("althorrortimer()",500)
+}
+function text48timer() {
+    var text48time = seed + 5500;
+    var now = new Date();
+    now = now.valueOf();
+    if (now > text48time) {
+        var text48w = 720;
+        var text48h = 400;
+        var text48sx = env.w-(text48w+10);
+        var text48sy = 0;
+        var text48opts = setoptions(text48w,text48h,text48sx,text48sy);
+        var text48win = window.open('15text48.html','text48',text48opts);
+        text48win.moveTo(text48sx,text48sy);
+  	    CloseYourself();
+				return;
+    }
+    setTimeout("text48timer()",500)
+}
+function CloseYourself() {
+    var closetime = seed + 12000;
+    var now = new Date();
+    now = now.valueOf();
+    if (now > closetime) {
+        self.close();
+        return;
+    }
+    setTimeout("CloseYourself()",500)
+}
+althorrortimer();
+</script>
+</head>
+<body topmargin="0" leftmargin="0" marginwidth="0" marginheight="0">
+<center><img src="images/mischorror.jpg" width="590" height="100" alt="Miscellaneous Horror"></center>
+</body>
+</html>

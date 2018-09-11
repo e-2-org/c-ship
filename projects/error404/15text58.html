@@ -1,0 +1,29 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+<head>
+<title>58text</title>
+<script type="text/javascript" language="JavaScript1.2">
+var loadtime = new Date();
+var seed = loadtime.valueOf();
+function CloseYourself() {
+    var closetime = seed + 70000;
+    var now = new Date();
+    now = now.valueOf();
+    if (now > closetime) {
+        self.close();
+        return;
+    }
+    setTimeout("CloseYourself()",70001)
+}
+</script>
+</head>
+<body onLoad="CloseYourself();">
+<font face="Courier New,Courier"><font size=+3></font></font>&nbsp;
+<br><font face="Courier New,Courier"><font size=+3>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+and&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+The challenge of writing</font></font>
+<br><font face="Courier New,Courier"><font size=+3>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+...</font></font>
+<br><font face="Courier New,Courier"><font size=+3></font></font>&nbsp;
+</body>
+</html>

@@ -1,0 +1,166 @@
+<!doctype html public "-//w3c//dtd html 4.0 transitional//en">
+<html>
+<head>
+<title>37text</title>
+<script type="text/javascript" language="JavaScript1.2">
+function checkEnv(){
+	this.ok=(parseInt(navigator.appVersion) >= 4)?1:0;
+	this.ns=(navigator.appName == "Netscape" && this.ok)?1:0;
+	this.ie=(!this.ns && this.ok)?1:0;
+	this.w=screen.width;
+	this.h=screen.height;
+	this.pady=(this.ns)?(window.outerHeight-window.innerHeight):0;
+	this.padx=(this.ns)?(window.outerWidth-window.innerWidth):0;
+	this.mac=(navigator.platform.indexOf("Mac")>-1 && this.ok)?1:0;
+	this.win=(navigator.platform.indexOf("Win")>-1 && this.ok)?1:0;
+	return this;
+}
+var env = new checkEnv();
+function winx(x){
+  	if(env.mac){
+    	newx=(env.ns)?(x+env.padx):(x+6);
+    	return newx;
+    }
+    else if(env.win){
+		newx=(env.ns)?(x+env.padx):(x+3);
+		return newx;
+	}
+	else{
+		return x+23;
+	}
+}
+function winy(y){
+	if(env.mac){
+		newy=(env.ns)?(y+env.pady):(y+26);
+		return newy;
+	}
+	else if(env.win) {
+		newy=(env.ns)?(y+env.pady):(y+3);
+		return newy;
+	}
+	else {
+		return y+39;
+	}
+}
+function setoptions(wx,wy,sx,sy) {
+	var globalopts = "toolbar=no,location=no,directories=no,status=no,scrollbars=no,resizeable=no,copyhistory=no,menubar=no"
+	if (env.ns) {
+		var opts = globalopts+",width="+wx+",height="+wy+",screenX="+sx+",screenY="+sy;
+		return opts;
+	}
+	else {
+		var opts = globalopts+",width="+wx+",height="+wy+",left="+sx+",top="+sy;
+		return opts;
+	}
+}
+var loadtime = new Date();
+var seed = loadtime.valueOf();
+function worldseismicitytimer() {
+    var worldseismicitytime = seed + 499;
+    var now = new Date();
+    now = now.valueOf();
+    if (now > worldseismicitytime) {
+        var worldseismicityw = 516;
+        var worldseismicityh = 259;
+        var worldseismicitysx = 0;
+        var worldseismicitysy = env.h-(winy(worldseismicityh));
+        var worldseismicityopts = setoptions(worldseismicityw,worldseismicityh,worldseismicitysx,worldseismicitysy);
+        var worldseismicitywin = window.open('14worldseismicity.html','worldseismicity',worldseismicityopts);
+        worldseismicitywin.moveTo(worldseismicitysx,worldseismicitysy);
+        ulasilstriptimer();
+	      return;
+    }
+    setTimeout("worldseismicitytimer()",500)
+}
+function ulasilstriptimer() {
+    var ulasilstriptime = seed + 999;
+    var now = new Date();
+    now = now.valueOf();
+    if (now > ulasilstriptime) {
+        var ulasilstripw = 220;
+        var ulasilstriph = 495;
+        var ulasilstripsx = 0;
+        var ulasilstripsy = 0;
+        var ulasilstripopts = setoptions(ulasilstripw,ulasilstriph,ulasilstripsx,ulasilstripsy);
+        var ulasilstripwin = window.open('14ulasilstrip.html','ulasilstrip',ulasilstripopts);
+        ulasilstripwin.moveTo(ulasilstripsx,ulasilstripsy);
+        kraflaflowtimer();
+	      return;
+    }
+    setTimeout("ulasilstriptimer()",500)
+}
+function kraflaflowtimer() {
+    var kraflaflowtime = seed + 1499;
+    var now = new Date();
+    now = now.valueOf();
+    if (now > kraflaflowtime) {
+        var kraflafloww = 400;
+        var kraflaflowh = 274;
+        var kraflaflowsx = (env.w/2)-(kraflafloww/2);
+        var kraflaflowsy = 0;
+        var kraflaflowopts = setoptions(kraflafloww,kraflaflowh,kraflaflowsx,kraflaflowsy);
+        var kraflaflowwin = window.open('14kraflaflow.html','kraflaflow',kraflaflowopts);
+        kraflaflowwin.moveTo(kraflaflowsx,kraflaflowsy);
+        volcanoinbluetimer();
+	      return;
+    }
+    setTimeout("kraflaflowtimer()",500)
+}
+function volcanoinbluetimer() {
+    var volcanoinbluetime = seed + 1999;
+    var now = new Date();
+    now = now.valueOf();
+    if (now > volcanoinbluetime) {
+        var volcanoinbluew = 273;
+        var volcanoinblueh = 301;
+        var volcanoinbluesx = env.w-(winx(volcanoinbluew));
+        var volcanoinbluesy = 0;
+        var volcanoinblueopts = setoptions(volcanoinbluew,volcanoinblueh,volcanoinbluesx,volcanoinbluesy);
+        var volcanoinbluewin = window.open('14volcanoinblue.html','volcanoinblue',volcanoinblueopts);
+        volcanoinbluewin.moveTo(volcanoinbluesx,volcanoinbluesy);
+        text44timer();
+	      return;
+    }
+    setTimeout("volcanoinbluetimer()",500)
+}
+function text44timer() {
+    var text44time = seed + 10250;
+    var now = new Date();
+    now = now.valueOf();
+    if (now > text44time) {
+        var text44w = 820;
+        var text44h = 160;
+        var text44sx = env.w-(winx(text44w));
+        var text44sy = env.h-(winy(text44h));
+        var text44opts = setoptions(text44w,text44h,text44sx,text44sy);
+        var text44win = window.open('14text44.html','text44',text44opts);
+        text44win.moveTo(text44sx,text44sy);
+        self.close();
+	      return;
+    }
+    setTimeout("text44timer()",250)
+}
+worldseismicitytimer();
+</script>
+</head>
+<body>
+<b><font face="Arial,Helvetica"><font size=+3>CUTTING</font></font></b>
+<p><font face="Times New Roman,Times"><font size=+2>To Whom It May Concern:</font></font>
+<br><font face="Times New Roman,Times"><font size=+2>&nbsp;Kinemetrics
+is the only seismic instrumentation company</font></font>
+<br><font face="Times New Roman,Times"><font size=+2>that offers a full
+line of products, systems and services, both for</font></font>
+<br><font face="Times New Roman,Times"><font size=+2>earthquake engineering
+and for seismological applications. This unique</font></font>
+<br><font face="Times New Roman,Times"><font size=+2>ability enables us&nbsp;
+to recommend optimum instruments for almost any</font></font>
+<br><font face="Times New Roman,Times"><font size=+2>specialized application.
+Because of our unique position, we work closely</font></font>
+<br><font face="Times New Roman,Times"><font size=+2>with consultants and
+colleagues from prestigious scientific organizations,</font></font>
+<br><font face="Times New Roman,Times"><font size=+2>thereby ensuring that
+we remain in the forefront of technology.</font></font>
+<br>&nbsp;
+<br>&nbsp;
+</body>
+</html>

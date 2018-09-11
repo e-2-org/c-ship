@@ -1,0 +1,122 @@
+<!doctype html public "-//w3c//dtd html 4.0 transitional//en">
+<html>
+<head>
+<title>32text</title>
+<script type="text/javascript" language="JavaScript1.2">
+function checkEnv(){
+	this.ok=(parseInt(navigator.appVersion) >= 4)?1:0;
+	this.ns=(navigator.appName == "Netscape" && this.ok)?1:0;
+	this.ie=(!this.ns && this.ok)?1:0;
+	this.w=screen.width;
+	this.h=screen.height;
+	return this;
+}
+env = new checkEnv();
+function setoptions(wx,wy,sx,sy) {
+	var globalopts = "toolbar=no,location=no,directories=no,status=no,scrollbars=no,resizeable=no,copyhistory=no,menubar=no"
+	if (env.ns) {
+		var opts = globalopts+",width="+wx+",height="+wy+",screenX="+sx+",screenY="+sy;
+		return opts;
+	}
+	else {
+		var opts = globalopts+",width="+wx+",height="+wy+",left="+sx+",top="+sy;
+		return opts;
+	}
+}
+var loadtime = new Date();
+var seed = loadtime.valueOf();
+function ant52timer() {
+    var ant52time = seed + 4500;
+    var now = new Date();
+    now = now.valueOf();
+    if (now > ant52time) {
+        var ant52w = 216;
+        var ant52h = 100;
+        var ant52sx = (env.w/2)-230;
+        var ant52sy = (env.h/2)+100;
+        var ant52opts = setoptions(ant52w,ant52h,ant52sx,ant52sy);
+        var ant52win = window.open('11ant52.html','ant52',ant52opts);
+        ant52win.moveTo(ant52sx,ant52sy);
+        ant53timer();
+	      return;
+    }
+    setTimeout("ant52timer()",500)
+}
+function ant53timer() {
+    var ant53time = seed + 5000;
+    var now = new Date();
+    now = now.valueOf();
+    if (now > ant53time) {
+        var ant53w = 229;
+        var ant53h = 100;
+        var ant53sx = (env.w/2)+14;
+        var ant53sy = (env.h/2)+100;
+        var ant53opts = setoptions(ant53w,ant53h,ant53sx,ant53sy);
+        var ant53win = window.open('11ant53.html','ant53',ant53opts);
+        ant53win.moveTo(ant53sx,ant53sy);
+        text33timer();
+	      return;
+    }
+    setTimeout("ant53timer()",500)
+}
+function text33timer() {
+    var text33time = seed + 6000;
+    var now = new Date();
+    now = now.valueOf();
+    if (now > text33time) {
+        var text33w = 520;
+        var text33h = 150;
+        var text33sx = env.w-555;
+        var text33sy = 0;
+        var text33opts = setoptions(text33w,text33h,text33sx,text33sy);
+        var text33win = window.open('11text33.html','text33',text33opts);
+        text33win.moveTo(text33sx,text33sy);
+        barebattimer();
+	      return;
+    }
+    setTimeout("text33timer()",500)
+}
+function barebattimer() {
+    var barebattime = seed + 9000;
+    var now = new Date();
+    now = now.valueOf();
+    if (now > barebattime) {
+        var barebatw = 310;
+        var barebath = 356;
+        var barebatsx = 0;
+        var barebatsy = 0;
+        var barebatopts = setoptions(barebatw,barebath,barebatsx,barebatsy);
+        var barebatwin = window.open('11barebat.html','barebat',barebatopts);
+        barebatwin.moveTo(barebatsx,barebatsy);
+        self.close();
+	      return;
+    }
+    setTimeout("barebattimer()",500)
+}
+ant52timer();
+</script>
+</head>
+<body>
+<font face="AGaramond Italic"><font color="#1125FF"><font size=+2>I
+have now twice seen what looks like a FAT ANT like pregnant,</font></font></font>
+<br><font face="AGaramond Italic"><font color="#1125FF"><font size=+2>or
+like giant, 1 - 2 inches longwandering thru my grass.</font></font></font>
+<br><font face="AGaramond Italic"><font color="#1125FF"><font size=+2>BUT,
+the creature is colored bright orange with</font></font></font>
+<br><font face="AGaramond Italic"><font color="#1125FF"><font size=+2>black
+strips running side to side.</font></font></font>
+<br><font face="AGaramond Italic"><font color="#1125FF"><font size=+2>I
+think it’s a "velvet ant", which&nbsp; is a type of wingless wasp.</font></font></font>
+<br><font face="AGaramond Italic"><font color="#1125FF"><font size=+2>Wasps
+in general are beneficial insects, though</font></font></font>
+<br><font face="AGaramond Italic"><font color="#1125FF"><font size=+2>I'm
+not sure about this particular type of velvet ant.&nbsp; Some of</font></font></font>
+<br><font face="AGaramond Italic"><font color="#1125FF"><font size=+2>them
+parasitize flies or beetles, while others prey on bees and</font></font></font>
+<br><font face="AGaramond Italic"><font color="#1125FF"><font size=+2>wasps.&nbsp;
+They pack a powerful sting.</font></font></font>
+<br><font face="AGaramond Italic"><font color="#FF0000"><font size=+2>Should
+I kill it? MsL</font></font></font>
+<br>&nbsp;
+</body>
+</html>

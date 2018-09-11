@@ -1,0 +1,125 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+<head>
+<title>blue</title>
+<script type="text/javascript" language="JavaScript1.2">
+function checkEnv(){
+	this.ok=(parseInt(navigator.appVersion) >= 4)?1:0;
+	this.ns=(navigator.appName == "Netscape" && this.ok)?1:0;
+	this.ie=(!this.ns && this.ok)?1:0;
+	this.w=screen.width;
+	this.h=screen.height;
+	this.pady=(this.ns)?(window.outerHeight-window.innerHeight):0;
+	this.padx=(this.ns)?(window.outerWidth-window.innerWidth):0;
+	this.mac=(navigator.platform.indexOf("Mac")>-1 && this.ok)?1:0;
+	this.win=(navigator.platform.indexOf("Win")>-1 && this.ok)?1:0;
+	return this;
+}
+var env = new checkEnv();
+function winx(x){
+  	if(env.mac){
+    	newx=(env.ns)?(x+env.padx):(x+6);
+    	return newx;
+    }
+    else if(env.win){
+		newx=(env.ns)?(x+env.padx):(x+3);
+		return newx;
+	}
+	else{
+		return x+23;
+	}
+}
+function winy(y){
+	if(env.mac){
+		newy=(env.ns)?(y+env.pady):(y+26);
+		return newy;
+	}
+	else if(env.win) {
+		newy=(env.ns)?(y+env.pady):(y+3);
+		return newy;
+	}
+	else {
+		return y+39;
+	}
+}
+function setoptions(wx,wy,sx,sy) {
+	var globalopts = "toolbar=no,location=no,directories=no,status=no,scrollbars=no,resizeable=no,copyhistory=no,menubar=no"
+	if (env.ns) {
+		var opts = globalopts+",width="+wx+",height="+wy+",screenX="+sx+",screenY="+sy;
+		return opts;
+	}
+	else {
+		var opts = globalopts+",width="+wx+",height="+wy+",left="+sx+",top="+sy;
+		return opts;
+	}
+}
+var loadtime = new Date();
+var seed = loadtime.valueOf();
+function text07timer() {
+	var text07time = seed + 17750;
+	var now = new Date();
+	now = now.valueOf();
+	if (now > text07time) {
+		var text07w = 900;
+		var text07h = env.h-env.pady;
+		var text07sx = env.w-(winx(text07w));
+		var text07sy = 0;
+		var text07opts = setoptions(text07w,text07h,text07sx,text07sy);
+		var text07win = window.open('04text07.html','text07',text07opts);
+		text07win.moveTo(text07sx,text07sy);
+		text08timer();
+		return;
+	}
+	setTimeout("text07timer()",250)
+}
+function text08timer() {
+	var text08time = seed + 32250;
+	var now = new Date();
+	now = now.valueOf();
+	if (now > text08time) {
+		var text08w = 900;
+		var text08h = 250;
+		var text08sx = env.w-(winx(text08w));
+		var text08sy = 0;
+		var text08opts = setoptions(text08w,text08h,text08sx,text08sy);
+		var text08win = window.open('04text08.html','text08',text08opts);
+		text08win.moveTo(text08sx,text08sy);
+		nasatitletimer();
+		return;
+	}
+	setTimeout("text08timer()",1000)
+}
+function nasatitletimer() {
+	var nasatitletime = seed + 58250;
+	var now = new Date();
+	now = now.valueOf();
+	if (now > nasatitletime) {
+		var nasatitlew = 595;
+		var nasatitleh = 144;
+		var nasatitlesx = 0;
+		var nasatitlesy = 0;
+		var nasatitleopts = setoptions(nasatitlew,nasatitleh,nasatitlesx,nasatitlesy);
+		var nasatitlewin = window.open('04nasatitle.html','nasatitle',nasatitleopts);
+		nasatitlewin.moveTo(nasatitlesx,nasatitlesy);
+		CloseYourself();
+		return;
+	}
+	setTimeout("nasatitletimer()",500)
+}
+function CloseYourself() {
+  var closetime = seed + 75000;
+  var now = new Date();
+  now = now.valueOf();
+  if (now > closetime) {
+    self.close();
+    return;
+  }
+  setTimeout("CloseYourself()",1000)
+}
+text07timer();
+</script>
+</head>
+<body topmargin="0" leftmargin="0" marginwidth="0" marginheight="0">
+<center><img src="images/blue.gif" width="833" height="199" alt="blue"></center>
+</body>
+</html>

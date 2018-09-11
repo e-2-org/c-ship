@@ -1,0 +1,30 @@
+<!DOCTYPE html PUBLIC "-//w3c//dtd html 4.0 transitional//en">
+<html>
+<head>
+<title>text01</title>
+<script type="text/javascript" language="JavaScript1.2">
+var loadtime = new Date();
+var seed = loadtime.valueOf();
+function CloseYourself() {
+  var closetime = seed + 27875;
+  var now = new Date();
+  now = now.valueOf();
+  if (now > closetime) {
+    self.close();
+    return;
+  }
+  setTimeout("CloseYourself()",27876)
+}
+</script>
+</head>
+<body onLoad="CloseYourself();">
+<font face="Chicago"><font color="#FF0718"><font size="+1">Cars, Trucks,
+Motorcycles, Boats,  Real Estate Homes, Condos, Properties, Antiques, Coins,
+Toys, Apartments, Vacation Rentals, Roommates, Computers &amp; Software PCs,
+Macs, Notebooks, Relationships, Friends, Activity, Partners, General
+Merchandise Furniture, Books, Opportunities Services, Pets, Tickets Travel,
+Announcements, Recipes, Jokes</font></font></font> <br>
+ <br>
+ 
+</body>
+</html>

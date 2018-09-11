@@ -1,0 +1,26 @@
+<!doctype html public "-//w3c//dtd html 4.0 transitional//en">
+<html>
+<head>
+<title>10text</title>
+<script type="text/javascript" language="JavaScript1.2">
+var loadtime = new Date();
+var seed = loadtime.valueOf();
+function CloseYourself() {
+  var closetime = seed + 2500;
+  var now = new Date();
+  now = now.valueOf();
+  if (now > closetime) {
+    self.close();
+    return;
+  }
+  setTimeout("CloseYourself()",500)
+}
+</script>
+</head>
+<body onLoad="CloseYourself();">
+<b><font face="Courier New,Courier"><font color="#94179B"><font size=+3>“I
+Am Forever In Debt To Your Priceless Advice”</font></font></font></b>
+<br><b><font face="Courier New,Courier"><font color="#94179B"><font size=+2>&nbsp;this
+reply was on a postcard.</font></font></font></b>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+<head>
+<title>Daughter</title>
+<script type="text/javascript" language="JavaScript1.2">
+function checkEnv(){
+	this.ok=(parseInt(navigator.appVersion) >= 4)?1:0;
+	this.ns=((navigator.appName == "Netscape") && this.ok)?1:0;
+	this.ie=(!this.ns && this.ok)?1:0;
+	this.w=screen.width;
+	this.h=screen.height;
+	return this;
+}
+env = new checkEnv();
+var x = (env.ns)?window.screenX:(env.w-250);
+var y = (env.ns)?window.screenY:0;
+var w=(env.ns)?window.outerWidth:218;
+var h=(env.ns)?window.outerHeight:279;
+function MoveDown() {
+  var dy = 1;
+  y += dy;
+  if (((env.ns) && (y<(env.h-h)))||((env.ie) && (y<env.h))) {
+     self.moveTo(x,y);
+  }
+  else {
+     self.close();
+  }
+	setTimeout("MoveDown();",100);
+}
+</script>
+</head>
+<body onLoad="MoveDown();" topmargin="0" leftmargin="0" marginwidth="0" marginheight="0">
+<center><img src="images/daughter.jpg" width="218" height="279" alt="Daughter"></center>
+</body>
+</html>

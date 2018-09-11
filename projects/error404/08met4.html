@@ -1,0 +1,149 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+<head>
+<title>Meteor</title>
+<script type="text/javascript" language="JavaScript1.2">
+function checkEnv(){
+	this.ok=(parseInt(navigator.appVersion) >= 4)?1:0;
+	this.ns=(navigator.appName == "Netscape" && this.ok)?1:0;
+	this.ie=(!this.ns && this.ok)?1:0;
+	this.w=screen.width;
+	this.h=screen.height;
+	this.pady=(this.ns)?(window.outerHeight-window.innerHeight):0;
+	this.padx=(this.ns)?(window.outerWidth-window.innerWidth):0;
+	this.mac=(navigator.platform.indexOf("Mac")>-1 && this.ok)?1:0;
+	this.win=(navigator.platform.indexOf("Win")>-1 && this.ok)?1:0;
+	return this;
+}
+var env = new checkEnv();
+function winx(x){
+  	if(env.mac){
+    	newx=(env.ns)?(x+env.padx):(x+6);
+    	return newx;
+    }
+    else if(env.win){
+		newx=(env.ns)?(x+env.padx):(x+3);
+		return newx;
+	}
+	else{
+		return x+23;
+	}
+}
+function winy(y){
+	if(env.mac){
+		newy=(env.ns)?(y+env.pady):(y+26);
+		return newy;
+	}
+	else if(env.win) {
+		newy=(env.ns)?(y+env.pady):(y+3);
+		return newy;
+	}
+	else {
+		return y+39;
+	}
+}
+function setoptions(wx,wy,sx,sy) {
+	var globalopts = "toolbar=no,location=no,directories=no,status=no,scrollbars=no,resizeable=no,copyhistory=no,menubar=no"
+	if (env.ns) {
+		var opts = globalopts+",width="+wx+",height="+wy+",screenX="+sx+",screenY="+sy;
+		return opts;
+	}
+	else {
+		var opts = globalopts+",width="+wx+",height="+wy+",left="+sx+",top="+sy;
+		return opts;
+	}
+}
+var loadtime = new Date();
+var seed = loadtime.valueOf();
+function iconbigtimer() {
+    var iconbigtime = seed + 52500;
+    var now = new Date();
+    now = now.valueOf();
+    if (now > iconbigtime) {
+        var iconbigw = 100;
+        var iconbigh = 100;
+        var iconbigsx = env.w-(winx(iconbigw));
+        var iconbigsy = 120;
+        var iconbigopts = setoptions(iconbigw,iconbigh,iconbigsx,iconbigsy);
+        var iconbigwin = window.open('08iconbig.html','iconbig',iconbigopts);
+        iconbigwin.moveTo(iconbigsx,iconbigsy);
+        disaster45timer();
+	      return;
+    }
+    setTimeout("iconbigtimer()",500)
+}
+function disaster45timer() {
+    var disaster45time = seed + 62500;
+    var now = new Date();
+    now = now.valueOf();
+    if (now > disaster45time) {
+        var disaster45w = 959;
+        var disaster45h = 100;
+        var disaster45sx = 0;
+        var disaster45sy = 0;
+        var disaster45opts = setoptions(disaster45w,disaster45h,disaster45sx,disaster45sy);
+        var disaster45win = window.open('08disaster45.html','disaster45',disaster45opts);
+        disaster45win.moveTo(disaster45sx,disaster45sy);
+        ciabombtimer();
+	    return;
+    }
+    setTimeout("disaster45timer()",500)
+}
+function ciabombtimer() {
+    var ciabombtime = seed + 66000;
+    var now = new Date();
+    now = now.valueOf();
+    if (now > ciabombtime) {
+        var ciabombw = 400;
+        var ciabombh = 221;
+        var ciabombsx = 0;
+        var ciabombsy = env.h-(winy(ciabombh));
+        var ciabombopts = setoptions(ciabombw,ciabombh,ciabombsx,ciabombsy);
+        var ciabombwin = window.open('08ciabomb.html','ciabomb',ciabombopts);
+        ciabombwin.moveTo(ciabombsx,ciabombsy);
+        manmadetimer();
+	    return;
+    }
+    setTimeout("ciabombtimer()",500)
+}
+function manmadetimer() {
+    var manmadetime = seed + 66500;
+    var now = new Date();
+    now = now.valueOf();
+    if (now > manmadetime) {
+        var manmadew = 750;
+        var manmadeh = 270;
+        var manmadesx = env.w-(winx(manmadew));
+        var manmadesy = env.h-(winy(manmadeh));
+        var manmadeopts = setoptions(manmadew,manmadeh,manmadesx,manmadesy);
+        var manmadewin = window.open('08manmade.html','manmade',manmadeopts);
+        manmadewin.moveTo(manmadesx,manmadesy);
+        var text21w = 480;
+        var text21h = 250;
+        var text21sx = (env.w/2)-(text21w/2);
+        var text21sy = 0;
+        var text21opts = setoptions(text21w,text21h,text21sx,text21sy);
+        var text21win = window.open('08text21.html','text21',text21opts);
+        text21win.moveTo(text21sx,text21sy);
+        CloseYourself();
+	      return;
+    }
+    setTimeout("manmadetimer()",500)
+}
+function CloseYourself() {
+    var closetime = seed + 72500;
+    var now = new Date();
+    now = now.valueOf();
+    if (now > closetime) {
+        self.close();
+        return;
+    }
+    setTimeout("CloseYourself()",1000)
+}
+iconbigtimer();
+</script>
+</head>
+<body topmargin="0" leftmargin="0" marginwidth="0" marginheight="0">
+<center><img src="images/met4.gif" width="276" height="196" alt="Meteor"></center>
+</body>
+</html>

@@ -1,0 +1,149 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+<head>
+<title>53text</title>
+<script type="text/javascript" language="JavaScript1.2">
+function checkEnv(){
+	this.ok=(parseInt(navigator.appVersion) >= 4)?1:0;
+	this.ns=(navigator.appName == "Netscape" && this.ok)?1:0;
+	this.ie=(!this.ns && this.ok)?1:0;
+	this.w=screen.width;
+	this.h=screen.height;
+	this.pady=(this.ns)?(window.outerHeight-window.innerHeight):0;
+	this.padx=(this.ns)?(window.outerWidth-window.innerWidth):0;
+	this.mac=(navigator.platform.indexOf("Mac")>-1 && this.ok)?1:0;
+	this.win=(navigator.platform.indexOf("Win")>-1 && this.ok)?1:0;
+	return this;
+}
+var env = new checkEnv();
+function winx(x){
+  	if(env.mac){
+    	newx=(env.ns)?(x+env.padx):(x+6);
+    	return newx;
+    }
+    else if(env.win){
+		newx=(env.ns)?(x+env.padx):(x+3);
+		return newx;
+	}
+	else{
+		return x+23;
+	}
+}
+function winy(y){
+	if(env.mac){
+		newy=(env.ns)?(y+env.pady):(y+26);
+		return newy;
+	}
+	else if(env.win) {
+		newy=(env.ns)?(y+env.pady):(y+3);
+		return newy;
+	}
+	else {
+		return y+39;
+	}
+}
+function setoptions(wx,wy,sx,sy) {
+	var globalopts = "toolbar=no,location=no,directories=no,status=no,scrollbars=no,resizeable=no,copyhistory=no,menubar=no"
+	if (env.ns) {
+		var opts = globalopts+",width="+wx+",height="+wy+",screenX="+sx+",screenY="+sy;
+		return opts;
+	}
+	else {
+		var opts = globalopts+",width="+wx+",height="+wy+",left="+sx+",top="+sy;
+		return opts;
+	}
+}
+var loadtime = new Date();
+var seed = loadtime.valueOf();
+function subscribetimer() {
+    var subscribetime = seed + 3500;
+    var now = new Date();
+    now = now.valueOf();
+    if (now > subscribetime) {
+        var subscribew = 131;
+        var subscribeh = 328;
+        var subscribesx = env.w-(winx(subscribew));
+        var subscribesy = 0;
+        var subscribeopts = setoptions(subscribew,subscribeh,subscribesx,subscribesy);
+        var subscribewin = window.open('16subscribe.html','subscribe',subscribeopts);
+        subscribewin.moveTo(subscribesx,subscribesy);
+        atoztimer();
+	    return;
+    }
+    setTimeout("subscribetimer()",500)
+}
+function atoztimer() {
+    var atoztime = seed + 14000;
+    var now = new Date();
+    now = now.valueOf();
+    if (now > atoztime) {
+        var atozw = 799;
+        var atozh = 416;
+        var atozsx = env.w-(winx(atozw));
+        var atozsy = (env.h/2)-(atozh/2);
+        var atozopts = setoptions(atozw,atozh,atozsx,atozsy);
+        var atozwin = window.open('16atoz.html','atoz',atozopts);
+        atozwin.moveTo(atozsx,atozsy);
+        notfoundtimer();
+	      return;
+    }
+    setTimeout("atoztimer()",500)
+}
+function notfoundtimer() {
+    var notfoundtime = seed + 14500;
+    var now = new Date();
+    now = now.valueOf();
+    if (now > notfoundtime) {
+        var notfoundw = 354;
+        var notfoundh = 363;
+        var notfoundsx = 0;
+        var notfoundsy = 0;
+        var notfoundopts = setoptions(notfoundw,notfoundh,notfoundsx,notfoundsy);
+        var notfoundwin = window.open('16notfound.html','notfound',notfoundopts);
+        notfoundwin.moveTo(notfoundsx,notfoundsy);
+        CloseYourself();
+	    return;
+    }
+    setTimeout("notfoundtimer()",500)
+}
+function CloseYourself() {
+    var closetime = seed + 20000;
+    var now = new Date();
+    now = now.valueOf();
+    if (now > closetime) {
+        self.close();
+        return;
+    }
+    setTimeout("CloseYourself()",500)
+}
+subscribetimer();
+</script>
+</head>
+<body>
+<p>she decided to listen to a tape, which turned out to be largley about the wether again and was a chat which sounded like a phone call between Mrs L and everal other people; Mrs L started the call by asking - . What
+                                       kind of weather are you experiencing where you are? Look out your window...
+
+it’s  mild but mostly sunny 
+                               The local ocean temperature has dropped 10 degrees in the last week, no only increasing the shrinkage  factor, but cooling off the sea breeze as well. The days have all peaked near 70 degrees on the coast. It is  expected to get more humid from tropical moisture, and a little warmer. 
+
+Ben = what in the world is going on  We just about got to 90 today, or was that yesterday, but only got up to 89. Nice day. Not too humid at all. Right now, I took Carlos
+                               out so he could water the pee bush and it was a little foggy and you could see the moon coming through. I
+didn't blush though. 
+
+                               SIGH!  ()  Frightening thunder storms 
+                               "A dream is a wish your heart desires" 
+09:35am
+.... last night. Supposed to happen again today. Hot hazy and humid! 
+
+                             We're under a thunderstorm watch as we speak. Sigh, I'm gonna take a nap and I'll .... SIGH!    Sweet Dreams! 
+
+                             what about the Lady of Mystery  (  Am I Seeing Double? )
+                              "Sometimes, with luck, we find the kind of true friend, male or female, that appears only two or three times in a lucky
+                              lifetime, one that will winter us and summer us, grieve, rejoice, and travel with us." 
+ Huh?  "practice random acts of intelligence and sensless acts of self control" 
+ Ben -  Today was a pleasant day that ranged from 57 to 65 at the airport. A little hazy, with some coastal clouds and a sea breeze, but no tornados around here.
+ Today  it was cloudy, humid, and breezy. Expecting storms tomorrow, possibly severe. ( Not again!!) 
+Like the wind the years fly by... Life is short... it's up to you to make it sweet."
+                              It's a PERFECT day! Not a cloud, blue, blue sky, expected to be in the low 70's. It really goes with those soft green leaves, just out on the trees, and the many flowering trees, bushes and flowers... ~sigh~ Utter perfection, so I should get OFF...</p>
+</body>
+</html>

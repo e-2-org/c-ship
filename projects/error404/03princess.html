@@ -1,0 +1,24 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+<head>
+<title>Princess Bride</title>
+<script type="text/javascript" language="JavaScript1.2">
+var loadtime = new Date();
+var seed = loadtime.valueOf();
+function CloseYourself() {
+  var closetime = seed + 24750;
+  var now = new Date();
+  now = now.valueOf();
+  if (now > closetime) {
+    self.close();
+    return;
+  }
+  setTimeout("CloseYourself()",24751
+	)
+}
+</script>
+</head>
+<body topmargin="0" leftmargin="0" marginwidth="0" marginheight="0" onLoad="CloseYourself();">
+<center><img src="images/princessbride.gif" width="345" height="285" alt="Princess Bride"></center>
+</body>
+</html>

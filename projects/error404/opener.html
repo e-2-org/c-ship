@@ -1,0 +1,14 @@
+<script>
+function setoptions(wx,wy,sx,sy) {
+	var globalopts = "toolbar=no,location=no,directories=no,status=no,scrollbars=no,resizeable=no,copyhistory=no,menubar=no"
+    var opts = globalopts + ",width=" + wx + ",height=" + wy + ",left=" + sx + ",top=" + sy;
+	return opts;
+}
+var scrollerw = 1024;
+var scrollerh = 100;
+var scrollersx = 0;
+var scrollersy = ((screen.height/2)-50);
+var scrolleropts = setoptions(scrollerw,scrollerh,scrollersx,scrollersy);
+window.open('index.html','scroller',scrolleropts);
+self.close();
+</script>

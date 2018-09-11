@@ -1,0 +1,23 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+<head>
+<title>Meteor ste http</title>
+<script type="text/javascript" language="JavaScript1.2">
+var loadtime = new Date();
+var seed = loadtime.valueOf();
+function CloseYourself() {
+    var closetime = seed + 76000;
+    var now = new Date();
+    now = now.valueOf();
+    if (now > closetime) {
+        self.close();
+        return;
+    }
+    setTimeout("CloseYourself()",76001)
+}
+</script>
+</head>
+<body onLoad="CloseYourself();" bgcolor="#CFCFCF" topmargin="0" leftmargin="0" marginwidth="0" marginheight="0">
+<img src="images/meteorsitehttp.gif" width="436" height="20" vspace="30" alt="Meteor ste http">
+</body>
+</html>

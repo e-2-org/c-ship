@@ -1,0 +1,52 @@
+<!doctype html public "-//w3c//dtd html 4.0 transitional//en">
+<html>
+<head>
+<title>30text</title>
+<script type="text/javascript" language="JavaScript1.2">
+function checkEnv(){
+	this.ok=(parseInt(navigator.appVersion) >= 4)?1:0;
+	this.ns=(navigator.appName == "Netscape" && this.ok)?1:0;
+	this.ie=(!this.ns && this.ok)?1:0;
+	this.w=screen.width;
+	this.h=screen.height;
+	return this;
+}
+env = new checkEnv();
+function setoptions(wx,wy,sx,sy) {
+	var globalopts = "toolbar=no,location=no,directories=no,status=no,scrollbars=no,resizeable=no,copyhistory=no,menubar=no"
+	if (env.ns) {
+		var opts = globalopts+",width="+wx+",height="+wy+",screenX="+sx+",screenY="+sy;
+		return opts;
+	}
+	else {
+		var opts = globalopts+",width="+wx+",height="+wy+",left="+sx+",top="+sy;
+		return opts;
+	}
+}
+var loadtime = new Date();
+var seed = loadtime.valueOf();
+function text31timer() {
+    var text31time = seed + 26999;
+    var now = new Date();
+    now = now.valueOf();
+    if (now > text31time) {
+        var text31w = 700;
+        var text31h = 260;
+        var text31sx = (env.w/2)-(text31w/2);
+        var text31sy = (env.h/2)+100;
+        var text31opts = setoptions(text31w,text31h,text31sx,text31sy);
+        var text31win = window.open('11text31.html','text31',text31opts);
+        text31win.moveTo(text31sx,text31sy);
+        self.close();
+	      return;
+    }
+    setTimeout("text31timer()",27000)
+}
+text31timer();
+</script>
+</head>
+<body>
+<font face="Chicago"><font size=+2>&nbsp;21,000 tonnes were handled
+and&nbsp; it is set soar to over 30,000 tonnes.</font></font>
+</body>
+</html>

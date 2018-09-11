@@ -1,0 +1,95 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+<head>
+<title>PCard title</title>
+<script type="text/javascript" language="JavaScript1.2">
+function checkEnv(){
+	this.ok=(parseInt(navigator.appVersion) >= 4)?1:0;
+	this.ns=(navigator.appName == "Netscape" && this.ok)?1:0;
+	this.ie=(!this.ns && this.ok)?1:0;
+	this.w=screen.width;
+	this.h=screen.height;
+	this.pady=(this.ns)?(window.outerHeight-window.innerHeight):0;
+	this.padx=(this.ns)?(window.outerWidth-window.innerWidth):0;
+	return this;
+	return this;
+}
+env = new checkEnv();
+function setoptions(wx,wy,sx,sy) {
+	var globalopts = "toolbar=no,location=no,directories=no,status=no,scrollbars=no,resizeable=no,copyhistory=no,menubar=no"
+	if (env.ns) {
+		var opts = globalopts+",width="+wx+",height="+wy+",screenX="+sx+",screenY="+sy;
+		return opts;
+	}
+	else {
+		var opts = globalopts+",width="+wx+",height="+wy+",left="+sx+",top="+sy;
+		return opts;
+	}
+}
+var loadtime = new Date();
+var seed = loadtime.valueOf();
+function cardstimer() {
+    var cardstime = seed + 500;
+    var now = new Date();
+    now = now.valueOf();
+    if (now > cardstime) {
+        var ruinw = 100;
+        var ruinh = 100;
+        var ruinsx = 50;
+        var ruinsy = 50;
+        var ruinopts = setoptions(ruinw,ruinh,ruinsx,ruinsy);
+        var ruinwin = window.open('05ruin.html','ruin',ruinopts);
+        ruinwin.moveTo(ruinsx,ruinsy);
+        var towerw = 100;
+        var towerh = 100;
+        var towersx = (env.w/2)-50;
+        var towersy = 50;
+        var toweropts = setoptions(towerw,towerh,towersx,towersy);
+        var towerwin = window.open('05tower.html','tower',toweropts);
+        towerwin.moveTo(towersx,towersy);
+        var pyramidw = 100;
+        var pyramidh = 100;
+        var pyramidsx = env.w-pyramidw-50;
+        var pyramidsy = 50;
+        var pyramidopts = setoptions(pyramidw,pyramidh,pyramidsx,pyramidsy);
+        var pyramidwin = window.open('05pyramid.html','pyramid',pyramidopts);
+        pyramidwin.moveTo(pyramidsx,pyramidsy);
+        text11timer();
+	      return;
+    }
+    setTimeout("cardstimer()",501)
+}
+function text11timer() {
+    var text11time = seed + 11500;
+    var now = new Date();
+    now = now.valueOf();
+    if (now > text11time) {
+        var text11w = 200;
+        var text11h = 320;
+        var text11sx = env.w-250;
+        var text11sy = env.h-text11h;
+        var text11opts = setoptions(text11w,text11h,text11sx,text11sy);
+        var text11win = window.open('05text11.html','text11',text11opts);
+        text11win.moveTo(text11sx,text11sy);
+        CloseYourself();
+	      return;
+    }
+    setTimeout("text11timer()",1000)
+}
+function CloseYourself() {
+    var closetime = seed + 33500;
+    var now = new Date();
+    now = now.valueOf();
+    if (now > closetime) {
+        self.close();
+        return;
+    }
+    setTimeout("CloseYourself()",1000)
+}
+cardstimer();
+</script>
+</head>
+<body topmargin="0" leftmargin="0" marginwidth="0" marginheight="0">
+<center><img src="images/pcardtitle.gif" width="528" height="101" alt="Pcards title"></center>
+</body>
+</html>

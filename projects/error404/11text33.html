@@ -1,0 +1,27 @@
+<!doctype html public "-//w3c//dtd html 4.0 transitional//en">
+<html>
+<head>
+<title>33text</title>
+<script type="text/javascript" language="JavaScript1.2">
+var loadtime = new Date();
+var seed = loadtime.valueOf();
+function CloseYourself() {
+    var closetime = seed + 9000;
+    var now = new Date();
+    now = now.valueOf();
+    if (now > closetime) {
+        self.close();
+        return;
+    }
+    setTimeout("CloseYourself()",9001)
+}
+</script>
+</head>
+<body onLoad="CloseYourself();">
+<b><font size=+1></font></b>&nbsp;<b><font size=+1></font></b>
+<p><b><font size=+1>"After these things Jesus walked in Galilee: for he
+would not</font></b>
+<br><b><font size=+1>walk in Jewry, because the Jews sought to kill him."&nbsp;
+John 7:1</font></b>
+</body>
+</html>

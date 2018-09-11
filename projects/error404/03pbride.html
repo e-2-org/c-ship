@@ -1,0 +1,108 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+<head>
+<title>PBride Helga</title>
+<script type="text/javascript" language="JavaScript1.2">
+function checkEnv(){
+	this.ok=(parseInt(navigator.appVersion) >= 4)?1:0;
+	this.ns=(navigator.appName == "Netscape" && this.ok)?1:0;
+	this.ie=(!this.ns && this.ok)?1:0;
+	this.w=screen.width;
+	this.h=screen.height;
+	this.pady=(this.ns)?(window.outerHeight-window.innerHeight):0;
+	this.padx=(this.ns)?(window.outerWidth-window.innerWidth):0;
+	this.mac=(navigator.platform.indexOf("Mac")>-1 && this.ok)?1:0;
+	this.win=(navigator.platform.indexOf("Win")>-1 && this.ok)?1:0;
+	return this;
+}
+var env = new checkEnv();
+function winx(x){
+  	if(env.mac){
+    	newx=(env.ns)?(x+env.padx):(x+6);
+    	return newx;
+    }
+    else if(env.win){
+		newx=(env.ns)?(x+env.padx):(x+3);
+		return newx;
+	}
+	else{
+		return x+23;
+	}
+}
+function winy(y){
+	if(env.mac){
+		newy=(env.ns)?(y+env.pady):(y+26);
+		return newy;
+	}
+	else if(env.win) {
+		newy=(env.ns)?(y+env.pady):(y+3);
+		return newy;
+	}
+	else {
+		return y+39;
+	}
+}
+function setoptions(wx,wy,sx,sy) {
+	var globalopts = "toolbar=no,location=no,directories=no,status=no,scrollbars=no,resizeable=no,copyhistory=no,menubar=no"
+	if (env.ns) {
+		var opts = globalopts+",width="+wx+",height="+wy+",screenX="+sx+",screenY="+sy;
+		return opts;
+	}
+	else {
+		var opts = globalopts+",width="+wx+",height="+wy+",left="+sx+",top="+sy;
+		return opts;
+	}
+}
+var loadtime = new Date();
+var seed = loadtime.valueOf();
+function text06timer() {
+	var text06time = seed + 9750;
+	var now = new Date();
+	now = now.valueOf();
+	if (now > text06time) {
+		var text06w = 750;
+		var text06h = 300;
+		var text06sx = env.w-(winx(text06w));
+		var text06sy = env.h-(winy(text06h));
+		var text06opts = setoptions(text06w,text06h,text06sx,text06sy);
+		var text06win = window.open('03text06.html','text06',text06opts);
+		text06win.moveTo(text06sx,text06sy);
+		nasasitetimer();
+		return;
+	}
+	setTimeout("text06timer()",250)
+}
+function nasasitetimer() {
+	var nasasitetime = seed + 15000;
+	var now = new Date();
+	now = now.valueOf();
+	if (now > nasasitetime) {
+		var nasasitew = 150;
+		var nasasiteh = 120;
+		var nasasitesx = 0;
+		var nasasitesy = 0;
+		var nasasiteopts = setoptions(nasasitew,nasasiteh,nasasitesx,nasasitesy);
+		var nasasitewin = window.open('03nasasites.html','nasasite',nasasiteopts);
+		nasasitewin.moveTo(nasasitesx,nasasitesy);
+		CloseYourself();
+		return;
+	}
+	setTimeout("nasasitetimer()",500)
+}
+function CloseYourself() {
+  var closetime = seed + 21000;
+  var now = new Date();
+  now = now.valueOf();
+  if (now > closetime) {
+    self.close();
+    return;
+  }
+  setTimeout("CloseYourself()",1000)
+}
+text06timer();
+</script>
+</head>
+<body topmargin="0" leftmargin="0" marginwidth="0" marginheight="0">
+<center><img src="images/PBridehelga12.gif" width="100" height="142" alt="PBrideHelga12"></center>
+</body>
+</html>

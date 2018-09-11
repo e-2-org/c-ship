@@ -1,0 +1,109 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+<head>
+<title>Sermon</title>
+<script type="text/javascript" language="JavaScript1.2">
+function checkEnv(){
+	this.ok=(parseInt(navigator.appVersion) >= 4)?1:0;
+	this.ns=(navigator.appName == "Netscape" && this.ok)?1:0;
+	this.ie=(!this.ns && this.ok)?1:0;
+	this.w=screen.width;
+	this.h=screen.height;
+	return this;
+}
+env = new checkEnv();
+function setoptions(wx,wy,sx,sy) {
+	var globalopts = "toolbar=no,location=no,directories=no,status=no,scrollbars=no,resizeable=no,copyhistory=no,menubar=no"
+	if (env.ns) {
+		var opts = globalopts+",width="+wx+",height="+wy+",screenX="+sx+",screenY="+sy;
+		return opts;
+	}
+	else {
+		var opts = globalopts+",width="+wx+",height="+wy+",left="+sx+",top="+sy;
+		return opts;
+	}
+}
+var loadtime = new Date();
+var seed = loadtime.valueOf();
+function text16timer() {
+    var text16time = seed + 2500;
+    var now = new Date();
+    now = now.valueOf();
+    if (now > text16time) {
+        var text16w = 600;
+        var text16h = 100;
+        var text16sx = env.w-650;
+        var text16sy = (env.h/2);
+        var text16opts = setoptions(text16w,text16h,text16sx,text16sy);
+        var text16win = window.open('07text16.html','text16',text16opts);
+        text16win.moveTo(text16sx,text16sy);
+        miracletimer();
+	      return;
+    }
+    setTimeout("text16timer()",2501)
+}
+function miracletimer() {
+    var miracletime = seed + 3000;
+    var now = new Date();
+    now = now.valueOf();
+    if (now > miracletime) {
+        var miraclew = 439;
+        var miracleh = 240;
+        var miraclesx = env.w-470;
+        var miraclesy = 0;
+        var miracleopts = setoptions(miraclew,miracleh,miraclesx,miraclesy);
+        var miraclewin = window.open('07miraclelibrary.html','miracle',miracleopts);
+        miraclewin.moveTo(miraclesx,miraclesy);
+        fatimatimer();
+	      return;
+    }
+    setTimeout("miracletimer()",500)
+}
+function fatimatimer() {
+    var fatimatime = seed + 9500;
+    var now = new Date();
+    now = now.valueOf();
+    if (now > fatimatime) {
+        var fatimaw = 197;
+        var fatimah = 452;
+        var fatimasx = env.w-300;
+        var fatimasy = env.h-(fatimah+50);
+        var fatimaopts = setoptions(fatimaw,fatimah,fatimasx,fatimasy);
+        var fatimawin = window.open('07fatima.html','fatima',fatimaopts);
+        fatimawin.moveTo(fatimasx,fatimasy);
+        var fatimkidsw = 241;
+        var fatimkidsh = 165;
+        var fatimkidssx = 0;
+        var fatimkidssy = env.h-220;
+        var fatimkidsopts = setoptions(fatimkidsw,fatimkidsh,fatimkidssx,fatimkidssy);
+        var fatimkidswin = window.open('07fatimkids.html','fatimkids',fatimkidsopts);
+        fatimkidswin.moveTo(fatimkidssx,fatimkidssy);
+        var fatimatextw = 500;
+        var fatimatexth = 326;
+        var fatimatextsx = 0;
+        var fatimatextsy = 0;
+        var fatimatextopts = setoptions(fatimatextw,fatimatexth,fatimatextsx,fatimatextsy);
+        var fatimatextwin = window.open('07fatimatext.html','fatimatext',fatimatextopts);
+        fatimatextwin.moveTo(fatimatextsx,fatimatextsy);
+        CloseYourself();
+	      return;
+    }
+    setTimeout("fatimatimer()",500)
+}
+function CloseYourself() {
+    var closetime = seed + 32500;
+    var now = new Date();
+    now = now.valueOf();
+    if (now > closetime) {
+        self.close();
+        return;
+    }
+    setTimeout("CloseYourself()",1000)
+}
+text16timer();
+</script>
+</head>
+<body topmargin="0" leftmargin="0" marginwidth="0" marginheight="0">
+<center><img src="images/sermon.gif" width="400" height="276" alt="Sermon"></center>
+</body>
+</html>

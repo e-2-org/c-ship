@@ -1,0 +1,29 @@
+<!doctype html public "-//w3c//dtd html 4.0 transitional//en">
+<html>
+<head>
+<title>15text</title>
+<script type="text/javascript" language="JavaScript1.2">
+var loadtime = new Date();
+var seed = loadtime.valueOf();
+function CloseYourself() {
+    var closetime = seed + 17750;
+    var now = new Date();
+    now = now.valueOf();
+    if (now > closetime) {
+        self.close();
+        return;
+    }
+    setTimeout("CloseYourself()",17751)
+}
+</script>
+</head>
+<body onLoad="CloseYourself();">
+<font face="Courier New,Courier"><font size=+2>("I do origami. Can
+you help me?")</font></font>
+<br><font face="Courier New,Courier"><font size=+2>&nbsp;saying</font></font>
+<br><font face="AGaramond Italic"><font size=+2>“The way you get the boxes
+inside the boxes is to use progressively smaller pieces of paper. happy
+folding... "</font></font>
+<br>&nbsp;
+</body>
+</html>

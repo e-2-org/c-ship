@@ -1,0 +1,139 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+<head>
+<title>Mouse Hand only</title>
+<script type="text/javascript" language="JavaScript1.2">
+function checkEnv(){
+	this.ok=(parseInt(navigator.appVersion) >= 4)?1:0;
+	this.ns=(navigator.appName == "Netscape" && this.ok)?1:0;
+	this.ie=(!this.ns && this.ok)?1:0;
+	this.w=screen.width;
+	this.h=screen.height;
+	this.pady=(this.ns)?(window.outerHeight-window.innerHeight):0;
+	this.padx=(this.ns)?(window.outerWidth-window.innerWidth):0;
+	this.mac=(navigator.platform.indexOf("Mac")>-1 && this.ok)?1:0;
+	this.win=(navigator.platform.indexOf("Win")>-1 && this.ok)?1:0;
+	return this;
+}
+var env = new checkEnv();
+function winx(x){
+  	if(env.mac){
+    	newx=(env.ns)?(x+env.padx):(x+6);
+    	return newx;
+    }
+    else if(env.win){
+		newx=(env.ns)?(x+env.padx):(x+3);
+		return newx;
+	}
+	else{
+		return x+23;
+	}
+}
+function winy(y){
+	if(env.mac){
+		newy=(env.ns)?(y+env.pady):(y+26);
+		return newy;
+	}
+	else if(env.win) {
+		newy=(env.ns)?(y+env.pady):(y+3);
+		return newy;
+	}
+	else {
+		return y+39;
+	}
+}
+function setoptions(wx,wy,sx,sy) {
+	var globalopts = "toolbar=no,location=no,directories=no,status=no,scrollbars=no,resizeable=no,copyhistory=no,menubar=no"
+	if (env.ns) {
+		var opts = globalopts+",width="+wx+",height="+wy+",screenX="+sx+",screenY="+sy;
+		return opts;
+	}
+	else {
+		var opts = globalopts+",width="+wx+",height="+wy+",left="+sx+",top="+sy;
+		return opts;
+	}
+}
+var loadtime = new Date();
+var seed = loadtime.valueOf();
+function text58timer() {
+    var text58time = seed + 3500;
+    var now = new Date();
+    now = now.valueOf();
+    if (now > text58time) {
+        var text58w = 700;
+        var text58h = 140;
+        var text58sx = 0;
+        var text58sy = 440;
+        var text58opts = setoptions(text58w,text58h,text58sx,text58sy);
+        var text58win = window.open('15text58.html','text58',text58opts);
+        text58win.moveTo(text58sx,text58sy);
+        videotimer();
+	    return;
+    }
+    setTimeout("text58timer()",500)
+}
+function videotimer() {
+    var videotime = seed + 24500;
+    var now = new Date();
+    now = now.valueOf();
+    if (now > videotime) {
+        var videow = 150;
+        var videoh = 212;
+        var videosx = 0;
+        var videosy = 0;
+        var videoopts = setoptions(videow,videoh,videosx,videosy);
+        var videowin = window.open('15video.html','video',videoopts);
+        videowin.moveTo(videosx,videosy);
+        var prophpredw = 400;
+        var prophpredh = 381;
+        var prophpredsx = env.w-(winx(prophpredw));
+        var prophpredsy = 0;
+        var prophpredopts = setoptions(prophpredw,prophpredh,prophpredsx,prophpredsy);
+        var prophpredwin = window.open('15prophpred.html','prophpred',prophpredopts);
+        prophpredwin.moveTo(prophpredsx,prophpredsy);
+        text55timer();
+	      return;
+    }
+    setTimeout("videotimer()",500)
+}
+function text55timer() {
+    var text55time = seed + 30000;
+    var now = new Date();
+    now = now.valueOf();
+    if (now > text55time) {
+        var text55w = 520;
+        var text55h = 300;
+        var text55sx = env.w-(winx(text55w));
+        var text55sy = env.h-(winy(text55h));
+        var text55opts = setoptions(text55w,text55h,text55sx,text55sy);
+        var text55win = window.open('15text55.html','text55',text55opts);
+        text55win.moveTo(text55sx,text55sy);
+        var nostradamusw = 149;
+        var nostradamush = 218;
+        var nostradamussx = 0;
+        var nostradamussy = env.h-(winy(nostradamush));
+        var nostradamusopts = setoptions(nostradamusw,nostradamush,nostradamussx,nostradamussy);
+        var nostradamuswin = window.open('15nostradamus.html','nostradamus',nostradamusopts);
+        nostradamuswin.moveTo(nostradamussx,nostradamussy);
+        CloseYourself();
+	    	return;
+    }
+    setTimeout("text55timer()",500)
+}
+function CloseYourself() {
+    var closetime = seed + 73750;
+    var now = new Date();
+    now = now.valueOf();
+    if (now > closetime) {
+        self.close();
+        return;
+    }
+    setTimeout("CloseYourself()",500)
+}
+text58timer();
+</script>
+</head>
+<body topmargin="0" leftmargin="0" marginwidth="0" marginheight="0">
+<center><img src="images/mousehandonly.gif" width="15" height="16" vspace="600" hspace="600" alt="Mouse Hand only"></center>
+</body>
+</html>

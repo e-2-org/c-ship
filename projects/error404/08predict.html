@@ -1,0 +1,112 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+<head>
+<title>800 Predict</title>
+<script type="text/javascript" language="JavaScript1.2">
+function checkEnv(){
+	this.ok=(parseInt(navigator.appVersion) >= 4)?1:0;
+	this.ns=(navigator.appName == "Netscape" && this.ok)?1:0;
+	this.ie=(!this.ns && this.ok)?1:0;
+	this.w=screen.width;
+	this.h=screen.height;
+	this.pady=(this.ns)?(window.outerHeight-window.innerHeight):0;
+	this.padx=(this.ns)?(window.outerWidth-window.innerWidth):0;
+	this.mac=(navigator.platform.indexOf("Mac")>-1 && this.ok)?1:0;
+	this.win=(navigator.platform.indexOf("Win")>-1 && this.ok)?1:0;
+	return this;
+}
+var env = new checkEnv();
+function winx(x){
+  	if(env.mac){
+    	newx=(env.ns)?(x+env.padx):(x+6);
+    	return newx;
+    }
+    else if(env.win){
+		newx=(env.ns)?(x+env.padx):(x+3);
+		return newx;
+	}
+	else{
+		return x+23;
+	}
+}
+function winy(y){
+	if(env.mac){
+		newy=(env.ns)?(y+env.pady):(y+26);
+		return newy;
+	}
+	else if(env.win) {
+		newy=(env.ns)?(y+env.pady):(y+3);
+		return newy;
+	}
+	else {
+		return y+39;
+	}
+}
+function setoptions(wx,wy,sx,sy) {
+	var globalopts = "toolbar=no,location=no,directories=no,status=no,scrollbars=no,resizeable=no,copyhistory=no,menubar=no"
+	if (env.ns) {
+		var opts = globalopts+",width="+wx+",height="+wy+",screenX="+sx+",screenY="+sy;
+		return opts;
+	}
+	else {
+		var opts = globalopts+",width="+wx+",height="+wy+",left="+sx+",top="+sy;
+		return opts;
+	}
+}
+var loadtime = new Date();
+var seed = loadtime.valueOf();
+function meteortimer() {
+    var meteortime = seed + 28000;
+    var now = new Date();
+    now = now.valueOf();
+    if (now > meteortime) {
+        var text20w = 600;
+        var text20h = 350;
+        var text20sx = 0;
+        var text20sy = env.h-(winy(text20h));
+        var text20opts = setoptions(text20w,text20h,text20sx,text20sy);
+        var text20win = window.open('08text20.html','text20',text20opts);
+        text20win.moveTo(text20sx,text20sy);
+        var metsitew = 436;
+        var metsiteh = 100;
+        var metsitesx = env.w-(winx(metsitew));
+        var metsitesy = text20sy;
+        var metsiteopts = setoptions(metsitew,metsiteh,metsitesx,metsitesy);
+        var metsitewin = window.open('08meteorsite.html','metsite',metsiteopts);
+        metsitewin.moveTo(metsitesx,metsitesy);
+        var met4w = 276;
+        var met4h = 196;
+        var met4sx = metsitesx;
+        var met4sy = env.h-(winy(met4h));
+        var met4opts = setoptions(met4w,met4h,met4sx,met4sy);
+        var met4win = window.open('08met4.html','met4',met4opts);
+        met4win.moveTo(met4sx,met4sy);
+        zeetvtimer();
+	      return;
+    }
+    setTimeout("meteortimer()",1000)
+}
+function zeetvtimer() {
+    var zeetvtime = seed + 59000;
+    var now = new Date();
+    now = now.valueOf();
+    if (now > zeetvtime) {
+        var zeetvw = 580;
+        var zeetvh = 247;
+        var zeetvsx = 0;
+        var zeetvsy = 0;
+        var zeetvopts = setoptions(zeetvw,zeetvh,zeetvsx,zeetvsy);
+        var zeetvwin = window.open('08zeetv.html','zeetv',zeetvopts);
+        zeetvwin.moveTo(zeetvsx,zeetvsy);
+        self.close();
+	      return;
+    }
+    setTimeout("zeetvtimer()",1000)
+}
+meteortimer();
+</script>
+</head>
+<body topmargin="0" leftmargin="0" marginwidth="0" marginheight="0">
+<center><img src="images/800predict.gif" width="500" height="400" alt="800 Predict"></center>
+</body>
+</html>

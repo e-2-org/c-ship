@@ -1,0 +1,74 @@
+<!doctype html public "-//w3c//dtd html 4.0 transitional//en">
+<html>
+<head>
+<title>22text</title>
+<script type="text/javascript" language="JavaScript1.2">
+function checkEnv(){
+	this.ok=(parseInt(navigator.appVersion) >= 4)?1:0;
+	this.ns=(navigator.appName == "Netscape" && this.ok)?1:0;
+	this.ie=(!this.ns && this.ok)?1:0;
+	this.w=screen.width;
+	this.h=screen.height;
+	this.pady=(this.ns)?(window.outerHeight-window.innerHeight):0;
+	this.padx=(this.ns)?(window.outerWidth-window.innerWidth):0;
+	return this;
+	return this;
+}
+env = new checkEnv();
+function setoptions(wx,wy,sx,sy) {
+	var globalopts = "toolbar=no,location=no,directories=no,status=no,scrollbars=no,resizeable=no,copyhistory=no,menubar=no"
+	if (env.ns) {
+		var opts = globalopts+",width="+wx+",height="+wy+",screenX="+sx+",screenY="+sy;
+		return opts;
+	}
+	else {
+		var opts = globalopts+",width="+wx+",height="+wy+",left="+sx+",top="+sy;
+		return opts;
+	}
+}
+var loadtime = new Date();
+var seed = loadtime.valueOf();
+function bwarningtimer() {
+    var bwarningtime = seed + 11750;
+    var now = new Date();
+    now = now.valueOf();
+    if (now > bwarningtime) {
+        var text24w = 630;
+        var text24h = 370;
+        var text24sx = 0;
+        var text24sy = 0;
+        var text24opts = setoptions(text24w,text24h,text24sx,text24sy);
+        var text24win = window.open('09text24.html','text24',text24opts);
+        text24win.moveTo(text24sx,text24sy);
+        var bwarningw = 800;
+        var bwarningh = 100;
+        var bwarningsx = (env.w-815);
+        var bwarningsy = 100;
+        var bwarningopts = setoptions(bwarningw,bwarningh,bwarningsx,bwarningsy);
+        var bwarningwin = window.open('09bwarning.html','bwarning',bwarningopts);
+        bwarningwin.moveTo(bwarningsx,bwarningsy);
+        CloseYourself();
+	      return;
+    }
+    setTimeout("bwarningtimer()",250)
+}
+function CloseYourself() {
+    var closetime = seed + 19500;
+    var now = new Date();
+    now = now.valueOf();
+    if (now > closetime) {
+        self.close();
+        return;
+    }
+    setTimeout("CloseYourself()",500)
+}
+bwarningtimer();
+</script>
+</head>
+<body>
+<b><font face="Courier New,Courier"><font size=+2>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+“14. Who in Congress is overseeing the construction and use of microwave
+towers and antennae arrays in this country? 8. Why are these "non-lethal"
+systems being kept classified?</font></font></b>
+</body>
+</html>
