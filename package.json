@@ -1,0 +1,20 @@
+{
+  "name": "c-ship",
+  "version": "0.0.1",
+  "description": "Container ship website",
+  "main": "index.html",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/p-2/c-ship.git"
+  },
+  "author": "Peter Edwards <peter.edwards@p-2.biz>",
+  "license": "GPL-2.0",
+  "bugs": {
+    "url": "https://github.com/p-2/c-ship/issues"
+  },
+  "homepage": "https://github.com/p-2/c-ship#readme",
+  "devDependencies": {
+    "browser-sync": "^2.24.7",
+    "gulp": "^3.9.1"
+  }
+}
