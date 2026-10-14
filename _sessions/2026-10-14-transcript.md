@@ -413,3 +413,93 @@ Can you update the files in _sessions please
 > *Write: 2026-10-14-summary.md*
 
 > *Write: 2026-10-14-transcript.md*
+
+## User - 2026-10-14
+
+Great!
+
+## Claude
+
+Everything is still uncommitted on the `jekyll` branch.
+
+## User - 2026-10-14
+
+I've committed the changes now - what is left in this branch which isn't being used? can it be deleted?
+
+## Claude
+
+> *Bash: Show repo state and tracked files by folder*
+
+> *Bash: List remaining top-level files, projects and config*
+
+> *Bash: Find images not referenced by any source file*
+
+> *Bash: Check project references, font sources, other root files*
+
+> *Bash: Check index.swf, cruisin, htaccess and project repos*
+
+> *Bash: Compare project copies with their own repos*
+
+> *Bash: Check the project repos' history for the missing files*
+
+Unused: 81 images, the old stylesheets, the gulp files, the empty `.htaccess`, `apgo.html` and the FutureSplash intro. The Flash intro is a judgement call. 11 more images are used only by `_fonts/extract.py`, to be moved into `_fonts/sources/`. Claude also suggested deleting the artworks in `_projects/` (except Cruisin', a single Word document with no repository), since each has its own e-2-org repo, after checking those repos had their files or history; error404's original pages are only in c-ship's history.
+
+## User - 2026-10-14
+
+I wanted to keep the projects folder as it was - these are the original projects which we have been working on in their own repos
+
+## Claude
+
+> *Bash: Trace when projects/ became _projects/*
+
+`_projects/` is off the list. It was renamed from `projects/` in commit `2c2631b`, with the files unchanged; with the underscore Jekyll doesn't publish it, and the README still says `projects/`. Rename it back, or keep it as `_projects/`?
+
+## User - 2026-10-14
+
+Keep as _projects, update the README, remo0ve all the unused files, and move the stuff used to generate the font as suggested
+
+## Claude
+
+> *Bash: Move font source images into _fonts/sources*
+
+> *Bash: Point extract.py at sources and test a rebuild*
+
+> *Bash: Compare rebuilt font outlines with the committed font*
+
+> *Bash: Remove unused images and old files*
+
+> *Bash: Read README and front page comment*
+
+> *Bash: Update front page comment and config excludes*
+
+> *Bash: Check for a local node_modules folder*
+
+> *Bash: Remove node_modules from gitignore*
+
+> *Write: README.md*
+
+> *Bash: Build and check all local references in the site*
+
+> *Bash: Find where the built assets folder comes from*
+
+> *Bash: Stage changes and summarise*
+
+Removed: 81 images, the Flash and FutureSplash intros, `apgo.html`, the old stylesheets, the gulp setup and `.htaccess`. The font sources are in `_fonts/sources/`, and a rebuild from there gives identical outlines. The README describes the site as it now is, with `_projects/` kept for reference. All 252 local references in the built site work. `assets/css/style.css` in the built site comes from GitHub Pages' default theme and isn't used.
+
+## User - 2026-10-14
+
+Thanks - love it!
+
+## Claude
+
+The clean-up is staged, and isn't in today's session files yet.
+
+## User - 2026-10-14
+
+Please update the sessions and I'll commit them
+
+## Claude
+
+> *Edit: 2026-10-14-summary.md (clean-up, checks, status)*
+
+> *Edit: 2026-10-14-transcript.md (this conversation since the last update)*
