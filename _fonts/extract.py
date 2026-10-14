@@ -3,13 +3,13 @@
 Writes glyphs.json: {char: {"contours": [...], "source": ...}} in font units
 (advance 600, baseline 0), and a preview of each source's segmentation.
 """
-import json, sys
+import json, os, sys
 import numpy as np
 from PIL import Image
 import potrace
 
-REPO = sys.argv[1]
-OUT = sys.argv[2]
+SOURCES_DIR = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'sources')
+OUT = sys.argv[1]
 ADV = 600
 UP = 8  # upscale before tracing
 
@@ -75,7 +75,7 @@ def trace(I, x0, x1, y0, y1):
 glyphs = {}
 report = []
 for name, text, x0, x1 in SOURCES:
-    I = intensity(f'{REPO}/images/{name}.gif')
+    I = intensity(f'{SOURCES_DIR}/{name}.gif')
     runs = segments(I[:, :x1], x0)
     chars = [(k, c) for k, c in enumerate(text) if c != ' ']
     if len(runs) != len(chars):
