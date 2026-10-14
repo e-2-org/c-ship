@@ -1,0 +1,59 @@
+{%- comment -%}
+  The deck: the ship in slices (_data/deck.yml), scaled with the page.
+  Rooms and containers light up when the pointer is over them (or they have
+  the keyboard focus, or have been tapped once on a touch screen), and show
+  their picture in the ship's two panels, in place of the panel's own image.
+  The picture links where the room or container does; with a mouse, the last
+  one pointed at stays lit (js/deck.js), so the pointer can reach it.
+  The quay sits to the right of the ship on wide screens.
+  Help and the introduction open in overlays (js/deck.js).
+{%- endcomment -%}
+{%- assign deck = site.data.deck %}
+{%- assign scene_w = deck.width %}
+{%- assign scene_h = deck.height %}
+{%- assign lit = ':is(:hover, :focus-visible, .is-active)' %}
+<style>
+{%- for s in deck.slices %}{% if s.preview %}
+.deck:has(.slice-{{ forloop.index }}{{ lit }}) .preview-{{ forloop.index }} { visibility: visible; }
+{%- endif %}{% endfor %}
+.deck:has(.deck-room{{ lit }}) .panel-boat,
+.deck:has(.deck-container{{ lit }}) .panel-display { visibility: hidden; }
+</style>
+<div class="harbour">
+  <div class="deck" style="--scene-w: {{ scene_w }}; --scene-h: {{ scene_h }}">
+    {%- for s in deck.slices %}
+    {%- capture pos %}left: {{ s.x | times: 100.0 | divided_by: scene_w }}%; top: {{ s.y | times: 100.0 | divided_by: scene_h }}%; width: {{ s.w | times: 100.0 | divided_by: scene_w }}%;{% endcapture %}
+    {%- if s.href %}
+    {%- if s.external %}{% assign href = s.href %}{% else %}{% assign href = s.href | relative_url %}{% endif %}
+    {%- if s.dot %}
+    <a class="slice deck-dot dot-{{ s.dot }} lettering" href="{{ href }}" style="left: {{ s.x | times: 100.0 | divided_by: scene_w }}%; top: {{ s.y | times: 100.0 | divided_by: scene_h }}%; height: {{ s.h | times: 100.0 | divided_by: scene_h }}%;"{% if s.overlay %} data-overlay="{{ s.overlay }}" aria-haspopup="dialog"{% endif %}>{{ s.text }}</a>
+    {%- else %}
+    <a class="slice slice-{{ forloop.index }}{% if s.kind %} deck-{{ s.kind }}{% endif %}" href="{{ href }}" style="{{ pos }}"{% if s.external %} target="_blank"{% endif %}{% if s.overlay %} data-overlay="{{ s.overlay }}" aria-haspopup="dialog"{% endif %}>
+      <img class="off" src="{{ s.src | relative_url }}" width="{{ s.w }}" height="{{ s.h }}" alt="">
+      {%- if s.hover %}<img class="on" src="{{ s.hover | relative_url }}" width="{{ s.w }}" height="{{ s.h }}" alt="">{% endif %}
+      <span class="label">{{ s.label }}</span>
+    </a>
+    {%- endif %}
+    {%- else %}
+    <img class="slice{% if s.panel %} panel-{{ s.panel }}{% endif %}" src="{{ s.src | relative_url }}" width="{{ s.w }}" height="{{ s.h }}" alt="" style="{{ pos }}">
+    {%- endif %}
+    {%- endfor %}
+    {%- comment %} the pictures shown in the panels, which link where their room or container does
+      (the room or container is the link for the keyboard and screen readers) {% endcomment %}
+    {%- for s in deck.slices %}{% if s.preview %}
+    {%- if s.kind == 'room' %}{% assign px = 156 %}{% assign py = 0 %}{% assign pw = 144 %}{% else %}{% assign px = 400 %}{% assign py = 0 %}{% assign pw = 301 %}{% endif %}
+    {%- if s.external %}{% assign href = s.href %}{% else %}{% assign href = s.href | relative_url %}{% endif %}
+    <a class="preview preview-{{ forloop.index }}" href="{{ href }}" tabindex="-1" aria-hidden="true"{% if s.external %} target="_blank"{% endif %} style="left: {{ px | times: 100.0 | divided_by: scene_w }}%; top: {{ py | times: 100.0 | divided_by: scene_h }}%; width: {{ pw | times: 100.0 | divided_by: scene_w }}%;"><img src="{{ s.preview | relative_url }}" alt=""></a>
+    {%- endif %}{% endfor %}
+  </div>
+  <img class="quay" src="{{ deck.quay.src | relative_url }}" width="{{ deck.quay.w }}" height="{{ deck.quay.h }}" alt="" style="--quay-w: {{ deck.quay.w }}">
+</div>
+{%- comment %} help and the introduction, once pop-up windows {% endcomment %}
+{%- assign notes = 'help,intro' | split: ',' %}
+{%- for n in notes %}
+<dialog class="overlay note {{ n }}" id="overlay-{{ n }}" aria-label="{% if n == 'help' %}help{% else %}introduction{% endif %}">
+  {% include {{ n }}.html %}
+  <form method="dialog" class="overlay-close"><button>close</button></form>
+</dialog>
+{%- endfor %}
+<script src="{{ '/js/deck.js' | relative_url }}" defer></script>

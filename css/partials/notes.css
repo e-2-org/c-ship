@@ -1,0 +1,23 @@
+/* help and the introduction, once small pop-up windows */
+.note {
+    max-width: 30em;
+    padding: 1em;
+    p {
+        margin: 0 0 1em;
+    }
+    a {
+        color: var(--orange);
+    }
+}
+.help strong {
+    color: var(--red);
+}
+.intro strong {
+    color: var(--orange);
+}
+.note-back {
+    margin-top: 2em;
+    a {
+        color: var(--white);
+    }
+}

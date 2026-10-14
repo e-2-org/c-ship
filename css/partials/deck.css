@@ -1,0 +1,139 @@
+/*
+ * The deck: the ship drawing in its original slices, positioned in
+ * percentages of the ship, so it scales with the page.
+ * On wide screens the ship takes two thirds of the width (up to half as big
+ * again as it was drawn), with the quay to its right, at the same scale.
+ * On smaller screens the quay is left out and the ship stays the size it
+ * was at the breakpoint (so its detail survives), scrolling sideways.
+ */
+/* the credit line sits at the foot of the window */
+body.deck-page {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    min-height: 100dvh;
+    .copyright {
+        margin: auto 1rem 1em 78px;
+        padding-top: 0.5em;
+    }
+}
+.harbour {
+    container-type: inline-size;
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 1rem;
+    overflow: auto hidden;
+    scrollbar-color: var(--grey) var(--night);
+    padding: 8px 1rem 4px 8px;
+    /* two thirds of the width, but no smaller than at the 60em breakpoint */
+    --ship: clamp((59rem - 8px) * 2 / 3, 100cqi * 2 / 3, 1480px);
+}
+.quay {
+    flex: none;
+    width: calc(var(--ship) * var(--quay-w) / 987);
+    height: auto;
+    @media (max-width: 59.99em) {
+        display: none;
+    }
+}
+.deck {
+    position: relative;
+    flex: none;
+    width: var(--ship);
+    aspect-ratio: var(--scene-w) / var(--scene-h);
+    .slice, .preview {
+        position: absolute;
+        display: block;
+        img {
+            display: block;
+            width: 100%;
+        }
+    }
+    img.slice, .preview {
+        height: auto;
+    }
+    a.slice {
+        -webkit-tap-highlight-color: transparent;
+        .on {
+            display: none;
+        }
+        &:is(:hover, :focus-visible, .is-active) {
+            .off {
+                display: none;
+            }
+            .on {
+                display: block;
+            }
+        }
+        &:focus-visible {
+            outline-offset: 0;
+        }
+        .label {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            overflow: hidden;
+            clip-path: inset(50%);
+            white-space: nowrap;
+        }
+    }
+    /* help and the introduction: a dot and its label, which lights up white */
+    a.deck-dot {
+        --dot: var(--red);
+        display: flex;
+        align-items: center;
+        gap: 0.5em;
+        font-size: max(11px, var(--ship) * 12.5 / 987);
+        line-height: 1;
+        white-space: nowrap;
+        color: var(--dot);
+        text-decoration: none;
+        &.dot-orange {
+            --dot: var(--orange);
+        }
+        &::before {
+            content: "";
+            flex: none;
+            width: 1.2em;
+            height: 1.2em;
+            border-radius: 50%;
+            background: var(--dot);
+        }
+        &:is(:hover, :focus-visible) {
+            color: var(--white);
+        }
+    }
+    .preview {
+        visibility: hidden;
+        -webkit-tap-highlight-color: transparent;
+    }
+}
+
+/* help and the introduction, in overlays over the deck */
+.overlay {
+    width: min(30em, 100vw - 2rem);
+    max-height: calc(100vh - 2rem);
+    border: 1px solid var(--grey);
+    background: var(--night);
+    color: var(--white);
+    &::backdrop {
+        background: rgb(0 0 37 / 0.7);
+    }
+    .overlay-close {
+        margin-top: 1.5em;
+        text-align: right;
+    }
+    button {
+        font: inherit;
+        color: var(--orange);
+        background: none;
+        border: 1px solid currentColor;
+        padding: 0.2em 0.8em;
+        cursor: pointer;
+        &:focus-visible {
+            outline: 2px solid var(--focus);
+            outline-offset: 2px;
+        }
+    }
+}

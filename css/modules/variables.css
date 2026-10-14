@@ -1,0 +1,12 @@
+/* colours */
+:root {
+    --night: #000025;
+    --night-front: #000021;
+    --day: #fff;
+    --ink: #000;
+    --white: #fff;
+    --grey: #999;
+    --orange: #f90;
+    --red: #f00;
+    --focus: #f90;
+}

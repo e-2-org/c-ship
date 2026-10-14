@@ -1,0 +1,6 @@
+{%- comment -%}
+  A link with a red or orange dot before it, as in the original
+  include.href, include.label, include.colour (red, the default, or orange),
+  include.class (for the link)
+{%- endcomment -%}
+<li class="dot{% if include.colour %} dot-{{ include.colour }}{% endif %}"><a href="{{ include.href | relative_url }}"{% if include.class %} class="{{ include.class }}"{% endif %}>{{ include.label }}</a></li>

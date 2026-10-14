@@ -1,0 +1,94 @@
+/* every page */
+/* the original lettering, made into a font (see _fonts/README.md) */
+@font-face {
+    font-family: "C-Ship Lettering";
+    src: url("../../fonts/c-ship-lettering.woff2") format("woff2");
+    font-display: swap;
+}
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+html {
+    font: 100%/1.4 Arial, Helvetica, sans-serif;
+}
+body {
+    margin: 0;
+    &.night {
+        background: var(--night);
+        color: var(--white);
+    }
+    &.day {
+        background: var(--day);
+        color: var(--ink);
+    }
+}
+img {
+    max-width: 100%;
+    height: auto;
+    vertical-align: bottom;
+}
+a {
+    color: inherit;
+    &:focus-visible {
+        outline: 2px solid var(--focus);
+        outline-offset: 2px;
+    }
+}
+h1 {
+    margin: 0;
+    font-size: 1em;
+}
+.lettering {
+    font-family: "C-Ship Lettering", monospace;
+    font-weight: normal;
+}
+.visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
+}
+.copyright {
+    color: var(--grey);
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 0.9em;
+}
+
+/* links with a red or orange dot before them */
+.dots {
+    list-style: none;
+    margin: 0;
+    padding: 5px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.dot {
+    --dot: var(--red);
+    &.dot-orange {
+        --dot: var(--orange);
+    }
+    a {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5em;
+        &::before {
+            content: "";
+            flex: none;
+            width: 15px;
+            height: 15px;
+            border-radius: 50%;
+            background: var(--dot);
+        }
+        &.lettering {
+            gap: 0.8em;
+            font-size: 0.85em;
+            text-decoration: none;
+            &:hover {
+                text-decoration: underline;
+            }
+        }
+    }
+}

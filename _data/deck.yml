@@ -1,0 +1,235 @@
+# The deck (section.html): the ship drawing, in slices as in the original,
+# positioned in pixels from its top left corner.
+#  - rooms light up and show a picture of the room in the "boat" panel
+#  - containers light up and show the artist's work in the "display" panel
+#  - help and the introduction are text links with a dot (no images)
+width: 987
+height: 371
+slices:
+  - src: images/anim.gif
+    x: 0
+    y: 0
+    w: 156
+    h: 66
+    href: index.html
+    label: "c-ship: index"
+  - src: images/sabout.gif
+    x: 0
+    y: 76
+    w: 98
+    h: 117
+    href: about.html
+    hover: images/saboutx.gif
+    preview: images/about2.gif
+    label: "about c-ship"
+    kind: room
+  - src: images/sarials.gif
+    x: 98.625
+    y: 76
+    w: 57
+    h: 71
+    href: comms.html
+    hover: images/sarialsx.gif
+    preview: images/comms2.gif
+    label: "communications"
+    kind: room
+  - src: images/sbridge.gif
+    x: 98.625
+    y: 147
+    w: 56
+    h: 46
+    href: bridge.html
+    hover: images/sbridgex.gif
+    preview: images/bridge2.gif
+    label: "the bridge"
+    kind: room
+  - src: images/indexb.gif
+    x: 156
+    y: 0
+    w: 144
+    h: 131
+    panel: boat
+  - dot: red
+    text: "help"
+    x: 300
+    y: 10
+    w: 80
+    h: 17
+    href: help.html
+    overlay: help
+    label: "help"
+  - dot: orange
+    text: "intro"
+    x: 300
+    y: 37
+    w: 80
+    h: 17
+    href: intro.html
+    overlay: intro
+    label: "introduction"
+  - src: images/scranea.gif
+    x: 304
+    y: 76
+    w: 96
+    h: 117
+  - src: images/blue2.gif
+    x: 400
+    y: 0
+    w: 301
+    h: 130
+    panel: display
+  - src: images/scraneb.gif
+    x: 400
+    y: 136
+    w: 87
+    h: 57
+  - src: images/scranec.gif
+    x: 701
+    y: 76
+    w: 284
+    h: 117
+  - src: images/splatform.gif
+    x: 0
+    y: 193
+    w: 104
+    h: 79
+    href: platform.html
+    hover: images/splatformx.gif
+    preview: images/platform2.gif
+    label: "platform"
+    kind: room
+  - src: images/smess.gif
+    x: 104
+    y: 193
+    w: 48
+    h: 79
+  - src: images/box.gif
+    x: 152
+    y: 242
+    w: 75
+    h: 30
+    href: acjk.html
+    hover: images/boxjk.gif
+    preview: images/popjk.gif
+    label: "Janice Kerbel, Bird Island"
+    kind: container
+  - src: images/box.gif
+    x: 227
+    y: 242
+    w: 75
+    h: 30
+    href: acab.html
+    hover: images/boxab.gif
+    preview: images/popab.gif
+    label: "Anna Best, error 404"
+    kind: container
+  - src: images/spillar1.gif
+    x: 302
+    y: 193
+    w: 27
+    h: 79
+  - src: images/box.gif
+    x: 554
+    y: 212
+    w: 75
+    h: 30
+    href: acge.html
+    hover: images/boxge.gif
+    preview: images/popge.jpg
+    label: "Geraint Evans, A House Is Not A Home"
+    kind: container
+  - src: images/box.gif
+    x: 629
+    y: 212
+    w: 75
+    h: 30
+    href: acbl.html
+    hover: images/boxbl.gif
+    preview: images/popbl.gif
+    label: "Brighid Lowe, Now Here / Nowhere"
+    kind: container
+  - src: images/box.gif
+    x: 329
+    y: 242
+    w: 75
+    h: 30
+    href: acsc.html
+    hover: images/boxsc.gif
+    preview: images/popsc.gif
+    label: "Susan Collins, Cruisin'"
+    kind: container
+  - src: images/box.gif
+    x: 404
+    y: 242
+    w: 75
+    h: 30
+    href: acsf.html
+    hover: images/boxsf.gif
+    preview: images/popsf.gif
+    label: "Simon Faithfull, Adelaide"
+    kind: container
+  - src: images/box.gif
+    x: 554
+    y: 242
+    w: 75
+    h: 30
+    href: acdl.html
+    hover: images/boxdl.gif
+    preview: images/popdl.gif
+    label: "David Lilley, Tome"
+    kind: container
+  - src: images/box.gif
+    x: 629
+    y: 242
+    w: 75
+    h: 30
+    href: acgo.html
+    hover: images/boxgo.gif
+    preview: images/popgo.gif
+    label: "Gill Ord, Pig's Tails"
+    kind: container
+  - src: images/spillar2.gif
+    x: 704
+    y: 193
+    w: 21
+    h: 79
+  - src: images/sbow.gif
+    x: 725
+    y: 193
+    w: 260
+    h: 79
+  - src: images/sengine.gif
+    x: 0
+    y: 272
+    w: 211
+    h: 99
+    href: engine.html
+    hover: images/senginex.gif
+    preview: images/engine2.gif
+    label: "engine room"
+    kind: room
+  - src: images/scargo1.gif
+    x: 211
+    y: 272
+    w: 140
+    h: 99
+  - src: images/scargo2.gif
+    x: 351
+    y: 272
+    w: 90
+    h: 99
+    href: https://artscape.jp/museum/nmp/nmp_b/about_prj_e.html
+    external: true
+    hover: images/scargo2x.gif
+    preview: images/jap2.gif
+    label: "DNP artscape (Japanese)"
+    kind: room
+  - src: images/scargo3.gif
+    x: 441
+    y: 272
+    w: 546
+    h: 99
+quay:
+  src: images/squay2.gif
+  w: 268
+  h: 164

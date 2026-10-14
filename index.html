@@ -1,104 +1,15 @@
-<HTML>
-<HEAD>
-<TITLE>Shockwave Flash</TITLE>
-</HEAD>
-<body bgcolor="#000021" text="white" link=999999 vlink=999999>
-
-<TABLE WIDTH="100%" BORDER="0" ALIGN="Center" CELLSPACING="0" CELLPADDING="0">
-<TR><TD ALIGN=CENTER VALIGN=MIDDLE>
-
-
-<!-- Aftershock index.swf 3=400 4=340 9=113 18 19 32=0 -->
-<!-- URL's used in the Flash file -->
-<A HREF=section.html></A> 
-
-<SCRIPT LANGUAGE=JavaScript>
-<!--
-var FlashMode
-if (navigator.mimeTypes && navigator.mimeTypes["application/x-shockwave-flash"] && 
-  navigator.mimeTypes["application/x-shockwave-flash"].enabledPlugin) {
-       FlashMode = 1;
-} else {
-       FlashMode = 1;
-}
-//-->
-</SCRIPT>
-<SCRIPT LANGUAGE=VBScript>
-<!--
-   on error resume next
-   FlashMode = (IsObject(CreateObject("ShockwaveFlash.ShockwaveFlash")))
--->
-</SCRIPT>
-<MAP NAME="indexMap">
-<AREA COORDS="11,165,388,327" HREF="section.html">
-</MAP>
-
-<SCRIPT LANGUAGE=JavaScript>
-<!--
-if ( FlashMode ) {
-     document.write('<OBJECT classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000"');
-     document.write(' codebase="http://active.macromedia.com/flash/cabs/swflash.cab"');
-     document.write(' ID=index WIDTH=400 HEIGHT=340>');
-     document.write('  <PARAM NAME=movie VALUE="index.swf"> ');
-     document.write('  <PARAM NAME=loop VALUE=false> ');
-     document.write('  <PARAM NAME=quality VALUE=autohigh> ');
-     document.write('  <PARAM NAME=menu VALUE=false> ');
-     document.write('  <PARAM NAME=bgcolor VALUE=000019> ');
-     document.write('<EMBED SRC="index.swf"');
-     document.write(' NAME=index WIDTH=400 HEIGHT=340');
-     document.write(' LOOP=false QUALITY=autohigh MENU=false BGCOLOR=000019');
-     document.write(' TYPE="application/x-shockwave-flash" PLUGINSPAGE="http://www.macromedia.com/shockwave/download/index.cgi?P1_Prod_Version=ShockwaveFlash">');
-     document.write('</OBJECT>');
-} else {
-     document.write('<IMG SRC="images/instill.gif" WIDTH=400 HEIGHT=340 BORDER=0 USEMAP="#indexMap">');
-}
-//-->
-</SCRIPT>
-<noembed>
-<IMG SRC="index.gif" WIDTH=400 HEIGHT=340 BORDER=0 USEMAP="#indexMap">
-</noembed>
-
-<!-- EndAftershock index.swf -->
-
-</TD></TR>
-<TR><TD VALIGN=MIDDLE ALIGN=CENTER>
-
-<a href="http://www.dnp.co.jp/museum/nmp/">n<font size=3 color="aa0000">m</font>p</a>
-
-<br clear=all><a href="http://www.e-2.org"><IMG SRC="images/e2.gif" ALT="e-2" HEIGHT="16" WIDTH="50" BORDER="0" VSPACE="5" HSPACE="0"></a>
-
-<br>
-<FONT SIZE=3 COLOR="#999999">&copy; e-2 1998. Produced in association with nmp and DNP</FONT>
-<br clear=all>
-
-
-
-</TD></TR>
-</TABLE>
-<IMG SRC="images/popdl.gif" HEIGHT="1" WIDTH="1" BORDER="0" VSPACE="0" HSPACE="0">
-<IMG SRC="images/popbl.gif" HEIGHT="1" WIDTH="1" BORDER="0" VSPACE="0" HSPACE="0">
-<IMG SRC="images/popge.gif" HEIGHT="1" WIDTH="1" BORDER="0" VSPACE="0" HSPACE="0">
-<IMG SRC="images/popgo.gif" HEIGHT="1" WIDTH="1" BORDER="0" VSPACE="0" HSPACE="0">
-
-
-<IMG SRC="images/boxdl.gif" HEIGHT="1" WIDTH="1" BORDER="0" VSPACE="0" HSPACE="0">
-<IMG SRC="images/boxbl.gif" HEIGHT="1" WIDTH="1" BORDER="0" VSPACE="0" HSPACE="0">
-<IMG SRC="images/boxge.gif" HEIGHT="1" WIDTH="1" BORDER="0" VSPACE="0" HSPACE="0">
-<IMG SRC="images/boxgo.gif" HEIGHT="1" WIDTH="1" BORDER="0" VSPACE="0" HSPACE="0">
-
-
-
-<IMG SRC="images/bridge2.gif" HEIGHT="1" WIDTH="1" BORDER="0" VSPACE="0" HSPACE="0">
-<IMG SRC="images/engine2.gif" HEIGHT="1" WIDTH="1" BORDER="0" VSPACE="0" HSPACE="0">
-<IMG SRC="images/platform2.gif" HEIGHT="1" WIDTH="1" BORDER="0" VSPACE="0" HSPACE="0">
-<IMG SRC="images/comms2.gif" HEIGHT="1" WIDTH="1" BORDER="0" VSPACE="0" HSPACE="0">
-<IMG SRC="images/about2.gif" HEIGHT="1" WIDTH="1" BORDER="0" VSPACE="0" HSPACE="0">
-<IMG SRC="images/blue2.gif" HEIGHT="1" WIDTH="1" BORDER="0" VSPACE="0" HSPACE="0">
-<IMG SRC="images/scargo2.gif" HEIGHT="1" WIDTH="1" BORDER="0" VSPACE="0" HSPACE="0">
-<IMG SRC="images/scargo3.gif" HEIGHT="1" WIDTH="1" BORDER="0" VSPACE="0" HSPACE="0">
-<IMG SRC="images/scargo1.gif" HEIGHT="1" WIDTH="1" BORDER="0" VSPACE="0" HSPACE="0">
-<IMG SRC="images/scargo2x.gif" HEIGHT="1" WIDTH="1" BORDER="0" VSPACE="0" HSPACE="0">
-<IMG SRC="images/jap2.gif" HEIGHT="1" WIDTH="1" BORDER="0" VSPACE="0" HSPACE="0">
-
-</BODY>
-</HTML>
+---
+layout: default
+theme: night
+body_class: front
+---
+{%- comment -%}
+  The front page. The original played a Flash intro here (index.swf, kept for
+  now); this is the still it showed when Flash wasn't installed.
+{%- endcomment -%}
+<main class="front">
+  <a href="{{ '/section.html' | relative_url }}"><img src="{{ '/instill.gif' | relative_url }}" width="400" height="340" alt="container-ship: come on board"></a>
+  <p class="nmp"><a href="https://artscape.jp/museum/nmp/nmp_b/about_prj_e.html">n<span>m</span>p</a></p>
+  <p><a href="https://e-2.org/"><img src="{{ '/images/e2.gif' | relative_url }}" width="50" height="16" alt="e-2"></a></p>
+  <p class="copyright">&copy; e-2 1998. Produced in association with nmp and DNP</p>
+</main>
