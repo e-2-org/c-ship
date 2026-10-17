@@ -1,0 +1,36 @@
+<!doctype html public "-//w3c//dtd html 4.0 transitional//en">
+<html>
+<head>
+<title>16 text</title>
+<script type="text/javascript" language="JavaScript1.2">
+function checkEnv(){
+	this.ok=(parseInt(navigator.appVersion) >= 4)?1:0;
+	this.ns=(navigator.appName == "Netscape" && this.ok)?1:0;
+	this.ie=(!this.ns && this.ok)?1:0;
+	this.w=screen.width;
+	this.h=screen.height;
+	return this;
+}
+env = new checkEnv();
+var x = (env.ns)?window.screenX:(env.w-650);
+var y = (env.ns)?window.screenY:(env.h/2);
+var w =(env.ns)?window.outerWidth:600;
+var h =(env.ns)?window.outerHeight:100;
+function MoveLeft() {
+  var dx = -2;
+  x += dx;
+  if (x>50) {
+     self.moveTo(x,y);
+  }
+  else {
+     self.close();
+  }
+  setTimeout("MoveLeft();",50);
+}
+</script>
+</head>
+<body onLoad="MoveLeft();">
+<font face="Chicago"><font size=+2>“DISCOVER HOPE AND MIRACLES THEN
+CREATE A NEW PERSONAL AND SOCIAL REALITY.” </font></font>
+</body>
+</html>

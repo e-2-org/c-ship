@@ -1,0 +1,23 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+<head>
+<title>Dawson's Creek</title>
+<script type="text/javascript" language="JavaScript1.2">
+var loadtime = new Date();
+var seed = loadtime.valueOf();
+function CloseYourself() {
+  var closetime = seed + 2500;
+  var now = new Date();
+  now = now.valueOf();
+  if (now > closetime) {
+    self.close();
+    return;
+  }
+  setTimeout("CloseYourself()",2501)
+}
+</script>
+</head>
+<body topmargin="0" leftmargin="0" marginwidth="0" marginheight="0" onLoad="CloseYourself();">
+<center><img src="images/dawsoncrk.gif" width="210" height="255" alt="Dawson's Creek"></center>
+</body>
+</html>

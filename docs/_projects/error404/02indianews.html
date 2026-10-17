@@ -1,0 +1,25 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN"
+"http://www.w3.org/TR/REC-html40/loose.dtd">
+<html>
+<head>
+<title>India World News</title>
+<script type="text/javascript" language="JavaScript1.2">
+var loadtime = new Date();
+var seed = loadtime.valueOf();
+function CloseYourself() {
+  var closetime = seed + 2440;
+  var now = new Date();
+  now = now.valueOf();
+  if (now > closetime) {
+    self.close();
+    return;
+  }
+  setTimeout("CloseYourself()",2441)
+}
+</script>
+</head>
+<body onLoad="CloseYourself();" topmargin="0" leftmargin="0" marginwidth="0" marginheight="0">
+<img src="images/indiaworld.gif" width="184" height="97" alt=
+"India World News">
+</body>
+</html>

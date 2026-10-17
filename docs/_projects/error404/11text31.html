@@ -1,0 +1,129 @@
+<!doctype html public "-//w3c//dtd html 4.0 transitional//en">
+<html>
+<head>
+<title>31text</title>
+<script type="text/javascript" language="JavaScript1.2">
+function checkEnv(){
+	this.ok=(parseInt(navigator.appVersion) >= 4)?1:0;
+	this.ns=(navigator.appName == "Netscape" && this.ok)?1:0;
+	this.ie=(!this.ns && this.ok)?1:0;
+	this.w=screen.width;
+	this.h=screen.height;
+	this.pady=(this.ns)?(window.outerHeight-window.innerHeight):0;
+	this.padx=(this.ns)?(window.outerWidth-window.innerWidth):0;
+	this.mac=(navigator.platform.indexOf("Mac")>-1 && this.ok)?1:0;
+	this.win=(navigator.platform.indexOf("Win")>-1 && this.ok)?1:0;
+	return this;
+}
+var env = new checkEnv();
+function winx(x){
+  	if(env.mac){
+    	newx=(env.ns)?(x+env.padx):(x+6);
+    	return newx;
+    }
+    else if(env.win){
+		newx=(env.ns)?(x+env.padx):(x+3);
+		return newx;
+	}
+	else{
+		return x+23;
+	}
+}
+function winy(y){
+	if(env.mac){
+		newy=(env.ns)?(y+env.pady):(y+26);
+		return newy;
+	}
+	else if(env.win) {
+		newy=(env.ns)?(y+env.pady):(y+3);
+		return newy;
+	}
+	else {
+		return y+39;
+	}
+}
+function setoptions(wx,wy,sx,sy) {
+	var globalopts = "toolbar=no,location=no,directories=no,status=no,scrollbars=no,resizeable=no,copyhistory=no,menubar=no"
+	if (env.ns) {
+		var opts = globalopts+",width="+wx+",height="+wy+",screenX="+sx+",screenY="+sy;
+		return opts;
+	}
+	else {
+		var opts = globalopts+",width="+wx+",height="+wy+",left="+sx+",top="+sy;
+		return opts;
+	}
+}
+var loadtime = new Date();
+var seed = loadtime.valueOf();
+function kittytimer() {
+    var kittytime = seed + 5000;
+    var now = new Date();
+    now = now.valueOf();
+    if (now > kittytime) {
+        var kittyw = 300;
+        var kittyh = 280;
+        var kittysx = (env.w/2)-(kittyw/2);
+        var kittysy = 0;
+        var kittyopts = setoptions(kittyw,kittyh,kittysx,kittysy);
+        var kittywin = window.open('11kitty.html','kitty',kittyopts);
+        kittywin.moveTo(kittysx,kittysy);
+        antfarmtimer();
+	      return;
+    }
+    setTimeout("kittytimer()",500)
+}
+function antfarmtimer() {
+    var antfarmtime = seed + 9750;
+    var now = new Date();
+    now = now.valueOf();
+    if (now > antfarmtime) {
+        var antfarmw = 342;
+        var antfarmh = 271;
+        var antfarmsx = 0;
+        var antfarmsy = env.h-(winy(antfarmh));
+        var antfarmopts = setoptions(antfarmw,antfarmh,antfarmsx,antfarmsy);
+        var antfarmwin = window.open('11antfarm.html','antfarm',antfarmopts);
+        antfarmwin.moveTo(antfarmsx,antfarmsy);
+        text32timer();
+	      return;
+    }
+    setTimeout("antfarmtimer()",250)
+}
+function text32timer() {
+    var text32time = seed + 12000;
+    var now = new Date();
+    now = now.valueOf();
+    if (now > text32time) {
+        var bigwasptrapw = 400;
+        var bigwasptraph = 485;
+        var bigwasptrapsx = (env.w/2)-(bigwasptrapw/2);
+        var bigwasptrapsy = env.h-(winy(bigwasptraph));
+        var bigwasptrapopts = setoptions(bigwasptrapw,bigwasptraph,bigwasptrapsx,bigwasptrapsy);
+        var bigwasptrapwin = window.open('11bigwasptrap.html','bigwasptrap',bigwasptrapopts);
+        bigwasptrapwin.moveTo(bigwasptrapsx,bigwasptrapsy);
+        var text32w = 680;
+        var text32h = 310;
+        var text32sx = env.w-(winx(text32w));
+        var text32sy = 0;
+        var text32opts = setoptions(text32w,text32h,text32sx,text32sy);
+        var text32win = window.open('11text32.html','text32',text32opts);
+        text32win.moveTo(text32sx,text32sy);
+        self.close();
+	      return;
+    }
+    setTimeout("text32timer()",500)
+}
+kittytimer();
+</script>
+</head>
+<body>
+<i><font face="Courier New,Courier"><font size=+1></font></font></i>&nbsp;<i><font face="Courier New,Courier"><font size=+1></font></font></i>
+<p><i><font face="Courier New,Courier"><font size=+1>I used to be indifferent
+to cats, but then, one year during deer season this poor little straggly
+longhaired kitten came into the barn as I was quartering my buck.&nbsp;
+I thought she was after the deer, so I gave her a kidney and a hunk of
+tallow. I wanted to take her home. Her loyalty and affection is much truer
+than that of most people I've known, and I'd defend her to my death if
+it ever came to it.</font></font></i>
+</body>
+</html>

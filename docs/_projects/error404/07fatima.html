@@ -1,0 +1,35 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+<head>
+<title>Fatima</title>
+<script type="text/javascript" language="JavaScript1.2">
+var loadtime = new Date();
+var seed = loadtime.valueOf();
+function moveYourself() {
+    var movetime = seed + 7000;
+    var now = new Date();
+    now = now.valueOf();
+    if (now > movetime) {
+        self.moveTo(100,100);
+				self.focus();
+				CloseYourself();
+        return;
+    }
+    setTimeout("moveYourself()",7001)
+}
+function CloseYourself() {
+    var closetime = seed + 15000;
+    var now = new Date();
+    now = now.valueOf();
+    if (now > closetime) {
+        self.close();
+        return;
+    }
+    setTimeout("CloseYourself()",1000)
+}
+</script>
+</head>
+<body onLoad="moveYourself();" topmargin="0" leftmargin="0" marginwidth="0" marginheight="0">
+<center><img src="images/fatima.gif" width="197" height="452" alt="Fatima"></center>
+</body>
+</html>

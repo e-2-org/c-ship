@@ -1,0 +1,116 @@
+/* the artists' pages: about the artist (white, with pictures) and their work (with credits) */
+.artist, .work {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 1em;
+}
+/* the dot links: in the colour of their dot, black when pointed at or pressed */
+.artist, .work {
+    .dot a {
+        color: var(--dot);
+        &:is(:hover, :focus-visible, :active) {
+            color: var(--ink);
+            text-decoration: none;
+        }
+    }
+}
+.artist {
+    /* the name, with the grey bracket that leads down to the page */
+    h1 {
+        display: flex;
+        justify-content: flex-end;
+        width: min(397px, 100%);
+        padding-right: 86px;
+        font-size: 1.35em;
+        line-height: 1;
+        &::after {
+            content: "";
+            flex: none;
+            width: 55px;
+            height: 37px;
+            margin: calc(0.8em - 7px) 0 0 10px;
+            border: solid #cfcfcf;
+            border-width: 6px 6px 0 0;
+        }
+    }
+    .artist-bar {
+        display: flex;
+        align-items: center;
+        gap: 1em;
+        margin: 1em 0;
+    }
+    .artist-body {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1em 20px;
+        .text {
+            flex: 1 1 18em;
+            border-right: 6px solid #eee;
+            padding-right: 20px;
+        }
+        .pictures {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            flex: 0 1 190px;
+        }
+        @media (max-width: 520px) {
+            .text {
+                border-right: 0;
+                padding-right: 0;
+            }
+            .pictures {
+                flex-direction: row;
+                flex-wrap: wrap;
+            }
+        }
+    }
+}
+.work {
+    display: grid;
+    grid-template-columns: 220px 121px 1fr;
+    gap: 1em 0;
+    padding-top: 2em;
+    .work-about {
+        text-align: right;
+        padding-right: 1em;
+        h1 {
+            color: #f93;
+            font-size: 1.2em;
+            line-height: 1.3;
+        }
+        .name {
+            font-weight: bold;
+            margin: 1em 0;
+        }
+    }
+    .work-picture {
+        border-left: 1px solid #ccc;
+        border-right: 1px solid #ccc;
+        padding: 0 15px;
+    }
+    .work-credits {
+        padding-left: 5px;
+        dl {
+            margin: 1em 0 0;
+        }
+        dt {
+            font-size: 0.8em;
+            margin-left: 5px;
+        }
+        dd {
+            margin: 0 0 1em;
+        }
+    }
+    @media (max-width: 560px) {
+        grid-template-columns: 1fr;
+        .work-about {
+            text-align: left;
+            padding-right: 0;
+        }
+        .work-picture {
+            border: 0;
+            padding: 0;
+        }
+    }
+}

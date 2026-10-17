@@ -1,0 +1,23 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+<head>
+<title>Pantyhose</title>
+<script type="text/javascript" language="JavaScript1.2">
+var loadtime = new Date();
+var seed = loadtime.valueOf();
+function CloseYourself() {
+    var closetime = seed + 36000;
+    var now = new Date();
+    now = now.valueOf();
+    if (now > closetime) {
+        self.close();
+        return;
+    }
+    setTimeout("CloseYourself()",36001)
+}
+</script>
+</head>
+<body onLoad="CloseYourself();" topmargin="0" leftmargin="0" marginwidth="0" marginheight="0">
+<center><img src="images/pantyhose.gif" width="550" height="123" alt="Pantyhose"></center>
+</body>
+</html>

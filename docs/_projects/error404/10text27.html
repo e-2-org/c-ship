@@ -1,0 +1,90 @@
+<!doctype html public "-//w3c//dtd html 4.0 transitional//en">
+<html>
+<head>
+<title>27text</title>
+<script type="text/javascript" language="JavaScript1.2">
+function checkEnv(){
+	this.ok=(parseInt(navigator.appVersion) >= 4)?1:0;
+	this.ns=(navigator.appName == "Netscape" && this.ok)?1:0;
+	this.ie=(!this.ns && this.ok)?1:0;
+	this.w=screen.width;
+	this.h=screen.height;
+	this.pady=(this.ns)?(window.outerHeight-window.innerHeight):0;
+	this.padx=(this.ns)?(window.outerWidth-window.innerWidth):0;
+	return this;
+}
+env = new checkEnv();
+function setoptions(wx,wy,sx,sy) {
+	var globalopts = "toolbar=no,location=no,directories=no,status=no,scrollbars=no,resizeable=no,copyhistory=no,menubar=no"
+	if (env.ns) {
+		var opts = globalopts+",width="+wx+",height="+wy+",screenX="+sx+",screenY="+sy;
+		return opts;
+	}
+	else {
+		var opts = globalopts+",width="+wx+",height="+wy+",left="+sx+",top="+sy;
+		return opts;
+	}
+}
+var loadtime = new Date();
+var seed = loadtime.valueOf();
+function bombtimer() {
+    var bombtime = seed + 1000;
+    var now = new Date();
+    now = now.valueOf();
+    if (now > bombtime) {
+        var bombw = 400;
+        var bombh = 358;
+        var bombsx = 0;
+        var bombsy = 0;
+        var bombopts = setoptions(bombw,bombh,bombsx,bombsy);
+        var bombwin = window.open('10bomb.html','bomb',bombopts);
+        bombwin.moveTo(bombsx,bombsy);
+        var ciasitew = 500;
+        var ciasiteh = 399;
+        var ciasitesx = env.w-(ciasitew+env.padx);
+        var ciasitesy = 0;
+        var ciasiteopts = setoptions(ciasitew,ciasiteh,ciasitesx,ciasitesy);
+        var ciasitewin = window.open('10ciasite.html','ciasite',ciasiteopts);
+        ciasitewin.moveTo(ciasitesx,ciasitesy);
+        CloseYourself();
+	    return;
+    }
+    setTimeout("bombtimer()",500)
+}
+function CloseYourself() {
+    var closetime = seed + 12000;
+    var now = new Date();
+    now = now.valueOf();
+    if (now > closetime) {
+        self.close();
+        return;
+    }
+    setTimeout("CloseYourself()",1000)
+}
+bombtimer();
+</script>
+</head>
+<body>
+<font face="Teletext">The Central Intelligence Agency was created in
+1947 . This historical moment is captured</font><font face="Teletext"></font>
+<p><font face="Teletext">&nbsp; <b>Our Vision</b></font>
+<br><font face="Teletext">&nbsp; To be the keystone of a US Intelligence Community that is pre-eminent in the world, known for both the high quality of our work and the excellence of our people.</font><font face="Teletext"></font>
+<p><font face="Teletext">&nbsp; <b>Our Mission</b></font>
+<br><font face="Teletext">&nbsp; We support the President, the National
+Security Council, and all who make and execute US national security policy
+by:</font>
+<br><font face="Teletext">&nbsp;&nbsp; Providing accurate, evidence-based,
+comprehensive, and timely foreign intelligence related to national security;
+and</font>
+<br><font face="Teletext">Conducting counterintelligence activities, special
+activities, and other functions related to foreign intelligence and national
+security as directed by the President.</font><font face="Teletext"></font>
+<p><b><font face="Teletext">&nbsp; Our Core Beliefs and Values</font></b>
+<br><font face="Teletext">&nbsp; or What We Stand For:</font>
+<br><font face="Teletext">&nbsp;Intelligence that adds substantial value
+to the management of crises, the conduct of war, and the development of
+policy.</font><font face="Teletext"><font size=+1></font></font>
+<p><font face="Teletext"><font size=+3>Continuous Improvement In All That
+We Do</font></font>
+</body>
+</html>

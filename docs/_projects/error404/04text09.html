@@ -1,0 +1,90 @@
+<!doctype html public "-//w3c//dtd html 4.0 transitional//en">
+<html>
+<head>
+<title>text09</title>
+<script type="text/javascript" language="JavaScript1.2">
+function checkEnv(){
+	this.ok=(parseInt(navigator.appVersion) >= 4)?1:0;
+	this.ns=(navigator.appName == "Netscape" && this.ok)?1:0;
+	this.ie=(!this.ns && this.ok)?1:0;
+	this.w=screen.width;
+	this.h=screen.height;
+	return this;
+}
+env = new checkEnv();
+function setoptions(wx,wy,sx,sy) {
+	var globalopts = "toolbar=no,location=no,directories=no,status=no,scrollbars=no,resizeable=no,copyhistory=no,menubar=no"
+	if (env.ns) {
+		var opts = globalopts+",width="+wx+",height="+wy+",screenX="+sx+",screenY="+sy;
+		return opts;
+	}
+	else {
+		var opts = globalopts+",width="+wx+",height="+wy+",left="+sx+",top="+sy;
+		return opts;
+	}
+}
+var loadtime = new Date();
+var seed = loadtime.valueOf();
+function hotnasatimer() {
+	var hotnasatime = seed + 14250;
+	var now = new Date();
+	now = now.valueOf();
+	if (now > hotnasatime) {
+		var hotnasaw = 143;
+		var hotnasah = 118;
+		var hotnasasx = 0;
+		var hotnasasy = 0;
+		var hotnasaopts = setoptions(hotnasaw,hotnasah,hotnasasx,hotnasasy);
+		var hotnasawin = window.open('04hotnasa.html','hotnasa',hotnasaopts);
+		hotnasawin.moveTo(hotnasasx,hotnasasy);
+		dawsontimer();
+		return;
+	}
+	setTimeout("hotnasatimer()",500)
+}
+function dawsontimer() {
+	var dawsontime = seed + 16250;
+	var now = new Date();
+	now = now.valueOf();
+	if (now > dawsontime) {
+		var dawsonw = 210;
+		var dawsonh = 255;
+		var dawsonsx = (env.w/2)-(dawsonw/2);
+		var dawsonsy = 0;
+		var dawsonopts = setoptions(dawsonw,dawsonh,dawsonsx,dawsonsy);
+		dawsonwin = window.open('04dawson.html','dawson',dawsonopts);
+		dawsonwin.moveTo(dawsonsx,dawsonsy);
+		text10timer();
+		return;
+	}
+	setTimeout("dawsontimer()",1000)
+}
+function text10timer() {
+	var text10time = seed + 27000;
+	var now = new Date();
+	now = now.valueOf();
+	if (now > text10time) {
+		var text10w = 600;
+		var text10h = 130;
+		var text10sx = 100;
+		var text10sy = (env.h/2)+100;
+		var text10opts = setoptions(text10w,text10h,text10sx,text10sy);
+		var text10win = window.open('04text10.html','text10',text10opts);
+		text10win.moveTo(text10sx,text10sy);
+		self.close();
+		return;
+	}
+	setTimeout("text10timer()",1000)
+}
+hotnasatimer();
+</script>
+</head>
+<body>
+<p><b><font face="Courier New,Courier"><font color="#0000FF"><font size=+2>“I
+have recently come across a large amount of data showing how the</font></font></font></b>
+<br><b><font face="Courier New,Courier"><font color="#0000FF"><font size=+2>government
+has been covering up certain events....I am currently working on a problem
+with a comet. A leak at NASA has released information about a comet heading
+for Earth...”</font></font></font></b>
+</body>
+</html>

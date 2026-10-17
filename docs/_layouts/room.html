@@ -1,0 +1,44 @@
+---
+layout: default
+theme: night
+---
+{%- comment -%}
+  A room in the ship: its drawing and lettering, the menu of rooms, and the text
+{%- endcomment -%}
+<header class="room-header">
+  <img class="room-picture" src="{{ page.picture.src | relative_url }}" width="{{ page.picture.width }}" height="{{ page.picture.height }}" alt="">
+  <div>
+    <ul class="dots back">{% include button.html href="/section.html" label="back to artists and index" class="lettering" %}</ul>
+    <h1 class="lettering"><span class="visually-hidden">{{ page.title }}: </span>{{ page.heading }}</h1>
+    <img class="rule" src="{{ '/images/whitel.gif' | relative_url }}" width="119" height="5" alt="">
+  </div>
+</header>
+<div class="room">
+  <nav class="rooms" aria-label="the ship">
+    <ul>
+      {%- assign rooms = site.rooms | sort: "order" %}
+      {%- for room in rooms %}
+      {%- if room.url == page.url %}
+      <li class="lettering" aria-current="page">{{ room.title }}</li>
+      {%- else %}
+      <li class="lettering"><a href="{{ room.url | relative_url }}">{{ room.title }}</a></li>
+      {%- endif %}
+      {%- endfor %}
+    </ul>
+  </nav>
+  <main class="room-content">
+    {{ content }}
+    {%- if page.projects %}
+    <ul class="projects">
+      {%- for project in page.projects %}
+      <li>
+        {%- if project.external %}{% assign work = project.work %}{% else %}{% assign work = project.work | relative_url %}{% endif %}
+        <h3 class="lettering"><a href="{{ work }}"{% if project.external %} target="_blank"{% endif %}>{{ project.title }}</a></h3>
+        <p class="project-artist">{% if project.about %}<a href="{{ project.about | relative_url }}">{{ project.artist }}</a>{% else %}{{ project.artist }}{% endif %}</p>
+        <p class="description"><small>{{ project.description }}</small></p>
+      </li>
+      {%- endfor %}
+    </ul>
+    {%- endif %}
+  </main>
+</div>

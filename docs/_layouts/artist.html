@@ -1,0 +1,34 @@
+---
+layout: default
+theme: day
+---
+{%- comment -%}
+  About an artist: their name, a picture of their work which launches it, the
+  text, and pictures of other work
+{%- endcomment -%}
+{%- assign work = 'ac' | append: page.artist | append: '.html' %}
+<main class="artist">
+  <h1 class="lettering">{{ page.name }}</h1>
+  <div class="artist-bar">
+    {%- comment %} a link from the site root (/adelaide/) or another site is left as it is {% endcomment %}
+    {%- assign link = page.thumbnail.link %}
+    {%- if link %}{% assign first = link | slice: 0 %}{% unless first == '/' or link contains '://' %}{% assign link = link | relative_url %}{% endunless %}{% endif %}
+    {% if link %}<a href="{{ link }}" target="_blank" title="launch the work">{% endif %}<img src="{{ page.thumbnail.src | relative_url }}" width="{{ page.thumbnail.width }}" height="{{ page.thumbnail.height }}" alt="launch the work">{% if page.thumbnail.link %}</a>{% endif %}
+    <nav>
+      <ul class="dots">
+      {% include button.html href="/section.html" label="index page" class="lettering" %}
+      {% include button.html href=work label="back" colour="orange" class="lettering" %}
+      </ul>
+    </nav>
+  </div>
+  <div class="artist-body">
+    <div class="text">
+      {{ content }}
+    </div>
+    <div class="pictures">
+      {%- for picture in page.pictures %}
+      <img src="{{ picture.src | relative_url }}" width="{{ picture.width }}" height="{{ picture.height }}" alt="">
+      {%- endfor %}
+    </div>
+  </div>
+</main>

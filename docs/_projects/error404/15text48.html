@@ -1,0 +1,191 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+<head>
+<title>text48</title>
+<script type="text/javascript" language="JavaScript1.2">
+function checkEnv(){
+	this.ok=(parseInt(navigator.appVersion) >= 4)?1:0;
+	this.ns=(navigator.appName == "Netscape" && this.ok)?1:0;
+	this.ie=(!this.ns && this.ok)?1:0;
+	this.w=screen.width;
+	this.h=screen.height;
+	this.pady=(this.ns)?(window.outerHeight-window.innerHeight):0;
+	this.padx=(this.ns)?(window.outerWidth-window.innerWidth):0;
+	this.mac=(navigator.platform.indexOf("Mac")>-1 && this.ok)?1:0;
+	this.win=(navigator.platform.indexOf("Win")>-1 && this.ok)?1:0;
+	return this;
+}
+var env = new checkEnv();
+function winx(x){
+  	if(env.mac){
+    	newx=(env.ns)?(x+env.padx):(x+6);
+    	return newx;
+    }
+    else if(env.win){
+		newx=(env.ns)?(x+env.padx):(x+3);
+		return newx;
+	}
+	else{
+		return x+23;
+	}
+}
+function winy(y){
+	if(env.mac){
+		newy=(env.ns)?(y+env.pady):(y+26);
+		return newy;
+	}
+	else if(env.win) {
+		newy=(env.ns)?(y+env.pady):(y+3);
+		return newy;
+	}
+	else {
+		return y+39;
+	}
+}
+function setoptions(wx,wy,sx,sy) {
+	var globalopts = "toolbar=no,location=no,directories=no,status=no,scrollbars=no,resizeable=no,copyhistory=no,menubar=no"
+	if (env.ns) {
+		var opts = globalopts+",width="+wx+",height="+wy+",screenX="+sx+",screenY="+sy;
+		return opts;
+	}
+	else {
+		var opts = globalopts+",width="+wx+",height="+wy+",left="+sx+",top="+sy;
+		return opts;
+	}
+}
+var loadtime = new Date();
+var seed = loadtime.valueOf();
+function bryanpictimer() {
+    var bryanpictime = seed + 499;
+    var now = new Date();
+    now = now.valueOf();
+    if (now > bryanpictime) {
+        var bryanpicw = 150;
+        var bryanpich = 196;
+        var bryanpicsx = 100;
+        var bryanpicsy = 100;
+        var bryanpicopts = setoptions(bryanpicw,bryanpich,bryanpicsx,bryanpicsy);
+        var bryanpicwin = window.open('15bryanpic.html','bryanpic',bryanpicopts);
+        bryanpicwin.moveTo(bryanpicsx,bryanpicsy);
+        var horrortextw = 976;
+        var horrortexth = 100;
+        var horrortextsx = env.w-(winx(horrortextw));
+        var horrortextsy = (env.h/2) +60;
+        var horrortextopts = setoptions(horrortextw,horrortexth,horrortextsx,horrortextsy);
+        var horrortextwin = window.open('15horrortext.html','horrortext',horrortextopts);
+        horrortextwin.moveTo(horrortextsx,horrortextsy);
+        eekhpagetimer();
+	      return;
+    }
+    setTimeout("bryanpictimer()",500)
+}
+function eekhpagetimer() {
+    var eekhpagetime = seed + 7000;
+    var now = new Date();
+    now = now.valueOf();
+    if (now > eekhpagetime) {
+        var eekhpagew = 444;
+        var eekhpageh = 353;
+        var eekhpagesx = (env.w/2)-(eekhpagew/2);
+        var eekhpagesy = 0;
+        var eekhpageopts = setoptions(eekhpagew,eekhpageh,eekhpagesx,eekhpagesy);
+        var eekhpagewin = window.open('15eekhpage.html','eekhpage',eekhpageopts);
+        eekhpagewin.moveTo(eekhpagesx,eekhpagesy);
+        helentimer();
+	      return;
+    }
+    setTimeout("eekhpagetimer()",500)
+}
+function helentimer() {
+    var helentime = seed + 7500;
+    var now = new Date();
+    now = now.valueOf();
+    if (now > helentime) {
+        var helenw = 100;
+        var helenh = 120;
+        var helensx = 30;
+        var helensy = (env.h/2)+180;
+        var helenopts = setoptions(helenw,helenh,helensx,helensy);
+        var helenwin = window.open('15helen.html','helen',helenopts);
+        helenwin.moveTo(helensx,helensy);
+        portspringtimer();
+	    return;
+    }
+    setTimeout("helentimer()",500)
+}
+function portspringtimer() {
+    var portspringtime = seed + 8000;
+    var now = new Date();
+    now = now.valueOf();
+    if (now > portspringtime) {
+        var portspringw = 100;
+        var portspringh = 100;
+        var portspringsx = env.w-(portspringw+50);
+        var portspringsy = (env.h/2) +150;
+        var portspringopts = setoptions(portspringw,portspringh,portspringsx,portspringsy);
+        var portspringwin = window.open('15portspring.html','portspring',portspringopts);
+        portspringwin.moveTo(portspringsx,portspringsy);
+        forumtimer();
+	      return;
+    }
+    setTimeout("portspringtimer()",500)
+}
+function forumtimer() {
+    var forumtime = seed + 17500;
+    var now = new Date();
+    now = now.valueOf();
+    if (now > forumtime) {
+        var forumw = 531;
+        var forumh = 342;
+        var forumsx = 0;
+        var forumsy = env.h-(winy(forumh));
+        var forumopts = setoptions(forumw,forumh,forumsx,forumsy);
+        var forumwin = window.open('15forum.html','forum',forumopts);
+        forumwin.moveTo(forumsx,forumsy);
+        mousehandonlytimer();
+	      return;
+    }
+    setTimeout("forumtimer()",500)
+}
+function mousehandonlytimer() {
+    var mousehandonlytime = seed + 35000;
+    var now = new Date();
+    now = now.valueOf();
+    if (now > mousehandonlytime) {
+        var mousehandonlyw = env.w;
+        var mousehandonlyh = env.h;
+        var mousehandonlysx = 0;
+        var mousehandonlysy = 0;
+        var mousehandonlyopts = setoptions(mousehandonlyw,mousehandonlyh,mousehandonlysx,mousehandonlysy);
+        var mousehandonlywin = window.open('15mousehandonly.html','mousehandonly',mousehandonlyopts);
+        mousehandonlywin.moveTo(mousehandonlysx,mousehandonlysy);
+        self.close();
+	      return;
+    }
+    setTimeout("mousehandonlytimer()",500)
+}
+bryanpictimer();
+</script>
+</head>
+<body>
+<pre>Ms Aaytozed continued working on the year so far and decided to have conversations 
+with as many people as she could.
+ she found many places dedicated to this activity...  
+                                      Chat Chat Network. 
+                                                                 Network Chat Sites:
+                              Teen Chat
+                                                                        Pre-Teen Chat
+        very popular teen chat
+                                              chat in royalty in this chat palace. 
+Chat, a newsletter,
+                                              message board 
+                                                               chat for the younger
+                                                               adudience.
+                              Chat  Café
+Chat.com
+                                                                         TeenChat
+                        an original just general
+                        chat room. 
+
+  | Teen Chat | Teen Palace | Pre-Teen Chat | Chat Café | 13-19Chat.com | Teen Chat UK! |</pre></body>
+</html>

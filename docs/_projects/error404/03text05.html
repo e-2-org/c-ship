@@ -1,0 +1,98 @@
+<!doctype html public "-//w3c//dtd html 4.0 transitional//en">
+<html>
+<head>
+ <title>05text</title>
+<script type="text/javascript" language="JavaScript1.2">
+function checkEnv(){
+	this.ok=(parseInt(navigator.appVersion) >= 4)?1:0;
+	this.ns=(navigator.appName == "Netscape" && this.ok)?1:0;
+	this.ie=(!this.ns && this.ok)?1:0;
+	this.w=screen.width;
+	this.h=screen.height;
+	this.pady=(this.ns)?(window.outerHeight-window.innerHeight):0;
+	this.padx=(this.ns)?(window.outerWidth-window.innerWidth):0;
+	this.mac=(navigator.platform.indexOf("Mac")>-1 && this.ok)?1:0;
+	this.win=(navigator.platform.indexOf("Win")>-1 && this.ok)?1:0;
+	return this;
+}
+var env = new checkEnv();
+function winy(y){
+	if(env.mac){
+		newy=(env.ns)?(y+env.pady):(y+26);
+		return newy;
+	}
+	else if(env.win) {
+		newy=(env.ns)?(y+env.pady):(y+3);
+		return newy;
+	}
+	else {
+		return y+39;
+	}
+}
+function setoptions(wx,wy,sx,sy) {
+	var globalopts = "toolbar=no,location=no,directories=no,status=no,scrollbars=no,resizeable=no,copyhistory=no,menubar=no"
+	if (env.ns) {
+		var opts = globalopts+",width="+wx+",height="+wy+",screenX="+sx+",screenY="+sy;
+		return opts;
+	}
+	else {
+		var opts = globalopts+",width="+wx+",height="+wy+",left="+sx+",top="+sy;
+		return opts;
+	}
+}
+var loadtime = new Date();
+var seed = loadtime.valueOf();
+function titletimer() {
+	var titletime = seed + 5250;
+	var now = new Date();
+	now = now.valueOf();
+	if (now > titletime) {
+		var titlew = 186;
+		var titleh = 100;
+		var titlesx = 0;
+		var titlesy = 100;
+		var titleopts = setoptions(titlew,titleh,titlesx,titlesy);
+		var titlewin = window.open('03title.html','title',titleopts);
+		titlewin.moveTo(titlesx,titlesy);
+		pbridetimer();
+		return;
+	}
+	setTimeout("titletimer()",250)
+}
+function pbridetimer() {
+	var princesstime = seed + 15250;
+	var now = new Date();
+	now = now.valueOf();
+	if (now > princesstime) {
+		var princessw = 345;
+		var princessh = 285;
+		var princesssx = env.w/2;
+		var princesssy = env.h-(winy(princessh));
+		var princessopts = setoptions(princessw,princessh,princesssx,princesssy);
+		var princesswin = window.open('03princess.html','princess',princessopts);
+		princesswin.moveTo(princesssx,princesssy);
+		var pbridew = 100;
+		var pbrideh = 142;
+		var pbridesx = 0;
+		var pbridesy = env.h-(winy(pbrideh));
+		var pbrideopts = setoptions(pbridew,pbrideh,pbridesx,pbridesy);
+		var pbridewin = window.open('03pbride.html','pbride',pbrideopts);
+		pbridewin.moveTo(pbridesx,pbridesy);
+		self.close();
+		return;
+  }
+  setTimeout("pbridetimer()",250)
+}
+titletimer();
+</script>
+</head>
+<body>
+<font face="Courier New,Courier"><font size=+1>and she found herself
+dreaming about going to line up outside the amphitheatre ...<b> being a
+little confused as to where the amphitheatre really was. It turned out
+that it was right next to where they had been eating lunch, her and Anna
+K...&nbsp;&nbsp; the line was huge!. After standing in the scorching heat,
+they were allowed in. The seats weren't that good because by the time they
+got in, the good seats were taken.</b></font></font>
+</body>
+</html>

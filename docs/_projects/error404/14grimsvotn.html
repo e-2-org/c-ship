@@ -1,0 +1,36 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+<head>
+<title>GrimsVotnKG</title>
+<script type="text/javascript" language="JavaScript1.2">
+function checkEnv(){
+	this.ok=(parseInt(navigator.appVersion) >= 4)?1:0;
+	this.ns=(navigator.appName == "Netscape" && this.ok)?1:0;
+	this.ie=(!this.ns && this.ok)?1:0;
+	this.w=screen.width;
+	this.h=screen.height;
+	return this;
+}
+env = new checkEnv();
+var x=(env.ns)?window.screenX:(env.w/2)-(410/2);
+var y=(env.ns)?window.screenY:(env.h-273);
+var w=(env.ns)?window.outerWidth:410;
+var h=(env.ns)?window.outerHeight:273;
+
+function MoveUp() {
+  var dy = -1;
+  y += dy;
+  if ((env.ns && y>1)||(env.ie && y>(-h))) {
+     self.moveTo(x,y);
+  }
+  else {
+     self.close();
+  }
+	setTimeout("MoveUp();",100);
+}
+</script>
+</head>
+<body onLoad="MoveUp();" topmargin="0" leftmargin="0" marginwidth="0" marginheight="0">
+<center><img src="images/grimsvotn.jpg" width="410" height="273" alt="GrimsVotnKG"></center>
+</body>
+</html>

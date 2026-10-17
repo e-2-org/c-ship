@@ -1,0 +1,55 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+<head>
+<title>M-Halley</title>
+<script type="text/javascript" language="JavaScript1.2">
+function checkEnv(){
+	this.ok=(parseInt(navigator.appVersion) >= 4)?1:0;
+	this.ns=(navigator.appName == "Netscape" && this.ok)?1:0;
+	this.ie=(!this.ns && this.ok)?1:0;
+	this.w=screen.width;
+	this.h=screen.height;
+	return this;
+}
+env = new checkEnv();
+if (document.images) {
+	 var ltr = new Image(500,332);
+	 ltr.src = 'images/mhalley.gif'
+}
+
+var w = (env.ns)?window.outerWidth:500;
+var h = (env.ns)?window.outerHeight:332;
+var x = (env.ns)?window.screenX:env.w-550;
+var y = (env.ns)?window.screenY:0;
+
+function MoveLeft() {
+  var dx = -2;
+  x += dx;
+	if (x>50) {
+     self.moveTo(x,y);
+  }
+  else {
+     document.comet.src = ltr.src;
+		 MoveRight();
+		 return;
+  }
+  setTimeout("MoveLeft();",50);
+}
+function MoveRight() {
+  var dx = 2;
+  x += dx;
+  if (x<(env.w-550)) {
+     self.moveTo(x,y);
+  }
+  else {
+     self.close();
+  }
+  setTimeout("MoveRight();",50);
+}
+
+</script>
+</head>
+<body topmargin="0" leftmargin="0" marginwidth="0" marginheight="0" onLoad="MoveLeft();">
+<center><img src="images/mhalleyrl.gif" width="500" height="332" alt="mhalley" name="comet"></center>
+</body>
+</html>

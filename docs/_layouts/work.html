@@ -1,0 +1,37 @@
+---
+layout: default
+theme: day
+---
+{%- comment -%}
+  An artist's work: its title, the artist, what it is, a picture which
+  launches it, and the credits
+{%- endcomment -%}
+<main class="work">
+  <div class="work-about">
+    <h1 class="lettering">{{ page.heading }}</h1>
+    <p class="name">{{ page.name }}</p>
+    {{ content }}
+  </div>
+  <div class="work-picture">
+    {%- comment %} a link from the site root (/bird-island/) or another site is left as it is {% endcomment %}
+    {%- assign link = page.picture.link %}
+    {%- if link %}{% assign first = link | slice: 0 %}{% unless first == '/' or link contains '://' %}{% assign link = link | relative_url %}{% endunless %}{% endif %}
+    {% if link %}<a href="{{ link }}" target="_blank" title="launch {{ page.work | escape }}">{% endif %}<img src="{{ page.picture.src | relative_url }}" width="{{ page.picture.width }}" alt="{% if page.picture.link %}launch {{ page.work | escape }}{% endif %}">{% if page.picture.link %}</a>{% endif %}
+  </div>
+  <div class="work-credits">
+    <nav>
+      <ul class="dots">
+      {% include button.html href="/section.html" label="index page" class="lettering" %}
+      {%- if page.about %}
+      {% include button.html href=page.about label="about the artist" colour="orange" class="lettering" %}
+      {%- endif %}
+      </ul>
+    </nav>
+    <dl>
+      {%- for credit in page.credits %}
+      <dt>{{ credit.label }}:</dt>
+      <dd>{{ credit.value }}</dd>
+      {%- endfor %}
+    </dl>
+  </div>
+</main>

@@ -1,0 +1,50 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+<head>
+<title>Anna Pegg</title>
+<script type="text/javascript" language="JavaScript1.2">
+function checkEnv(){
+	this.ok=(parseInt(navigator.appVersion) >= 4)?1:0;
+	this.ns=(navigator.appName == "Netscape" && this.ok)?1:0;
+	this.ie=(!this.ns && this.ok)?1:0;
+	this.h=screen.height;
+	return this;
+}
+env = new checkEnv();
+function setoptions(wx,wy,sx,sy) {
+	var globalopts = "toolbar=no,location=no,directories=no,status=no,scrollbars=no,resizeable=no,copyhistory=no,menubar=no"
+	if (env.ns) {
+		var opts = globalopts+",width="+wx+",height="+wy+",screenX="+sx+",screenY="+sy;
+		return opts;
+	}
+	else {
+		var opts = globalopts+",width="+wx+",height="+wy+",left="+sx+",top="+sy;
+		return opts;
+	}
+}
+var loadtime = new Date();
+var seed = loadtime.valueOf();
+function text05timer() {
+	var text05time = seed + 6500;
+	var now = new Date();
+	now = now.valueOf();
+	if (now > text05time) {
+		var text05w = 850;
+		var text05h = 150;
+		var text05sx = 0;
+		var text05sy = env.h+70;
+		var text05opts = setoptions(text05w,text05h,text05sx,text05sy);
+		var text05win = window.open('03text05.html','03text05',text05opts);
+		text05win.moveTo(text05sx,text05sy);
+		self.close();
+		return;
+  }
+  setTimeout("text05timer()",500)
+}
+text05timer();
+</script>
+</head>
+<body topmargin="0" leftmargin="0" marginwidth="0" marginheight="0">
+<center><img src="images/annapegg.gif" width="380" height="326" alt="Anna Pegg"></center>
+</body>
+</html>

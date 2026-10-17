@@ -1,0 +1,158 @@
+/* the rooms: the bridge, about c-ship, platform, communications, engine room */
+.room-header {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    gap: 0 1em;
+    .back {
+        margin: 0 0 1.5em;
+        padding: 5px 0;
+    }
+    h1 {
+        margin: 0 0 0.3em;
+        color: var(--orange);
+        font-size: 1.2em;
+        line-height: 1.3;
+    }
+    /* under the picture, in line with the text below */
+    @media (max-width: 640px) {
+        flex-direction: column;
+        > div {
+            padding: 0 1em;
+        }
+    }
+}
+.room {
+    display: grid;
+    /* the menu is as wide as the room picture, so the text lines up under the heading */
+    grid-template-columns: 220px minmax(0, 32em);
+    gap: 1em;
+    padding: 1em 1em 2em 0;
+    @media (max-width: 640px) {
+        grid-template-columns: 1fr;
+        padding: 1em;
+    }
+}
+.rooms ul {
+    list-style: none;
+    margin: 0;
+    padding: 0 0 0 44px;
+    li {
+        position: relative;
+        margin: 15px 0;
+        padding-left: 28px;
+        font-size: 0.85em;
+        /*
+         * the arrow, as in the original: a filled triangle beside an outline
+         * one, which slides over it on hover (and is over it, in red, for
+         * this room)
+         */
+        &::before, &::after {
+            content: "";
+            position: absolute;
+            top: 50%;
+            width: 14px;
+            height: 12px;
+            margin-top: -6px;
+        }
+        &::before {
+            left: 6px;
+            background: var(--orange);
+            clip-path: polygon(evenodd, 0 0, 100% 50%, 0 100%, 0 0, 1px 2.2px, 1px calc(100% - 2.2px), calc(100% - 2.6px) 50%, 1px 2.2px);
+        }
+        &::after {
+            left: 0;
+            background: var(--orange);
+            clip-path: polygon(0 0, 100% 50%, 0 100%);
+        }
+        &:has(a:is(:hover, :focus-visible))::after {
+            left: 6px;
+        }
+        &[aria-current] {
+            color: var(--orange);
+            &::after {
+                left: 6px;
+                background: var(--red);
+            }
+        }
+        a {
+            color: var(--white);
+            text-decoration: none;
+            &:is(:hover, :focus-visible) {
+                color: var(--orange);
+            }
+        }
+    }
+    @media (max-width: 640px) {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0 15px;
+        padding: 0;
+        li {
+            margin: 5px 0;
+        }
+    }
+}
+.room-content {
+    p {
+        margin: 0 0 1em;
+    }
+    h2 {
+        margin: 0 0 1em;
+        font-size: 1em;
+    }
+    small {
+        font-size: 0.8em;
+    }
+    a {
+        color: var(--orange);
+    }
+    .projects {
+        list-style: none;
+        margin: 1em 0 0;
+        padding: 0;
+        /* the title comes first, for headings, but the artist is on the left */
+        li {
+            display: grid;
+            grid-template-columns: 9.5em 1fr;
+            gap: 0 0.5em;
+            margin-bottom: 1em;
+        }
+        h3, .description {
+            grid-column: 2;
+        }
+        .project-artist {
+            grid-column: 1;
+            grid-row: 1;
+        }
+        h3, p {
+            margin: 0;
+        }
+        h3 {
+            font-size: 1em;
+            font-weight: normal;
+            a {
+                color: var(--white);
+                text-decoration: none;
+                &:is(:hover, :focus-visible) {
+                    color: var(--orange);
+                }
+            }
+        }
+        .project-artist a {
+            text-decoration: none;
+            &:is(:hover, :focus-visible) {
+                color: var(--white);
+            }
+        }
+        @media (max-width: 400px) {
+            li {
+                grid-template-columns: 1fr;
+            }
+            h3, .project-artist, .description {
+                grid-column: 1;
+                grid-row: auto;
+            }
+        }
+    }
+}

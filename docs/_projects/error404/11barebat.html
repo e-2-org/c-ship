@@ -1,0 +1,36 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+<head>
+<title>barebat</title>
+<script type="text/javascript" language="JavaScript1.2">
+function checkEnv(){
+	this.ok=(parseInt(navigator.appVersion) >= 4)?1:0;
+	this.ns=(navigator.appName == "Netscape" && this.ok)?1:0;
+	this.ie=(!this.ns && this.ok)?1:0;
+	this.w=screen.width;
+	this.h=screen.height;
+	return this;
+}
+env = new checkEnv();
+
+var w = (env.ns)?window.outerWidth:310;
+var h = (env.ns)?window.outerHeight:356;
+var x = (env.ns)?window.screenX:0;
+var y = (env.ns)?window.screenY:0;
+function MoveRight() {
+  var dx = 1;
+  x += dx;
+  if (((env.ns) && (x<(env.w-w)))||((env.ie) && (x<env.w))) {
+     self.moveTo(x,y);
+  }
+  else {
+     self.close();
+  }
+  setTimeout("MoveRight();",100);
+}
+</script>
+</head>
+<body onload="MoveRight();" topmargin="0" leftmargin="0" marginwidth="0" marginheight="0">
+<center><img src="images/barebat5.jpg" width="310" height="356" alt="barebat"></center>
+</body>
+</html>

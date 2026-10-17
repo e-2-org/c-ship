@@ -1,0 +1,59 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN">
+<html>
+<head>
+<title>Mercury</title>
+<script type="text/javascript" language="JavaScript1.2">
+function checkEnv(){
+	this.ok=(parseInt(navigator.appVersion) >= 4)?1:0;
+	this.ns=(navigator.appName == "Netscape" && this.ok)?1:0;
+	this.ie=(!this.ns && this.ok)?1:0;
+	return this;
+}
+env = new checkEnv();
+function setoptions(wx,wy,sx,sy) {
+	var globalopts = "toolbar=no,location=no,directories=no,status=no,scrollbars=no,resizeable=no,copyhistory=no,menubar=no"
+	if (env.ns) {
+		var opts = globalopts+",width="+wx+",height="+wy+",screenX="+sx+",screenY="+sy;
+		return opts;
+	}
+	else {
+		var opts = globalopts+",width="+wx+",height="+wy+",left="+sx+",top="+sy;
+		return opts;
+	}
+}
+var loadtime = new Date();
+var seed = loadtime.valueOf();
+function venustimer() {
+	var venustime = seed + 13999;
+	var now = new Date();
+	now = now.valueOf();
+	if (now > venustime) {
+		var venusw = 500;
+		var venush = 223;
+		var venussx = 258;
+		var venussy = 0;
+		var venusopts = setoptions(venusw,venush,venussx,venussy);
+		var venuswin = window.open('02venus.html','venus',venusopts);
+		venuswin.moveTo(venussx,venussy);
+		CloseYourself();
+		return;
+	}
+	setTimeout("venustimer()",14000)
+}
+function CloseYourself() {
+  var closetime = seed + 19000;
+  var now = new Date();
+  now = now.valueOf();
+  if (now > closetime) {
+    self.close();
+	return;
+  }
+  setTimeout("CloseYourself()",5000);
+}
+venustimer();
+</script>
+</head>
+<body topmargin="0" leftmargin="0" marginwidth="0" marginheight="0">
+<img src="images/mercury.gif" width="400" height="203" alt="Mercury">
+</body>
+</html>

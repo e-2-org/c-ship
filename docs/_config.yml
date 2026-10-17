@@ -1,0 +1,45 @@
+# container-ship
+title: container-ship
+tagline: internet specific art
+description: >-
+  Container-ship is an innovative digital arts project, commissioning new work
+  from contemporary artists specifically for the Internet. The website uses the
+  unifying metaphor of a cargo boat or container-ship, which will 'travel' the
+  world collecting containers in a rolling programme of curation.
+keywords: >-
+  container ship; internet art; vrml; interactivity; digital artwork; Brighid Lowe;
+  Anna Best; Geraint Evans; Janice Kerbel; Simon Faithfull; Susan Collins; Gill Ord; David Lilley
+# published from the e-2 organisation, under its domain
+url: https://e-2-org.github.io
+baseurl: /c-ship
+
+collections:
+  rooms:
+    output: true
+    permalink: /:name.html
+  artists:
+    output: true
+    permalink: /:name.html
+  works:
+    output: true
+    permalink: /:name.html
+
+defaults:
+  - scope:
+      type: rooms
+    values:
+      layout: room
+  - scope:
+      type: artists
+    values:
+      layout: artist
+  - scope:
+      type: works
+    values:
+      layout: work
+
+exclude:
+  - README.md
+  - Gemfile
+  - Gemfile.lock
+  - vendor

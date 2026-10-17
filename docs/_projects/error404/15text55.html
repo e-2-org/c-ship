@@ -1,0 +1,103 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+<head>
+<title>55text</title>
+<script type="text/javascript" language="JavaScript1.2">
+var loadtime = new Date();
+var seed = loadtime.valueOf();
+function CloseYourself() {
+    var closetime = seed + 43000;
+    var now = new Date();
+    now = now.valueOf();
+    if (now > closetime) {
+        self.close();
+        return;
+    }
+    setTimeout("CloseYourself()",43001)
+}
+var y = 0;
+function scrollText() {
+			var x = 0;
+			var dy = 1;
+			y += dy
+			window.scrollTo(x,y);
+			setTimeout("scrollText();",75)
+}
+scrollText();
+</script>
+</head>
+<body onLoad="CloseYourself();">
+<pre>
+root::0:root
+other::1:
+
+archive::200:chris,jlc,hokey,cwilson,david,andy,mccudden
+arc_gnu::201:jlc,hokey
+arc_image::202:jlc,studt
+arc_usenet::203:jlc
+arc_pub::204:
+arc_unix::205:
+arc_amiga::206:umueller,cschneid,markc,mscheler,markc,aminetd,aminet
+arc_apple2::207:cwilson
+arc_atari::208:
+arc_ibmpc::209:
+arc_mac::210:
+arc_sun::211:
+arc_pkg::212:hokey
+arc_info::213:
+arc_onc::214:
+arc_mirror::215:
+arc_news::216:
+arc_mumps::217:hokey
+arc_decus::218:
+arc_hp48::219:hp48sx,spell
+arc_aux::220:jlc
+arc_private::221:kirsch
+arc_bench::222:morgan
+arc_os9::223:starc_minix::224:ghelmer
+arc_xenix::225:rcf
+arc_aix::226:rcf
+arc_next::227:
+arc_novell::228:novell
+arc_penpt::229:dale
+arc_vendor::230:
+arc_ametal::239:artmetal,ajack
+arc_graphics::231:kyriazis,erich
+arc_misc::232:everhart
+arc_tr::233:
+arc_edu::234:husch
+arc_svr4-pc::235:jack
+arc_x3l3::236:quandt,x3l3
+arc_boing::237:tucker,mark
+arc_ssdata::238:
+ftpmaint::300:
+usonly::301:
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</pre>
+</body>
+</html>

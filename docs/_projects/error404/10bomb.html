@@ -1,0 +1,35 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+<head>
+<title>Bomb</title>
+<script type="text/javascript" language="JavaScript1.2">
+function checkEnv(){
+	this.ok=(parseInt(navigator.appVersion) >= 4)?1:0;
+	this.ns=((navigator.appName == "Netscape") && this.ok)?1:0;
+	this.ie=(!this.ns && this.ok)?1:0;
+	this.w=screen.width;
+	this.h=screen.height;
+	return this;
+}
+env = new checkEnv();
+var x = (env.ns)?window.screenX:0;
+var y = (env.ns)?window.screenY:0;
+var w=(env.ns)?window.outerWidth:400;
+var h=(env.ns)?window.outerHeight:358;
+function MoveDown() {
+  var dy = 2;
+  y += dy;
+  if (((env.ns) && (y<(env.h-h)))||((env.ie) && (y<env.h))) {
+     self.moveTo(x,y);
+  }
+  else {
+     self.close();
+  }
+	setTimeout("MoveDown();",20);
+}
+</script>
+</head>
+<body onLoad="MoveDown();" topmargin="0" leftmargin="0" marginwidth="0" marginheight="0">
+<center><img src="images/bomb.gif" width="400" height="358" alt="bomb"></center>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+<head>
+<title>404 - title</title>
+<script type="text/javascript" language="JavaScript1.2">
+function checkEnv(){
+	this.ok=(parseInt(navigator.appVersion) >= 4)?1:0;
+	this.ns=(navigator.appName == "Netscape" && this.ok)?1:0;
+	this.ie=(!this.ns && this.ok)?1:0;
+	this.w=screen.width;
+	this.h=screen.height;
+	return this;
+}
+env = new checkEnv();
+
+var w = (env.ns)?window.outerWidth:186;
+var h = (env.ns)?window.outerHeight:100;
+var x = (env.ns)?window.screenX:0;
+var y = (env.ns)?window.screenY:100;
+function MoveRight() {
+  var dx = 1;
+  x += dx;
+  if (((env.ns) && (x<(env.w-w)))||((env.ie) && (x<env.w))) {
+     self.moveTo(x,y);
+  }
+  else {
+     self.close();
+  }
+  setTimeout("MoveRight();",100);
+}
+</script>
+
+</head>
+<body topmargin="0" leftmargin="0" marginwidth="0" marginheight="0" bgcolor="black" onLoad="MoveRight();">
+<br><br><br>
+<center><img src="images/title.gif" width="186" height="21" alt="title"></center>
+</body>
+</html>

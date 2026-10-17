@@ -1,0 +1,97 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+<head>
+<title>Country List</title>
+<script type="text/javascript" language="JavaScript1.2">
+function checkEnv(){
+	this.ok=(parseInt(navigator.appVersion) >= 4)?1:0;
+	this.ns=(navigator.appName == "Netscape" && this.ok)?1:0;
+	this.ie=(!this.ns && this.ok)?1:0;
+	this.w=screen.width;
+	this.h=screen.height;
+	this.pady=(this.ns)?(window.outerHeight-window.innerHeight):0;
+	this.padx=(this.ns)?(window.outerWidth-window.innerWidth):0;
+	return this;
+}
+env = new checkEnv();
+function setoptions(wx,wy,sx,sy) {
+	var globalopts = "toolbar=no,location=no,directories=no,status=no,scrollbars=no,resizeable=no,copyhistory=no,menubar=no"
+	if (env.ns) {
+		var opts = globalopts+",width="+wx+",height="+wy+",screenX="+sx+",screenY="+sy;
+		return opts;
+	}
+	else {
+		var opts = globalopts+",width="+wx+",height="+wy+",left="+sx+",top="+sy;
+		return opts;
+	}
+}
+var loadtime = new Date();
+var seed = loadtime.valueOf();
+function text30timer() {
+    var text30time = seed + 3500;
+    var now = new Date();
+    now = now.valueOf();
+    if (now > text30time) {
+        var text30w = 720;
+        var text30h = 100;
+        var text30sx = (env.w/2)-(text30w/2);
+        var text30sy = (env.h/2)+100;
+        var text30opts = setoptions(text30w,text30h,text30sx,text30sy);
+        var text30win = window.open('11text30.html','text30',text30opts);
+        text30win.moveTo(text30sx,text30sy);
+        daughtr2timer();
+	      return;
+    }
+    setTimeout("text30timer()",3501)
+}
+function daughtr2timer() {
+    var daughtr2time = seed + 17500;
+    var now = new Date();
+    now = now.valueOf();
+    if (now > daughtr2time) {
+        var daughtr2w = 306;
+        var daughtr2h = 305;
+        var daughtr2sx = (env.w/2);
+        var daughtr2sy = 0;
+        var daughtr2opts = setoptions(daughtr2w,daughtr2h,daughtr2sx,daughtr2sy);
+        var daughtr2win = window.open('11daughter2.html','daughtr2',daughtr2opts);
+        daughtr2win.moveTo(daughtr2sx,daughtr2sy);
+        daughtertimer();
+	    return;
+    }
+    setTimeout("daughtr2timer()",500)
+}
+function daughtertimer() {
+    var daughtertime = seed + 18500;
+    var now = new Date();
+    now = now.valueOf();
+    if (now > daughtertime) {
+        var daughterw = 218;
+        var daughterh = 279;
+        var daughtersx = (env.w-250);
+        var daughtersy = 0;
+        var daughteropts = setoptions(daughterw,daughterh,daughtersx,daughtersy);
+        var daughterwin = window.open('11daughter.html','daughter',daughteropts);
+        daughterwin.moveTo(daughtersx,daughtersy);
+        CloseYourself();
+	      return;
+    }
+    setTimeout("daughtertimer()",500)
+}
+function CloseYourself() {
+    var closetime = seed + 19000;
+    var now = new Date();
+    now = now.valueOf();
+    if (now > closetime) {
+        self.close();
+        return;
+    }
+    setTimeout("CloseYourself()",500)
+}
+text30timer();
+</script>
+</head>
+<body topmargin="0" leftmargin="0" marginwidth="0" marginheight="0">
+<center><img src="images/countrylist.jpg" width="316" height="500" alt="Country List"></center>
+</body>
+</html>

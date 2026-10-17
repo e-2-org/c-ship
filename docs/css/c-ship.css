@@ -1,0 +1,18 @@
+/**
+ * container-ship
+ *
+ * Plain CSS, using nesting. The modules and partials are loaded in order:
+ *  - modules: colours (as custom properties) and the base for every page
+ *  - partials: the deck, the rooms, the artists' pages, the notes (help and
+ *    introduction) and the front page
+ *
+ * The lettering, buttons and drawings are the original 1998 images; the
+ * layout around them is new, so the pages fit any screen.
+ */
+@import url("modules/variables.css");
+@import url("modules/base.css");
+@import url("partials/deck.css");
+@import url("partials/rooms.css");
+@import url("partials/artists.css");
+@import url("partials/notes.css");
+@import url("partials/front.css");

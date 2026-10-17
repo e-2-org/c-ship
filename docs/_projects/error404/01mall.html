@@ -1,0 +1,77 @@
+<!DOCTYPE html PUBLIC "-//w3c//dtd html 4.0 transitional//en">
+<html>
+<head>
+<title>Mall</title>
+<script type="text/javascript" language="JavaScript1.2">
+function checkEnv(){
+	this.ok=(parseInt(navigator.appVersion) >= 4)?1:0;
+	this.ns=(navigator.appName == "Netscape" && this.ok)?1:0;
+	this.ie=(!this.ns && this.ok)?1:0;
+	this.w=screen.width;
+	this.h=screen.height;
+	return this;
+}
+env = new checkEnv();
+function setoptions(wx,wy,sx,sy) {
+	var globalopts = "toolbar=no,location=no,directories=no,status=no,scrollbars=no,resizeable=no,copyhistory=no,menubar=no"
+	if (env.ns) {
+		var opts = globalopts+",width="+wx+",height="+wy+",screenX="+sx+",screenY="+sy;
+		return opts;
+	}
+	else {
+		var opts = globalopts+",width="+wx+",height="+wy+",left="+sx+",top="+sy;
+		return opts;
+	}
+}
+var loadtime = new Date();
+var seed = loadtime.valueOf();
+function text01timer() {
+  var text01time = seed + 2999;
+  var now = new Date();
+  now = now.valueOf();
+  if (now > text01time) {
+		var text01w = 290;
+		var text01h = 250;
+		var text01sx = 0;
+		var text01sy = 300;
+		var text01opts = setoptions(text01w,text01h,text01sx,text01sy);
+		var text01win = window.open('01text01.html','text01',text01opts);
+		text01win.moveTo(text01sx,text01sy);
+		allshopstimer();
+		return;
+	}
+	setTimeout("text01timer()",3000)
+}
+function allshopstimer() {
+	var allshopstime = seed + 27675;
+	var now = new Date();
+	now = now.valueOf();
+	if (now > allshopstime) {
+		var allshopsw = 390;
+		var allshopsh = 275;
+		var allshopssx = Math.floor((env.w/2)+12);
+		var allshopssy = 50;
+		var allshopsopts = setoptions(allshopsw,allshopsh,allshopssx,allshopssy);
+		var allshopswin = window.open('01allshops.html','allshops',allshopsopts);
+		allshopswin.moveTo(allshopssx,allshopssy);
+		CloseYourself();
+		return;
+	}
+	setTimeout("allshopstimer()",1000)
+}
+function CloseYourself() {
+  var closetime = seed + 29875;
+  var now = new Date();
+  now = now.valueOf();
+  if (now > closetime) {
+    self.close();
+  }
+  setTimeout("CloseYourself()",200);
+}
+text01timer();
+</script>
+</head>
+<body topmargin="0" leftmargin="0" marginwidth="0" marginheight="0">
+<img src="images/mall.jpg" width="150" height="155" alt="mall">
+</body>
+</html>

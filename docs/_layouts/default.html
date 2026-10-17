@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{% if page.title %}{{ page.title }} | {% endif %}{{ site.title }} | {{ site.tagline }}</title>
+<meta name="description" content="{{ site.description | strip_newlines | escape }}">
+<meta name="keywords" content="{{ site.keywords | strip_newlines | escape }}">
+<meta name="dc.creator" content="e-2.org limited">
+<meta name="dc.contributors" content="Commissioned by NMP (Network Museum Project, Japan)">
+<meta name="dc.date" content="1998">
+<link rel="icon" href="{{ '/favicon.ico' | relative_url }}">
+<link rel="stylesheet" href="{{ '/css/c-ship.css' | relative_url }}">
+</head>
+{%- comment %} theme and body class can be set by a page or by the layout it uses {% endcomment -%}
+{%- assign theme = page.theme | default: layout.theme | default: 'night' %}
+{%- assign body_class = page.body_class | default: layout.body_class %}
+<body class="{{ theme }}{% if body_class %} {{ body_class }}{% endif %}">
+{{ content }}
+</body>
+</html>

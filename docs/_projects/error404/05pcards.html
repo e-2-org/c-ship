@@ -1,0 +1,68 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+<head>
+<title>Pcards mix</title>
+<script type="text/javascript" language="JavaScript1.2">
+function checkEnv(){
+	this.ok=(parseInt(navigator.appVersion) >= 4)?1:0;
+	this.ns=(navigator.appName == "Netscape" && this.ok)?1:0;
+	this.ie=(!this.ns && this.ok)?1:0;
+	this.w=screen.width;
+	this.h=screen.height;
+	return this;
+}
+env = new checkEnv();
+function setoptions(wx,wy,sx,sy) {
+	var globalopts = "toolbar=no,location=no,directories=no,status=no,scrollbars=no,resizeable=no,copyhistory=no,menubar=no"
+	if (env.ns) {
+		var opts = globalopts+",width="+wx+",height="+wy+",screenX="+sx+",screenY="+sy;
+		return opts;
+	}
+	else {
+		var opts = globalopts+",width="+wx+",height="+wy+",left="+sx+",top="+sy;
+		return opts;
+	}
+}
+var loadtime = new Date();
+var seed = loadtime.valueOf();
+function nytimer() {
+	var nytime = seed + 17500;
+	var now = new Date();
+	now = now.valueOf();
+	if (now > nytime) {
+		var nyw = 100;
+		var nyh = 100;
+		var nysx = env.w-150;
+		var nysy = 0;
+		var nyopts = setoptions(nyw,nyh,nysx,nysy);
+		var nywin = window.open('05ny.html','ny',nyopts);
+		nywin.moveTo(nysx,nysy);
+		var chrchw = 100;
+		var chrchh = 100;
+		var chrchsx = env.w-150;
+		var chrchsy = env.h-150;
+		var chrchopts = setoptions(chrchw,chrchh,chrchsx,chrchsy);
+		chrchwin = window.open('05chrch.html','chrch',chrchopts);
+		chrchwin.moveTo(chrchsx,chrchsy);
+		CloseYourself();
+		return;
+	}
+	setTimeout("nytimer()",2500)
+}
+function CloseYourself() {
+  var closetime = seed + 34250;
+  var now = new Date();
+  now = now.valueOf();
+  if (now > closetime) {
+    self.close();
+    return;
+  }
+  setTimeout("CloseYourself()",1000)
+}
+nytimer();
+</script>
+</head>
+<body topmargin="0" leftmargin="0" marginwidth="0" marginheight="0">
+<center><img src="images/pcardsmix.jpg" width="454" height="607" alt="pcards mix"></center>
+</body>
+</html>

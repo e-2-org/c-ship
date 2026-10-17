@@ -1,0 +1,185 @@
+<!doctype html public "-//w3c//dtd html 4.0 transitional//en">
+<html>
+<head>
+<title>34text</title>
+<script type="text/javascript" language="JavaScript1.2">
+function checkEnv(){
+	this.ok=(parseInt(navigator.appVersion) >= 4)?1:0;
+	this.ns=(navigator.appName == "Netscape" && this.ok)?1:0;
+	this.ie=(!this.ns && this.ok)?1:0;
+	this.w=screen.width;
+	this.h=screen.height;
+	this.pady=(this.ns)?(window.outerHeight-window.innerHeight):0;
+	this.padx=(this.ns)?(window.outerWidth-window.innerWidth):0;
+	this.mac=(navigator.platform.indexOf("Mac")>-1 && this.ok)?1:0;
+	this.win=(navigator.platform.indexOf("Win")>-1 && this.ok)?1:0;
+	return this;
+}
+var env = new checkEnv();
+function winx(x){
+  	if(env.mac){
+    	newx=(env.ns)?(x+env.padx):(x+6);
+    	return newx;
+    }
+    else if(env.win){
+		newx=(env.ns)?(x+env.padx):(x+3);
+		return newx;
+	}
+	else{
+		return x+23;
+	}
+}
+function winy(y){
+	if(env.mac){
+		newy=(env.ns)?(y+env.pady):(y+26);
+		return newy;
+	}
+	else if(env.win) {
+		newy=(env.ns)?(y+env.pady):(y+3);
+		return newy;
+	}
+	else {
+		return y+39;
+	}
+}
+function setoptions(wx,wy,sx,sy) {
+	var globalopts = "toolbar=no,location=no,directories=no,status=no,scrollbars=no,resizeable=no,copyhistory=no,menubar=no"
+	if (env.ns) {
+		var opts = globalopts+",width="+wx+",height="+wy+",screenX="+sx+",screenY="+sy;
+		return opts;
+	}
+	else {
+		var opts = globalopts+",width="+wx+",height="+wy+",left="+sx+",top="+sy;
+		return opts;
+	}
+}
+var loadtime = new Date();
+var seed = loadtime.valueOf();
+function battexttimer() {
+    var battexttime = seed + 499;
+    var now = new Date();
+    now = now.valueOf();
+    if (now > battexttime) {
+        var battextw = 739;
+        var battexth = 146;
+        var battextsx = env.w-(winx(battextw));
+        var battextsy = env.h-246;
+        var battextopts = setoptions(battextw,battexth,battextsx,battextsy);
+        var battextwin = window.open('12battext.html','battext',battextopts);
+        battextwin.moveTo(battextsx,battextsy);
+        var batt1w = 726;
+        var batt1h = 100;
+        var batt1sx = 0;
+        var batt1sy = env.h-150;
+        var batt1opts = setoptions(batt1w,batt1h,batt1sx,batt1sy);
+        var batt1win = window.open('12batt1.html','batt1',batt1opts);
+        batt1win.moveTo(batt1sx,batt1sy);
+        redheadachetimer();
+	      return;
+    }
+    setTimeout("battexttimer()",500)
+}
+function redheadachetimer() {
+    var redheadachetime = seed + 25000;
+    var now = new Date();
+    now = now.valueOf();
+    if (now > redheadachetime) {
+        var redheadachew = 700;
+        var redheadacheh = 281;
+        var redheadachesx = 0;
+        var redheadachesy = 0;
+        var redheadacheopts = setoptions(redheadachew,redheadacheh,redheadachesx,redheadachesy);
+        var redheadachewin = window.open('12redheadache.html','redheadache',redheadacheopts);
+        redheadachewin.moveTo(redheadachesx,redheadachesy);
+        headachetimer();
+	      return;
+    }
+    setTimeout("redheadachetimer()",500)
+}
+function headachetimer() {
+    var headachetime = seed + 25000;
+    var now = new Date();
+    now = now.valueOf();
+    if (now > headachetime) {
+        var headachew = 382;
+        var headacheh = 247;
+        var headachesx = env.w-(winx(headachew));
+        var headachesy = 0;
+        var headacheopts = setoptions(headachew,headacheh,headachesx,headachesy);
+        var headachewin = window.open('12headache.html','headache',headacheopts);
+        headachewin.moveTo(headachesx,headachesy);
+        var sigearthw = 450;
+        var sigearthh = 203;
+        var sigearthsx = 0;
+        var sigearthsy = env.h-(winy(sigearthh));
+        var sigearthopts = setoptions(sigearthw,sigearthh,sigearthsx,sigearthsy);
+        var sigearthwin = window.open('12sigearth.html','sigearth',sigearthopts);
+        sigearthwin.moveTo(sigearthsx,sigearthsy);
+        text37timer();
+	      return;
+    }
+    setTimeout("headachetimer()",500)
+}
+function text37timer() {
+    var text37time = seed + 49500;
+    var now = new Date();
+    now = now.valueOf();
+    if (now > text37time) {
+        var text37w = 750;
+        var text37h = 320;
+        var text37sx = 0;
+        var text37sy = 0;
+        var text37opts = setoptions(text37w,text37h,text37sx,text37sy);
+        var text37win = window.open('12text37.html','text37',text37opts);
+        text37win.moveTo(text37sx,text37sy);
+        self.close();
+	      return;
+    }
+    setTimeout("text37timer()",500)
+}
+battexttimer();
+var y = 0;
+function scrollText() {
+			var x = 0;
+			var dy = 1;
+			y += dy
+			window.scrollTo(x,y);
+			setTimeout("scrollText();",200)
+}
+</script>
+</head>
+<body onLoad="scrollText();">
+<font face="Courier New,Courier"><font size=+1></font></font>&nbsp;
+<br><font face="Courier New,Courier"><font size=+1>1. Put a funnel type
+of screen on your chimney, or install a 6 inch sock</font></font>
+<br><font face="Courier New,Courier"><font size=+1>from the screen, so
+that bats will crawl out of the chimney thru the</font></font>
+<br><font face="Courier New,Courier"><font size=+1>funnel or sock but be
+unable to get back in.</font></font><font face="Courier New,Courier"><font size=+1></font></font>
+<p><font face="Courier New,Courier"><font size=+1>2. Start a fairly small
+fire with the flue wide open, then add enough</font></font>
+<br><font face="Courier New,Courier"><font size=+1>green tree leaves (tree
+because the smoke from most tree leaves appears to</font></font>
+<br><font face="Courier New,Courier"><font size=+1>be fairly strong) to
+smoke them out, repeat as needed until they are all</font></font>
+<br><font face="Courier New,Courier"><font size=+1>gone, after they are
+gone just be sure to screen ALL of your openings down</font></font>
+<br><font face="Courier New,Courier"><font size=+1>to a size smaller than
+bats can navigate... as they will be looking for a</font></font>
+<br><font face="Courier New,Courier"><font size=+1>new home.</font></font><font face="Courier New,Courier"><font size=+1></font></font>
+<p><font face="Courier New,Courier"><font size=+1>3. Another method is
+just to wait for cold weather, then when the bats</font></font>
+<br><font face="Courier New,Courier"><font size=+1>leave to their winter
+accomendations, just screen up the chimney and they</font></font>
+<br><font face="Courier New,Courier"><font size=+1>will look elsewhere
+to live when they return after the winter is over.</font></font>
+<br><font face="Courier New,Courier"><font size=+1></font></font>&nbsp;<font face="Courier New,Courier"><font size=+1></font></font>
+<p><font face="Courier New,Courier"><font size=+1>&nbsp; In any rural area
+you need to be sure to close or screen any openings,</font></font>
+<br><font face="Courier New,Courier"><font size=+1>otherwise they will
+ALWAYS be investigated by various fauna looking for</font></font>
+<br><font face="Courier New,Courier"><font size=+1>safe havens.</font></font>
+<br><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR>
+<br><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><br><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><br><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><br><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR>
+</body>
+</html>

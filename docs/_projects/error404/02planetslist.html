@@ -1,0 +1,35 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>Planets List</title>
+<script type="text/javascript" language="JavaScript1.2">
+function checkEnv(){
+	this.ok=(parseInt(navigator.appVersion) >= 4)?1:0;
+	this.ns=(navigator.appName == "Netscape" && this.ok)?1:0;
+	this.ie=(!this.ns && this.ok)?1:0;
+	return this;
+}
+env = new checkEnv();
+var x = (env.ns)?window.screenX:320;
+var y = (env.ns)?window.screenY:10;
+var w = (env.ns)?window.outerWidth:200;
+var h = (env.ns)?window.outerHeight:108;
+
+function MoveLeft() {
+  var dx = -1;
+  x += dx;
+  if (((env.ns) && (x>1))||((env.ie) && (x>(-w)))) {
+     self.moveTo(x,y);
+  }
+  else {
+     self.close();
+  }
+  setTimeout("MoveLeft();",100);
+}
+</script>
+</head>
+<body onload="MoveLeft();" topmargin="0" leftmargin="0" marginwidth="0" marginheight="0">
+<center><img src="images/planetslist.gif" width="200" height="108" alt=
+"Planets List"></center>
+</body>
+</html>

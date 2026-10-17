@@ -1,0 +1,23 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+<head>
+<title>Church</title>
+<script type="text/javascript" language="JavaScript1.2">
+var loadtime = new Date();
+var seed = loadtime.valueOf();
+function CloseYourself() {
+  var closetime = seed + 18250;
+  var now = new Date();
+  now = now.valueOf();
+  if (now > closetime) {
+    self.close();
+    return;
+  }
+  setTimeout("CloseYourself()",18251)
+}
+</script>
+</head>
+<body topmargin="0" leftmargin="0" marginwidth="0" marginheight="0" onLoad="CloseYourself();">
+<center><img src="images/chrch.jpg" width="100" height="72" alt="Church" vspace="14"></center>
+</body>
+</html>

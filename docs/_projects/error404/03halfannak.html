@@ -1,0 +1,84 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+<head>
+<title>Half Anna K</title>
+<script type="text/javascript" language="JavaScript1.2">
+function checkEnv(){
+	this.ok=(parseInt(navigator.appVersion) >= 4)?1:0;
+	this.ns=(navigator.appName == "Netscape" && this.ok)?1:0;
+	this.ie=(!this.ns && this.ok)?1:0;
+	this.w=screen.width;
+	this.h=screen.height;
+	return this;
+}
+env = new checkEnv();
+
+var w = (env.ns)?window.outerWidth:300;
+var h = (env.ns)?window.outerHeight:267;
+var x = (env.ns)?window.screenX:env.w/2;
+var y = (env.ns)?window.screenY:(env.h/2)-200;
+function MoveLeft1() {
+  var dx = -2;
+  x += dx;
+  if (x>200) {
+     self.moveTo(x,y);
+  }
+  else {
+     MoveRight1();
+		 return;
+  }
+  setTimeout("MoveLeft1();",50);
+}
+function MoveRight1() {
+  var dx = 2;
+  x += dx;
+  if (x<350) {
+     self.moveTo(x,y);
+  }
+  else {
+     MoveLeft2();
+		 return;
+  }
+  setTimeout("MoveRight1();",50);
+}
+function MoveLeft2() {
+  var dx = -2;
+  x += dx;
+  if (x>300) {
+     self.moveTo(x,y);
+  }
+  else {
+     MoveRight2();
+		 return;
+  }
+  setTimeout("MoveLeft2();",50);
+}
+function MoveRight2() {
+  var dx = 2;
+  x += dx;
+  if (x<345) {
+     self.moveTo(x,y);
+  }
+  else {
+     MoveLeft3();
+		 return;
+  }
+  setTimeout("MoveRight2();",50);
+}
+function MoveLeft3() {
+  var dx = -2;
+  x += dx;
+  if (x>100) {
+     self.moveTo(x,y);
+  }
+  else {
+     self.close();
+  }
+  setTimeout("MoveLeft3();",50);
+}
+</script>
+</head>
+<body topmargin="0" leftmargin="0" marginwidth="0" marginheight="0" onLoad="MoveLeft1();">
+<center><img src="images/halfannak.jpg" width="300" height="267" alt="Half Anna K"></center>
+</body>
+</html>
