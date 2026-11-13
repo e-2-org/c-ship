@@ -9,6 +9,13 @@
 <meta name="dc.creator" content="e-2.org limited">
 <meta name="dc.contributors" content="Commissioned by NMP (Network Museum Project, Japan)">
 <meta name="dc.date" content="1998">
+{%- comment %}
+  a page can go somewhere else after a while: refresh: {after: seconds, to: path}.
+  Only without JavaScript: it can't be cancelled, so a page's script does it when it can.
+{% endcomment %}
+{%- if page.refresh %}
+<noscript><meta http-equiv="refresh" content="{{ page.refresh.after }}; url={{ page.refresh.to | relative_url }}"></noscript>
+{%- endif %}
 <link rel="icon" href="{{ '/favicon.ico' | relative_url }}">
 <link rel="stylesheet" href="{{ '/css/c-ship.css' | relative_url }}">
 </head>

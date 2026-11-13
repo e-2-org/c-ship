@@ -2,14 +2,53 @@
 layout: default
 theme: night
 body_class: front
+refresh:
+  after: 25
+  to: /section.html
 ---
 {%- comment -%}
-  The front page. The original played a Flash intro here (index.swf, in git
-  history); this is the still it showed when Flash wasn't installed.
+  The front page. The original played a Flash intro here (index.swf, at the
+  repo root). index.gif is that intro, recorded frame by frame in Ruffle; like
+  the original, it plays once. Visitors who ask for reduced motion get the
+  still the original showed when Flash wasn't installed.
+
+  When the intro ends the page goes to the deck, as the original did with
+  getURL("section.html") on its last frame: the script below does it on time,
+  and the refresh in the front matter does it at 25 seconds when JavaScript
+  is off.
 {%- endcomment -%}
 <main class="front">
-  <a href="{{ '/section.html' | relative_url }}"><img src="{{ '/instill.gif' | relative_url }}" width="400" height="340" alt="container-ship: come on board"></a>
+  <a href="{{ '/section.html' | relative_url }}"><picture>
+    <source srcset="{{ '/instill.gif' | relative_url }}" media="(prefers-reduced-motion: reduce)">
+    <img src="{{ '/index.gif' | relative_url }}" width="400" height="340" alt="container-ship: come on board">
+  </picture></a>
   <p class="nmp"><a href="https://artscape.jp/museum/nmp/nmp_b/about_prj_e.html">n<span>m</span>p</a></p>
   <p><a href="https://e-2.org/"><img src="{{ '/images/e2.gif' | relative_url }}" width="50" height="16" alt="e-2"></a></p>
   <p class="copyright">&copy; e-2 1998. Produced in association with nmp and DNP</p>
 </main>
+<script>
+/*
+  143 frames at 8 a second, timed from when the GIF has loaded, as it starts
+  playing then. Not when the visitor asked for reduced motion (they see the
+  still) or has come back from the deck.
+*/
+(() => {
+    const link = document.querySelector('.front a');
+    const img = link.querySelector('img');
+    const nav = performance.getEntriesByType('navigation')[0];
+    if (matchMedia('(prefers-reduced-motion: reduce)').matches
+        || (nav && nav.type === 'back_forward')) {
+        return;
+    }
+    let timer;
+    const start = () => {
+        timer = setTimeout(() => location.assign(link.href), 143 / 8 * 1000);
+    };
+    if (img.complete) {
+        start();
+    } else {
+        img.addEventListener('load', start, { once: true });
+    }
+    addEventListener('pagehide', () => clearTimeout(timer));
+})();
+</script>
