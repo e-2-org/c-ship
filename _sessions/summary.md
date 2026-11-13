@@ -1,6 +1,6 @@
 # container-ship: session summaries
 
-Summaries of two Claude Code sessions on the `jekyll` branch, oldest first. The full conversations are in [transcript.md](transcript.md).
+Summaries of three Claude Code sessions, oldest first: two on the `jekyll` branch, then one on `main` and short-lived feature branches. The full conversations are in [transcript.md](transcript.md).
 
 ## container-ship to Jekyll: session summary
 
@@ -116,3 +116,62 @@ To think about:
 - Cruisin' has no repository yet; `_projects/cruisin/` (a Word document) is its only copy in git.
 - The launch links only work once each artwork's repository is published under the same domain as c-ship.
 - The built site has `assets/css/style.css` from GitHub Pages' default theme, which nothing uses.
+
+---
+
+## container-ship: the Flash intro as a GIF, and an assets folder
+
+13 November 2026, working with Claude Code. The site was already in `docs/` on `main`. The work was done on short-lived branches (`intro-gif`, `assets`, `still`), each merged into `main` and deleted.
+
+### Aim
+
+Bring back the Flash intro (`index.swf`) on the front page as an animated GIF, then tidy the Jekyll site's layout.
+
+### What was done
+
+**The intro as a GIF** (`docs/assets/images/index.gif`, 211 KB):
+
+- `index.swf` is a Flash 1 movie: 400×340, 8 frames a second, 143 frames (about 18 seconds), background #000019. It has no sound. On its last frame it calls `getURL("section.html")`.
+- A copy of the movie was made with its frame rate set to 1 a second and the `getURL` blanked out. It was played in Ruffle (`@ruffle-rs/ruffle` nightly 2025-10-01, installed in a scratch folder) in headless Chrome, driven by Playwright. One screenshot was taken halfway through each frame, so every frame was captured exactly.
+- ffmpeg turned the frames into a GIF at 8 frames a second. Frames last 12 and 13 hundredths of a second in turn, which averages 12.5. It uses one palette for the whole movie, no dithering, and the background stays exactly #000019.
+- The GIF has no looping block (NETSCAPE extension), so it plays once, as the original did (`LOOP=false`).
+- The first frame really is empty: the logo starts off stage.
+
+**The front page** (`docs/_pages/index.html`):
+
+- The GIF replaces the still and still links to the deck.
+- A `<picture>` shows a still to visitors who ask for reduced motion.
+- An inline script goes to the deck when the GIF ends: 143/8 seconds after the GIF has loaded, as it starts playing then. It does nothing with reduced motion, or when the visitor has come back from the deck (a `back_forward` navigation).
+- As a fallback, the layout adds a meta refresh to the deck at 25 seconds. The page's front matter sets it (`refresh: {after, to}`), and it sits inside `<noscript>`. A meta refresh can't be cancelled by script, so outside `<noscript>` it also sent people back to the deck after they had returned to the front page, and moved reduced-motion visitors on.
+- `--night-front` is now #000019 instead of #000021, so the GIF's box doesn't show against the page.
+
+**The reduced-motion still** (`docs/assets/images/index-still.gif`):
+
+- `docs/` had two different 400×340 stills called `instill.gif`: one at the top level (background #000010), which the front page used, and one in `images/` (#000015), which the 1998 page named. They clashed when the images moved into `assets/images/`.
+- Neither background matched the page, so the still is now frame 110 of `index.gif`. That's the frame closest to the original still, and it has the exact #000019 background.
+- Both `instill.gif` files were taken out of `docs/`. The originals are still at the repo root.
+
+**Reorganisation:**
+
+- `docs/assets/` now holds `css/`, `fonts/`, `images/` and `js/`.
+- `docs/_pages/` holds `index.html`, `section.html`, `help.html` and `intro.html`. `_config.yml` includes `_pages` and gives its files the permalink `/:basename:output_ext`, so every address is unchanged.
+- `favicon.ico` and `robots.txt` stay at the top of `docs/`.
+- Paths were updated in the layouts, includes, front matter (`src`, `hover`, `preview`), `_data/deck.yml`, the README and `_fonts/README.md`. The font's URL in the CSS is relative, so it was unchanged.
+
+### Checks
+
+- **The GIF:** frames decoded from it were compared with the screenshots, with RMSE under 0.3%.
+- **The redirect:** tested in headless Chrome. With JavaScript it goes to the deck at 17.9 seconds. After going back to the front page, it stays (watched for 30 seconds). With JavaScript off it goes at 25 seconds. With reduced motion it stays, showing the still, with no box against the page.
+- **The reorganisation:**
+  - A build from before the move was compared with one from after. The same pages are produced, and their HTML is identical apart from the asset paths.
+  - Every local `src`, `href`, `srcset`, CSS `url()` and refresh URL in the built site resolves.
+  - In Chrome, the front page, deck, an artist page, a work page, a room and help all load their styles, fonts and pictures, with no failed requests or script errors.
+
+### Status
+
+Merged into `main` and pushed.
+
+To think about:
+
+- `docs/assets/images/copy of anim.gif` is published but nothing uses it.
+- On GitHub Pages, the default theme may add `assets/css/style.css`, which now sits beside the site's own stylesheets. It's harmless and unused.

@@ -1,6 +1,6 @@
 # container-ship - session transcripts
 
-Transcripts of two Claude Code sessions on the `jekyll` branch, oldest first. Summaries are in [summary.md](summary.md).
+Transcripts of three Claude Code sessions, oldest first: two on the `jekyll` branch, then one on `main` and short-lived feature branches. Summaries are in [summary.md](summary.md).
 
 ## e-2 and c-ship to Jekyll - session transcript
 
@@ -756,3 +756,139 @@ Please update the sessions and I'll commit them
 > *Edit: 2026-10-14-summary.md (clean-up, checks, status)*
 
 > *Edit: 2026-10-14-transcript.md (this conversation since the last update)*
+
+---
+
+## container-ship: the Flash intro as a GIF - session transcript
+
+Transcript of a Claude Code session on 2026-11-13, started from the 7actsoflove repository and working in c-ship. Tool calls are shown as one-line notes; their output is omitted. Message times weren't recorded, so only the date is given. Claude's longer replies are shortened where they repeat the summary.
+
+---
+
+### User - 2026-11-13
+
+Can you turn repos/index.swf into an animated gif to put on the start page of the c-ship site?
+
+### Claude
+
+> *Bash: Inspect the c-ship repo (remote e-2-org/c-ship, main, clean)*
+
+> *Bash: Show original and new start pages*
+
+> *Bash: Check available conversion tools and past approaches*
+
+> *Bash: Parse the SWF header and tags: Flash 1, 8fps, 143 frames, background #000019, getURL("section.html") on the last frame*
+
+I'm converting the c-ship intro (`index.swf`) into frames. It's a Flash 1 movie, 143 frames at 8 fps (about 18 seconds), and it ends by going to `section.html`. My plan is to play it in Ruffle in headless Chrome at a slowed frame rate, so every frame can be captured exactly, then build the GIF from those frames.
+
+> *Bash: Look for Ruffle and browser automation; create branch `intro-gif`*
+
+> *Bash: Install Ruffle web locally in a scratch folder*
+
+Meanwhile, I'll prepare a copy of the SWF slowed to 1 fps, with its jump to `section.html` at the end removed.
+
+> *Bash: Make the slowed SWF copy and a player page*
+
+> *Bash: Capture every frame from Ruffle in headless Chrome (143 screenshots)*
+
+> *Bash: Contact sheets and per-frame diffs; compare with instill.gif*
+
+The capture worked: all 143 frames are clean and match the original's still. Frame 1 really is empty: the logo starts off stage. Now I'm building the GIF. It will play once, like the original (`LOOP=false`).
+
+> *Bash: Encode GIF variants with different dithering; pin the background colour in the palette*
+
+> *Bash: Compare decoded GIF frames against the captures*
+
+The GIF matches the captured frames closely and is 211 KB. I'm putting it on the start page now.
+
+> *Bash: Add the GIF to docs and the front page, with a reduced-motion still*
+
+> *Bash: Build the site and screenshot the front page, with and without reduced motion*
+
+I've turned the Flash intro into an animated GIF (211 KB) and put it on the c-ship start page. It plays once and stops, as the original did. Visitors whose system is set to reduce motion still see the still image. At the end, the original movie went to the deck by itself; a GIF can't, so for now visitors have to click. I could add a small script to go to the deck about 18 seconds after the page loads, if you'd like that back.
+
+### User - 2026-11-13
+
+Yes, I'd like the script redirect, and can you match the background colour of the page to the gif background
+
+### Claude
+
+> *Bash: Find uses of the front page's colour and how scripts are loaded*
+
+> *Bash: Change --night-front to #000019; add js/intro.js*
+
+> *Bash: Test the redirect, back button, reduced motion and colours*
+
+The redirect works: the page went to the deck after 17.9 seconds, the reduced-motion page stayed put, and the page and GIF are now the same colour. One problem showed up: after going back from the deck, the page redirected again.
+
+### User (sent while Claude was working) - 2026-11-13
+
+Just inline the script in index.html and back it up with a <meta> redirect at 25 seconds
+
+### Claude
+
+> *Bash: Show the default layout's head*
+
+> *Bash: Inline the script; add an optional refresh to the layout, set from front matter*
+
+> *Bash: Test with JavaScript, without it, with reduced motion and going back*
+
+The 25-second refresh also fires on the page you come back to from the deck, and for reduced-motion visitors, and JavaScript can't cancel it. Since it's meant as a backup, I'll wrap it in `<noscript>`, so it only applies when JavaScript is off.
+
+> *Bash: Make the refresh no-JS only and retest*
+
+With JavaScript the page goes to the deck after 17.9 seconds; coming back, it stays put; with JavaScript off it goes after 25 seconds; with reduced motion it stays. If you'd rather the refresh always applied, it's a one-line change in the layout.
+
+### User - 2026-11-13
+
+When finished, merge to main and reorganise the jekyll site a bit. place css, fints, images and js in an assets directory, and create a _pages directory for the .html pages in /docs
+
+### Claude
+
+> *Bash: Commit the intro work, merge `intro-gif` into main, delete the branch*
+
+> *Bash: Create branch `assets` and survey the site layout*
+
+> *Bash: Make a baseline build and find path references*
+
+The pictures are referred to as `images/…` in front matter and `_data/deck.yml`, and the layouts add the base URL. So moving the folders means rewriting those prefixes, the stylesheet, script and font links, and the font path in the CSS.
+
+> *Bash: Move the folders: stopped, because `images/` already has an `instill.gif`*
+
+> *Bash: Compare the two instill.gif copies: different files, both from the original site*
+
+The two stills differ only in their palettes, and neither background exactly matches #000019. I'll keep `images/instill.gif`, the one the original page used. The top-level copy is still at the repo root, so I'll take it out of `docs/`.
+
+> *Bash: Finish the moves and rewrite paths*
+
+> *Bash: Configure `_pages` in `_config.yml`; update the README and `_fonts/README.md`*
+
+> *Bash: Build and diff the published file list against the baseline*
+
+> *Bash: Check that links resolve and that pages match the earlier build*
+
+> *Bash: Load the main pages in Chrome and check assets*
+
+> *Bash: Commit, merge `assets` into main, delete the branch*
+
+Both pieces of work are merged into `main`, but nothing is pushed yet. The pages keep their addresses; no links are broken. `docs/` had two different files called `instill.gif`: I kept the `images/` copy, the one the original page named. Its background is a little lighter than the page's, so a faint box may show with reduced motion. If you'd like an exact match, the same frame taken from the GIF would fit perfectly.
+
+### User - 2026-11-13
+
+I'd like an exavt match please - then update _sessions and push to main
+
+### Claude
+
+> *Bash: Find the intro frame closest to the still (frame 110)*
+
+> *Bash: Save that frame of the GIF as index-still.gif; compare with the original*
+
+> *Bash: Point the page at the new still; remove instill.gif from docs*
+
+> *Bash: Check the reduced-motion still on the page: background exactly #000019*
+
+> *Bash: Commit on branch `still`, merge into main, delete the branch*
+
+> *Skill: log-session*
+
+> *Bash: Append this session to summary.md and transcript.md*
