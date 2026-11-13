@@ -1,6 +1,6 @@
 # C-Ship Lettering
 
-The font in `fonts/c-ship-lettering.woff2`, made from the 1998 lettering images
+The font in `assets/fonts/c-ship-lettering.woff2`, made from the 1998 lettering images
 so the titles and menus can be text.
 
 - `extract.py` cuts the letters out of the lettering images in `sources/` (the
@@ -20,4 +20,4 @@ To rebuild (Python 3 with pillow, numpy, potracer, fonttools and brotli):
     python _fonts/extract.py /tmp/font
     python _fonts/drawn.py /tmp/font
     python _fonts/build.py /tmp/font
-    cp /tmp/font/c-ship-lettering.woff2 fonts/
+    cp /tmp/font/c-ship-lettering.woff2 assets/fonts/

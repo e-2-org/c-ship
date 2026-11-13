@@ -6,44 +6,44 @@
 width: 987
 height: 371
 slices:
-  - src: images/anim.gif
+  - src: assets/images/anim.gif
     x: 0
     y: 0
     w: 156
     h: 66
     href: index.html
     label: "c-ship: index"
-  - src: images/sabout.gif
+  - src: assets/images/sabout.gif
     x: 0
     y: 76
     w: 98
     h: 117
     href: about.html
-    hover: images/saboutx.gif
-    preview: images/about2.gif
+    hover: assets/images/saboutx.gif
+    preview: assets/images/about2.gif
     label: "about c-ship"
     kind: room
-  - src: images/sarials.gif
+  - src: assets/images/sarials.gif
     x: 98.625
     y: 76
     w: 57
     h: 71
     href: comms.html
-    hover: images/sarialsx.gif
-    preview: images/comms2.gif
+    hover: assets/images/sarialsx.gif
+    preview: assets/images/comms2.gif
     label: "communications"
     kind: room
-  - src: images/sbridge.gif
+  - src: assets/images/sbridge.gif
     x: 98.625
     y: 147
     w: 56
     h: 46
     href: bridge.html
-    hover: images/sbridgex.gif
-    preview: images/bridge2.gif
+    hover: assets/images/sbridgex.gif
+    preview: assets/images/bridge2.gif
     label: "the bridge"
     kind: room
-  - src: images/indexb.gif
+  - src: assets/images/indexb.gif
     x: 156
     y: 0
     w: 144
@@ -67,169 +67,169 @@ slices:
     href: intro.html
     overlay: intro
     label: "introduction"
-  - src: images/scranea.gif
+  - src: assets/images/scranea.gif
     x: 304
     y: 76
     w: 96
     h: 117
-  - src: images/blue2.gif
+  - src: assets/images/blue2.gif
     x: 400
     y: 0
     w: 301
     h: 130
     panel: display
-  - src: images/scraneb.gif
+  - src: assets/images/scraneb.gif
     x: 400
     y: 136
     w: 87
     h: 57
-  - src: images/scranec.gif
+  - src: assets/images/scranec.gif
     x: 701
     y: 76
     w: 284
     h: 117
-  - src: images/splatform.gif
+  - src: assets/images/splatform.gif
     x: 0
     y: 193
     w: 104
     h: 79
     href: platform.html
-    hover: images/splatformx.gif
-    preview: images/platform2.gif
+    hover: assets/images/splatformx.gif
+    preview: assets/images/platform2.gif
     label: "platform"
     kind: room
-  - src: images/smess.gif
+  - src: assets/images/smess.gif
     x: 104
     y: 193
     w: 48
     h: 79
-  - src: images/box.gif
+  - src: assets/images/box.gif
     x: 152
     y: 242
     w: 75
     h: 30
     href: acjk.html
-    hover: images/boxjk.gif
-    preview: images/popjk.gif
+    hover: assets/images/boxjk.gif
+    preview: assets/images/popjk.gif
     label: "Janice Kerbel, Bird Island"
     kind: container
-  - src: images/box.gif
+  - src: assets/images/box.gif
     x: 227
     y: 242
     w: 75
     h: 30
     href: acab.html
-    hover: images/boxab.gif
-    preview: images/popab.gif
+    hover: assets/images/boxab.gif
+    preview: assets/images/popab.gif
     label: "Anna Best, error 404"
     kind: container
-  - src: images/spillar1.gif
+  - src: assets/images/spillar1.gif
     x: 302
     y: 193
     w: 27
     h: 79
-  - src: images/box.gif
+  - src: assets/images/box.gif
     x: 554
     y: 212
     w: 75
     h: 30
     href: acge.html
-    hover: images/boxge.gif
-    preview: images/popge.jpg
+    hover: assets/images/boxge.gif
+    preview: assets/images/popge.jpg
     label: "Geraint Evans, A House Is Not A Home"
     kind: container
-  - src: images/box.gif
+  - src: assets/images/box.gif
     x: 629
     y: 212
     w: 75
     h: 30
     href: acbl.html
-    hover: images/boxbl.gif
-    preview: images/popbl.gif
+    hover: assets/images/boxbl.gif
+    preview: assets/images/popbl.gif
     label: "Brighid Lowe, Now Here / Nowhere"
     kind: container
-  - src: images/box.gif
+  - src: assets/images/box.gif
     x: 329
     y: 242
     w: 75
     h: 30
     href: acsc.html
-    hover: images/boxsc.gif
-    preview: images/popsc.gif
+    hover: assets/images/boxsc.gif
+    preview: assets/images/popsc.gif
     label: "Susan Collins, Cruisin'"
     kind: container
-  - src: images/box.gif
+  - src: assets/images/box.gif
     x: 404
     y: 242
     w: 75
     h: 30
     href: acsf.html
-    hover: images/boxsf.gif
-    preview: images/popsf.gif
+    hover: assets/images/boxsf.gif
+    preview: assets/images/popsf.gif
     label: "Simon Faithfull, Adelaide"
     kind: container
-  - src: images/box.gif
+  - src: assets/images/box.gif
     x: 554
     y: 242
     w: 75
     h: 30
     href: acdl.html
-    hover: images/boxdl.gif
-    preview: images/popdl.gif
+    hover: assets/images/boxdl.gif
+    preview: assets/images/popdl.gif
     label: "David Lilley, Tome"
     kind: container
-  - src: images/box.gif
+  - src: assets/images/box.gif
     x: 629
     y: 242
     w: 75
     h: 30
     href: acgo.html
-    hover: images/boxgo.gif
-    preview: images/popgo.gif
+    hover: assets/images/boxgo.gif
+    preview: assets/images/popgo.gif
     label: "Gill Ord, Pig's Tails"
     kind: container
-  - src: images/spillar2.gif
+  - src: assets/images/spillar2.gif
     x: 704
     y: 193
     w: 21
     h: 79
-  - src: images/sbow.gif
+  - src: assets/images/sbow.gif
     x: 725
     y: 193
     w: 260
     h: 79
-  - src: images/sengine.gif
+  - src: assets/images/sengine.gif
     x: 0
     y: 272
     w: 211
     h: 99
     href: engine.html
-    hover: images/senginex.gif
-    preview: images/engine2.gif
+    hover: assets/images/senginex.gif
+    preview: assets/images/engine2.gif
     label: "engine room"
     kind: room
-  - src: images/scargo1.gif
+  - src: assets/images/scargo1.gif
     x: 211
     y: 272
     w: 140
     h: 99
-  - src: images/scargo2.gif
+  - src: assets/images/scargo2.gif
     x: 351
     y: 272
     w: 90
     h: 99
     href: https://artscape.jp/museum/nmp/nmp_b/about_prj_e.html
     external: true
-    hover: images/scargo2x.gif
-    preview: images/jap2.gif
+    hover: assets/images/scargo2x.gif
+    preview: assets/images/jap2.gif
     label: "DNP artscape (Japanese)"
     kind: room
-  - src: images/scargo3.gif
+  - src: assets/images/scargo3.gif
     x: 441
     y: 272
     w: 546
     h: 99
 quay:
-  src: images/squay2.gif
+  src: assets/images/squay2.gif
   w: 268
   h: 164

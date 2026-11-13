@@ -6,19 +6,20 @@ The pages are rebuilt from the 1998 originals (in git history, on the `main` bra
 
 ## Content
 
-* `section.html`: the deck. The ship is drawn from its original slices, listed with their positions in `_data/deck.yml`, and scales with the page (`_includes/deck.html`), with the quay beside it on wide screens. Rooms and containers light up and show their pictures on hover, keyboard focus or a first tap (`js/deck.js`), and the pictures link to their room or project. Help and the introduction open in overlays.
+* `_pages/section.html`: the deck. The ship is drawn from its original slices, listed with their positions in `_data/deck.yml`, and scales with the page (`_includes/deck.html`), with the quay beside it on wide screens. Rooms and containers light up and show their pictures on hover, keyboard focus or a first tap (`assets/js/deck.js`), and the pictures link to their room or project. Help and the introduction open in overlays.
 * `_rooms/`: the bridge, about c-ship, platform, communications and the engine room.
 * `_artists/`: about each artist (`aa*.html`).
 * `_works/`: each artist's work (`ac*.html`), with credits. Each launches the work from its own repository on the e-2 site (`/adelaide/`, `/tome/tome.html` and so on); Cruisin' has no link.
-* `help.html`, `intro.html`: help and the introduction as pages, sharing their text (`_includes/help.html`, `_includes/intro.html`) with the deck's overlays.
-* `index.html`: the front page, with the still the original showed instead of its Flash intro.
+* `_pages/help.html`, `_pages/intro.html`: help and the introduction as pages, sharing their text (`_includes/help.html`, `_includes/intro.html`) with the deck's overlays.
+* `_pages/index.html`: the front page, with the Flash intro (`index.swf`) recorded as an animated GIF (`assets/images/index.gif`), which goes on to the deck when it ends.
+
 `_sessions/` has a summary and transcript of each working session with Claude Code.
 
-Layouts are in `_layouts/` (`room`, `artist`, `work`, `note`). `css/c-ship.css` is plain CSS (with nesting), loading `css/modules/` and `css/partials/` with `@import`.
+Layouts are in `_layouts/` (`room`, `artist`, `work`, `note`). The pages are in `_pages/` and are published at the top level, so they keep their addresses. Stylesheets, scripts, fonts and images are in `assets/`. `assets/css/c-ship.css` is plain CSS (with nesting), loading `assets/css/modules/` and `assets/css/partials/` with `@import`.
 
 ## The lettering font
 
-`fonts/c-ship-lettering.woff2` was made from the 1998 lettering images, which are kept in `_fonts/sources/`. The scripts that made it, and how to rebuild it, are in `_fonts/` (see `_fonts/README.md`).
+`assets/fonts/c-ship-lettering.woff2` was made from the 1998 lettering images, which are kept in `_fonts/sources/`. The scripts that made it, and how to rebuild it, are in `_fonts/` (see `_fonts/README.md`).
 
 ## The artworks
 

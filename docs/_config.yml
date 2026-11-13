@@ -24,7 +24,15 @@ collections:
     output: true
     permalink: /:name.html
 
+# the site's pages are kept in _pages/ and published at the top level
+include:
+  - _pages
+
 defaults:
+  - scope:
+      path: _pages
+    values:
+      permalink: /:basename:output_ext
   - scope:
       type: rooms
     values:
