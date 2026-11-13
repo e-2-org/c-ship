@@ -4,9 +4,9 @@
   the keyboard focus, or have been tapped once on a touch screen), and show
   their picture in the ship's two panels, in place of the panel's own image.
   The picture links where the room or container does; with a mouse, the last
-  one pointed at stays lit (js/deck.js), so the pointer can reach it.
+  one pointed at stays lit (assets/js/deck.js), so the pointer can reach it.
   The quay sits to the right of the ship on wide screens.
-  Help and the introduction open in overlays (js/deck.js).
+  Help and the introduction open in overlays (assets/js/deck.js).
 {%- endcomment -%}
 {%- assign deck = site.data.deck %}
 {%- assign scene_w = deck.width %}
@@ -56,4 +56,4 @@
   <form method="dialog" class="overlay-close"><button>close</button></form>
 </dialog>
 {%- endfor %}
-<script src="{{ '/js/deck.js' | relative_url }}" defer></script>
+<script src="{{ '/assets/js/deck.js' | relative_url }}" defer></script>
