@@ -1,7 +1,7 @@
 /* colours */
 :root {
     --night: #000025;
-    --night-front: #000021;
+    --night-front: #000019; /* the intro's background (index.gif); the original page was #000021 */
     --day: #fff;
     --ink: #000;
     --white: #fff;
