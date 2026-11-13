@@ -9,8 +9,10 @@ refresh:
 {%- comment -%}
   The front page. The original played a Flash intro here (index.swf, at the
   repo root). index.gif is that intro, recorded frame by frame in Ruffle; like
-  the original, it plays once. Visitors who ask for reduced motion get the
-  still the original showed when Flash wasn't installed.
+  the original, it plays once. Visitors who ask for reduced motion get a
+  still instead: index-still.gif, the intro's 110th frame, which is the closest
+  to the still the original showed without Flash (images/instill.gif at the
+  repo root), and has the same background as the page.
 
   When the intro ends the page goes to the deck, as the original did with
   getURL("section.html") on its last frame: the script below does it on time,
@@ -19,7 +21,7 @@ refresh:
 {%- endcomment -%}
 <main class="front">
   <a href="{{ '/section.html' | relative_url }}"><picture>
-    <source srcset="{{ '/assets/images/instill.gif' | relative_url }}" media="(prefers-reduced-motion: reduce)">
+    <source srcset="{{ '/assets/images/index-still.gif' | relative_url }}" media="(prefers-reduced-motion: reduce)">
     <img src="{{ '/assets/images/index.gif' | relative_url }}" width="400" height="340" alt="container-ship: come on board">
   </picture></a>
   <p class="nmp"><a href="https://artscape.jp/museum/nmp/nmp_b/about_prj_e.html">n<span>m</span>p</a></p>
